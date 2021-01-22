@@ -3,8 +3,8 @@ import {Vendor} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {VendorService} from '../../../service';
-import {VendorDto} from '@gridiron/core/api/dto/vendors/vendor.dto';
 import {JwtService} from '@nestjs/jwt';
+import { VendorDto } from '../../dto/vendors/vendor.dto';
 
 @Resolver(of => Vendor)
 export class VendorResolver extends CRUDResolver(Vendor, {

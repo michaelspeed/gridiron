@@ -2,7 +2,6 @@ import {ConfigModule} from '../config';
 import {ServiceModule} from '../service/service.module';
 import {createDynamicGraphQLModulesForPlugin} from '../plugin/dynamic-plugin-api.module';
 import {Module} from '@nestjs/common';
-import {JobQueueModule} from '@gridiron/core/job-queue/job-queue.module';
 import {AdministratorResolver} from './resolvers/admin/administrator.resolver';
 import {AssetsResolver} from './resolvers/admin/assets.resolver';
 import {RolesResolver} from './resolvers/admin/roles.resolver';
@@ -70,6 +69,7 @@ import {ViewCodesResolver} from "./resolvers/admin/view-codes.resolver";
 import {HsnResolver} from "./resolvers/admin/hsn.resolver";
 import {ServiceableResolver} from "./resolvers/admin/serviceable.resolver";
 import {DefaultController} from "./controllers/default.controller";
+import { JobQueueModule } from '../job-queue/job-queue.module';
 
 const adminResolvers = [
     AdministratorResolver,

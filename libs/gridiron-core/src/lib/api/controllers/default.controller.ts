@@ -1,5 +1,5 @@
 import {Controller, Get, Param} from "@nestjs/common";
-import {ShopPagesService} from "@gridiron/core";
+import { ShopPagesService } from "../..";
 
 @Controller()
 export class DefaultController {

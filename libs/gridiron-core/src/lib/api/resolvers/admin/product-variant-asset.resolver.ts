@@ -2,7 +2,7 @@ import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
 import {ProductVariantAsset} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {ProductVariantsService} from '@gridiron/core/service/services/admin/product-variants.service';
+import { ProductVariantsService } from '../../../service/services/admin/product-variants.service';
 
 @Resolver(of => ProductVariantAsset)
 export class ProductVariantAssetResolver extends CRUDResolver(ProductVariantAsset, {

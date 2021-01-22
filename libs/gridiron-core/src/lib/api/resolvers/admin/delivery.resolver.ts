@@ -4,7 +4,7 @@ import {DeliveryService} from "../../../service";
 import {JwtService} from "@nestjs/jwt";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
-import {DeliveryStrandedCount} from "@gridiron/core/api/dto/admin/pool-types";
+import { DeliveryStrandedCount } from "../../dto/admin/pool-types";
 
 @Resolver(() => Delivery)
 export class DeliveryResolver extends CRUDResolver(Delivery, {

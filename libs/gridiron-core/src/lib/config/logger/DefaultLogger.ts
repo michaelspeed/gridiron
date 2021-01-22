@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 import {GridIronLogger, Logger, LogLevel} from './GridIronLogger';
 
 const DEFAULT_CONTEXT = 'GridIron Server'

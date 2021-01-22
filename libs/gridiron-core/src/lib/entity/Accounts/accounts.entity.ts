@@ -9,7 +9,7 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
-import {Store, Vendor} from "@gridiron/core";
+import { Vendor } from "..";
 
 @ObjectType('Account', { isAbstract: true})
 @Entity({name: 'account'})
