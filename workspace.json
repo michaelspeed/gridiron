@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "projects": {
+    "gridiron": {
+      "root": "apps/gridiron",
+      "sourceRoot": "apps/gridiron/src",
+      "projectType": "application",
+      "prefix": "gridiron",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/gridiron",
+            "main": "apps/gridiron/src/main.ts",
+            "tsConfig": "apps/gridiron/tsconfig.app.json",
+            "assets": [
+              "apps/gridiron/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/gridiron/src/environments/environment.ts",
+                  "with": "apps/gridiron/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "gridiron:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/gridiron/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/gridiron"
+          ],
+          "options": {
+            "jestConfig": "apps/gridiron/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "gridiron"
+}
