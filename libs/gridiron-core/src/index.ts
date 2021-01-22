@@ -1,1 +1,1 @@
-export * from './lib/gridiron-core.module';
+export * from './lib/';
