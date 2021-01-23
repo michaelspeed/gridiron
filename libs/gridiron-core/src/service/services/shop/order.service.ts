@@ -1,23 +1,12 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {
-    Order,
-    OrderItem,
-    OrderLine,
-    Payment,
-    PaymentMethod,
-    ProductVariantPrice,
-    StockBackLog,
-    StockKeeping,
-    User
-} from "../../../entity";
-import {CartItem} from "../../../enums/cartInterface";
 import {classToPlain} from "class-transformer";
 import {JwtService} from "@nestjs/jwt";
 import axios from 'axios'
 import {ShopPaymentService} from "./payment.service";
-import { OrderStageType, PaymentModes } from "../../..";
+import {Order, OrderLine, PaymentMethod, ProductVariantPrice, OrderItem, OrderStageType, User, PaymentModes, Payment, StockBackLog, StockKeeping,  } from "@gridiron/entities";
+import { CartItemDto } from "../../../api/dto/shop/CartItemDto";
 
 @Injectable()
 export class ShopOrderService {
@@ -28,14 +17,14 @@ export class ShopOrderService {
     ) {}
 
     async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })
     }
 
-    async createShopOrder(items: CartItem[], userId: string, address: string, transaction?: string): Promise<Order> {
-        return new Promise(async (resolve, reject) => {
+    async createShopOrder(items: CartItemDto[], userId: string, address: string, transaction?: string): Promise<Order> {
+        return new Promise(async (resolve) => {
             const prodVars: OrderLine[] = []
             let totalAmt = 0
             const getPaymentMode: PaymentMethod = await this.paymentService.getPaymentCodes()
@@ -90,14 +79,14 @@ export class ShopOrderService {
                 payment.transactionId = transaction
                 payment.order = saveOrder
                 payment.metadata = amtRes.data
-                const savePayment = await this.connection.getRepository(Payment).save(payment)
+                await this.connection.getRepository(Payment).save(payment)
             }
             resolve(saveOrder)
         })
     }
 
     async processStock(priceId: string, quantity: number): Promise<StockBackLog> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const prodVars = await this.connection.getRepository(ProductVariantPrice).findOne({where:{id: priceId}, relations: ['store']})
             const getStock = await this.connection.getRepository(StockKeeping).findOne({where:{store:{id: prodVars.store.id}, variant: {id: prodVars.id}}})
             if (!getStock || quantity > getStock.quantity) {

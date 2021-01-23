@@ -12,7 +12,7 @@ import {
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Facet} from '../facet/facet.entity';
-import {Product} from '../';
+import { Product } from '../product/product.entity';
 
 @ObjectType('FacetValue', {isAbstract: true})
 @Entity({name: 'facetValue'})
@@ -40,11 +40,11 @@ export class FacetValue extends BaseEntity {
     code: string;
 
     @Field(() => [Product])
-    @ManyToMany(type => Product, prod => prod.facets)
+    @ManyToMany(() => Product, prod => prod.facets)
     product: Product[]
 
     @Field(() => Facet)
-    @ManyToOne(type => Facet, fac => fac.values)
+    @ManyToOne(() => Facet, fac => fac.values)
     facet: Facet
 
 }

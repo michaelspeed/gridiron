@@ -1,5 +1,5 @@
+import { Store, User } from '@gridiron/entities';
 import {Field, ObjectType} from '@nestjs/graphql';
-import {Store, User} from '../../../entity';
 
 export enum AdministratorResponseType {
     BASIC = "BASIC",

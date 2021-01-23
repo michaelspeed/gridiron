@@ -1,5 +1,5 @@
+import { Search } from "@gridiron/entities";
 import {Args, Context, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {Search} from "../../../entity";
 import {ShopSearchService} from "../../../service";
 
 @Resolver(() => Search)

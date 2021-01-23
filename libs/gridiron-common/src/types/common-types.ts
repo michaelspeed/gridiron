@@ -1,9 +1,8 @@
-import {GridIronEntity} from '@gridiron/entities';
 import {BaseEntity} from 'typeorm';
 
 export type LocaleString = string & { _opaqueType: 'LocaleString' };
 
-export type FilterParameter<T extends GridIronEntity | BaseEntity> = {
+export type FilterParameter<T extends  BaseEntity> = {
     [K in PrimitiveFields<T>]?: T[K] extends string | LocaleString ? StringOperators
         : T[K] extends number ? NumberOperators
             : T[K] extends boolean ? BooleanOperators
@@ -55,15 +54,15 @@ export type NullOptionals<T> = {
     [K in keyof T]: undefined extends T[K] ? NullOptionals<T[K]> | null : NullOptionals<T[K]>
 };
 
-export type PrimitiveFields<T extends GridIronEntity | BaseEntity> = {
+export type PrimitiveFields<T extends BaseEntity> = {
     [K in keyof T]: T[K] extends LocaleString | number | string | boolean | Date ? K : never
 }[keyof T];
 
-export type SortParameter<T extends GridIronEntity> = {
+export type SortParameter<T extends BaseEntity> = {
     [K in PrimitiveFields<T>]?: SortOrder
 };
 
-export interface ListQueryOptions<T extends GridIronEntity | BaseEntity> {
+export interface ListQueryOptions<T extends BaseEntity> {
     take?: number | null;
     skip?: number | null;
     sort?: NullOptionals<SortParameter<T>> | null;

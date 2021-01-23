@@ -1,8 +1,7 @@
+import { Menu, MenuBuilderTypes } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {Menu} from '../../../entity';
-import {MenuBuilderTypes} from '../../../enums/MenuBuilderTypes';
 
 @Injectable()
 export class AdminMenuService {

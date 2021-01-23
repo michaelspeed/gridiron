@@ -1,6 +1,6 @@
+import { Cart, CartItem } from "@gridiron/entities";
 import {Args, ID, Int, Mutation, Query, Resolver} from "@nestjs/graphql";
 import {ShopCartService} from "../../../service";
-import {Cart, CartItem} from "../../../entity";
 
 @Resolver(() => Cart)
 export class SearchCartResolver {

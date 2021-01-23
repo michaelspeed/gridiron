@@ -1,8 +1,8 @@
-import {BooleanOperators, DateOperators, FilterParameter, NullOptionals, NumberOperators, StringOperators, assertNever, Type, UserInputError} from '@gridiron/gridiron-common';
-import {GridIronEntity} from '../../../entity/base/base.entity';
 import {BaseEntity, Connection, ConnectionOptions} from 'typeorm';
 import {getColumnMetadata} from './get-column-metadata';
 import {DateUtils} from 'typeorm/util/DateUtils';
+import { StringOperators, BooleanOperators, NumberOperators, DateOperators, NullOptionals, FilterParameter, UserInputError, assertNever } from '@gridiron/gridiron-common';
+import { Type } from '@nestjs/common';
 
 export interface WhereCondition {
     clause: string;
@@ -13,7 +13,7 @@ type AllOperators = StringOperators & BooleanOperators & NumberOperators & DateO
 type Operator = { [K in keyof AllOperators]-?: K }[keyof AllOperators];
 
 
-export function parseFilterParams<T extends GridIronEntity | BaseEntity>(
+export function parseFilterParams<T extends BaseEntity>(
     connection: Connection,
     entity: Type<T>,
     filterParams?: NullOptionals<FilterParameter<T>> | null,
@@ -27,6 +27,7 @@ export function parseFilterParams<T extends GridIronEntity | BaseEntity>(
     let argIndex = 1;
     for (const [key, operation] of Object.entries(filterParams)) {
         if (operation) {
+            // eslint-disable-next-line @typescript-eslint/ban-types
             for (const [operator, operand] of Object.entries(operation as object)) {
                 let fieldName: string;
                 if (columns.find(c => c.propertyName === key)) {
@@ -66,6 +67,7 @@ function buildWhereCondition(
                 parameters: { [`arg${argIndex}`]: convertDate(operand) },
             };
         case 'contains':
+            // eslint-disable-next-line no-case-declarations
             const LIKE = dbType === 'postgres' ? 'ILIKE' : 'LIKE';
             return {
                 clause: `${fieldName} ${LIKE} :arg${argIndex}`,

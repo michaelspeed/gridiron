@@ -1,7 +1,7 @@
 import {Stream} from 'stream';
 import {Request} from 'express';
 import {AssetsStorageStrategy} from './assets-storage-strategy';
-import {InternalServerError} from '../../common';
+import { InternalServerError } from '@gridiron/gridiron-common';
 
 const errorMessage = 'error.no-asset-storage-strategy-configured';
 

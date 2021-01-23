@@ -13,7 +13,9 @@ import {
     PagingStrategies,
     FilterableConnection
 } from "@nestjs-query/query-graphql";
-import {Product, ServiceableOrderTypes, ServiceableTypes, Vendor} from "../";
+import { ServiceableOrderTypes, ServiceableTypes } from "../enums/ServiceableTypes";
+import { Vendor } from "../vendor/vendor.entity";
+import { Product } from "../product/product.entity";
 
 registerEnumType(ServiceableTypes, {
     name: 'ServiceableTypes'

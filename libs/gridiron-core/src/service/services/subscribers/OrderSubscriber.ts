@@ -1,15 +1,10 @@
 import {Connection, EntitySubscriberInterface, EventSubscriber, UpdateEvent} from "typeorm";
-import {OrderLine} from "../../../entity";
-import {OrderStageType} from "../../../enums";
 import * as _ from 'lodash';
 import {EventBus, OrderLineProcessedEvent} from "../../../event-bus";
 import {OrderLineEvents} from "../../../event-bus";
 import {Injectable} from "@nestjs/common";
+import { OrderLine, OrderStageType } from "@gridiron/entities";
 
-interface PoolInterface {
-    id: string
-    length: number
-}
 
 @Injectable()
 @EventSubscriber()
@@ -28,7 +23,7 @@ export class OrderLineSubscriber implements EntitySubscriberInterface<OrderLine>
     }
 
     afterUpdate(event: UpdateEvent<OrderLine>): Promise<any> | void {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve) => {
             if (event.entity) {
                 this.eventBus.publish(new OrderLineEvents(event.entity, event.entity.stage))
                 switch (event.entity.stage) {

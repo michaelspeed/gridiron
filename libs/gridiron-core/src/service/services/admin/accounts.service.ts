@@ -1,8 +1,8 @@
+import { Accounts, User, Vendor } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {JwtService} from "@nestjs/jwt";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Accounts, User, Vendor} from "../../../entity";
 
 @Injectable()
 export class AccountsService {

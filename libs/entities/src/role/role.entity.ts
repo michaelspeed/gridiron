@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
-import { Permission, RoleType } from '..';
+import { Permission, RoleType } from '../enums/RoleEnums';
 
 registerEnumType(Permission, {
     name: 'Permission'

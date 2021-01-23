@@ -1,10 +1,9 @@
 import {Injectable} from '@nestjs/common';
-import {Administrator, User} from '../../../entity';
 import {JwtService} from '@nestjs/jwt';
 import {InjectConnection} from '@nestjs/typeorm';
-import {Connection, Like} from 'typeorm';
-import {AdministratorEnum} from '../../../enums';
+import {Connection} from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { AdministratorEnum, Administrator, User } from '@gridiron/entities';
 
 @Injectable()
 export class AdministratorService {
@@ -68,7 +67,7 @@ export class AdministratorService {
         })
     }
 
-    async getAllAdministrators(name?: string): Promise<Administrator[]> {
+    async getAllAdministrators(): Promise<Administrator[]> {
         return this.connection.getRepository(Administrator).find({
             /*where: [
                 {
@@ -83,7 +82,7 @@ export class AdministratorService {
     }
 
     createToken(userId: string, adminId: string): Promise<string> {
-        return new Promise<string>(async (resolve, reject) => {
+        return new Promise<string>(async (resolve) => {
             const tokenize = {userId, adminId}
             const token = await this.jwtService.sign(tokenize)
             resolve(token)

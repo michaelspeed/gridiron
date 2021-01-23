@@ -1,9 +1,9 @@
 import {GridIronConfig, RuntimeGridIronConfig} from './config';
 import {ConnectionOptions, createConnection} from 'typeorm';
 import {getConfig, setConfig} from './config/config-helpers';
-import {InternalServerError, Type} from '@gridiron/gridiron-common';
-import {coreEntityMap} from './entity/coreEntityMap';
 import {getConfigurationFunction, getEntitiesFromPlugin} from './plugin/plugin-metadata';
+import { coreEntityMap } from '@gridiron/entities';
+import { InternalServerError, Type } from '@gridiron/gridiron-common';
 
 export interface MigrationOptions {
     name: string

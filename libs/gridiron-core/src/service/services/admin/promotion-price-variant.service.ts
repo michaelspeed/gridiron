@@ -1,7 +1,7 @@
+import { ProductVariantPrice, Vendor } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import { ProductVariantPrice, Vendor } from "../../..";
 
 @Injectable()
 export class PromotionPriceVariantService {

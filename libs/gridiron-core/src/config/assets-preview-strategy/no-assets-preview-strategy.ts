@@ -1,5 +1,5 @@
+import { InternalServerError } from '@gridiron/gridiron-common';
 import {AssetsPreviewStrategy} from './assets-preview-strategy';
-import {InternalServerError} from '../../common';
 
 export class NoAssetsPreviewStrategy implements AssetsPreviewStrategy {
     generatePreviewImage(mimeType: string, data: Buffer): Promise<Buffer> {

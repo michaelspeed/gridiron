@@ -9,7 +9,7 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
-import {User} from "..";
+import { User } from "../user/user.entity";
 
 @ObjectType('ResetCode', {isAbstract: true})
 @Entity({name: 'resetcode'})

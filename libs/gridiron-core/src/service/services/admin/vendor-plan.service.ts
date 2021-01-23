@@ -1,7 +1,7 @@
+import { VendorPlans } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {VendorPlans} from '../../../entity';
 
 @Injectable()
 export class VendorPlanService {

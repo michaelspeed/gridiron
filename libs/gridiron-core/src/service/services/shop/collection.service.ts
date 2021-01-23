@@ -1,7 +1,7 @@
+import { Collection, FacetValue, ProductVariant, Search } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection, getConnection, Not} from "typeorm";
-import {Collection, FacetValue, ProductVariant, Search} from "../../../entity";
 
 @Injectable()
 export class ShopCollectionService {

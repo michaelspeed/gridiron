@@ -16,14 +16,18 @@ import {
     Relation
 } from '@nestjs-query/query-graphql';
 import {User} from '../user/user.entity';
-import {Accounts, Serviceable, Store, VendorLicense, Zip} from '../';
+import { VendorLicense } from '../plans/vendor-license';
+import { Store } from '../Store/store.entity';
+import { Serviceable } from '../serviceable/serviceable.entity';
+import { Zip } from '../Zip/zip.entity';
+import { Accounts } from '../Accounts/accounts.entity';
 
 @ObjectType('Vendor', {isAbstract: true})
 @Entity({name: 'vendor'})
 @Relation('user', () => User, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 @Relation('license', () => VendorLicense, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 @Relation('store', () => Store, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
-@Relation('account', () => Store, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
+@Relation('account', () => Accounts, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 @Relation('serviceable', () => Serviceable, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true, nullable: true})
 @FilterableConnection('zip', () => Zip, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 export class Vendor extends BaseEntity {

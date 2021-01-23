@@ -9,7 +9,8 @@ import {
 } from 'typeorm';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField, FilterableRelation, PagingStrategies} from '@nestjs-query/query-graphql';
-import {OrderLine, RefundEnum} from "..";
+import { RefundEnum } from '../enums/RefundEnum';
+import { OrderLine } from '../order-line/order-line.entity';
 
 registerEnumType(RefundEnum, {
     name:'RefundEnum'

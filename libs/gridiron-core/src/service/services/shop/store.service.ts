@@ -1,9 +1,8 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Collection, Product, ProductVariant, Store, StoreTypeEnum, User, View} from "../../../entity";
-import {ViewEnum} from "../../../enums";
 import {JwtService} from "@nestjs/jwt";
+import { Store, StoreTypeEnum, ViewEnum, Collection, Product, ProductVariant, User, View } from "@gridiron/entities";
 
 @Injectable()
 export class ShopStoreService {
@@ -13,7 +12,7 @@ export class ShopStoreService {
     ) {}
 
     async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })

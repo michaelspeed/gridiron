@@ -1,10 +1,10 @@
 import {Injectable, OnModuleInit} from '@nestjs/common';
-import {Collection, Product} from '../../../entity';
 import {Connection, getConnection} from 'typeorm';
 import {InjectConnection} from '@nestjs/typeorm';
 import {EventBus, ProductEvents} from '../../../event-bus';
 import {merge} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import { Product, Collection } from '@gridiron/entities';
 
 @Injectable()
 export class CollectionService implements OnModuleInit {

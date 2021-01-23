@@ -10,8 +10,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {ProductVariant} from '../';
 import GraphQLJSON from 'graphql-type-json';
+import { ProductVariant } from './product-variant.entity';
 
 @ObjectType('ProductVariantSpecs', {isAbstract: true})
 @Entity({name: 'product-variant-specs'})

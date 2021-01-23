@@ -11,8 +11,10 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableConnection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {OrderLine, PaymentModes, User} from '..';
-import {Payment} from "..";
+import { PaymentModes } from '../enums/PaymentModes';
+import { OrderLine } from '../order-line/order-line.entity';
+import { User } from '../user/user.entity';
+import { Payment } from '../payment/payment.entity';
 
 registerEnumType(PaymentModes, {
     name: 'PaymentModes'

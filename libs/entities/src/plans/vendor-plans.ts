@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
 import {VendorLicense} from './vendor-license';
-import { VendorPlanPrice, VendorPlanTenure } from '..';
+import { VendorPlanPrice, VendorPlanTenure } from '../enums/VendorPlan';
 
 registerEnumType(VendorPlanPrice, {
     name: 'VendorPlanPrice'

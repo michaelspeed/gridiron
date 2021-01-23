@@ -2,7 +2,8 @@ import {BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, One
 import {Country} from '../country/country.entity';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
 import {ID, ObjectType} from '@nestjs/graphql';
-import {Store, TaxRate} from '..';
+import { TaxRate } from '../tax-rate/tax-rate.entity';
+import { Store } from '../Store/store.entity';
 
 @ObjectType('Zone', {isAbstract: true})
 @Connection('taxrates', () => TaxRate, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})

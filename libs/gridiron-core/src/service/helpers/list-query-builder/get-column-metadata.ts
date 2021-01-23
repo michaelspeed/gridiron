@@ -1,5 +1,5 @@
+import { Type } from '@gridiron/gridiron-common';
 import {Connection} from 'typeorm';
-import {Type} from '../../../common';
 import {ColumnMetadata} from 'typeorm/metadata/ColumnMetadata';
 
 export function getColumnMetadata<T>(connection: Connection, entity: Type<T>) {

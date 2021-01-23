@@ -9,7 +9,8 @@ import {
 } from "typeorm";
 import {ID, ObjectType, registerEnumType} from "@nestjs/graphql";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
-import { PricePromoType, ProductVariantPrice } from "..";
+import { PricePromoType } from "../enums/PriceType";
+import { ProductVariantPrice } from "../product-variant/product-variant-price.entity";
 
 registerEnumType(PricePromoType, {
     name: 'PricePromoType'

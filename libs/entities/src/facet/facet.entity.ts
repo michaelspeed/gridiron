@@ -10,7 +10,8 @@ import {
 } from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
-import {FacetValue, Product} from '../';
+import { FacetValue } from '../facet-value/facet-value.entity';
+import { Product } from '../product/product.entity';
 
 @ObjectType('Facet', {isAbstract: true})
 @Entity({name: 'facet'})

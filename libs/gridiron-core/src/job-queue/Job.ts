@@ -1,4 +1,4 @@
-import {ID, JobState} from '../common';
+import { ID, JobState } from '@gridiron/gridiron-common';
 import {JobConfig, JobData} from './types';
 
 export type JobEventType = 'start' | 'progress' | 'complete' | 'fail';

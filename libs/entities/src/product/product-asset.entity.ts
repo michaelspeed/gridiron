@@ -9,7 +9,8 @@ import {
 } from 'typeorm';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
-import {Asset, Product} from '../';
+import { Product } from './product.entity';
+import { Asset } from '../asset/asset.entity';
 
 @ObjectType('ProductAsset', {isAbstract: true})
 @Entity('product-asset')

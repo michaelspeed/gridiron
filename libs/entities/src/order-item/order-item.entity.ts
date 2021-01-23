@@ -11,7 +11,9 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {OrderLine, ProductVariant, TaxRate} from '..';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { TaxRate } from '../tax-rate/tax-rate.entity';
+import { OrderLine } from '../order-line/order-line.entity';
 
 @ObjectType('OrderItem', {isAbstract: true})
 @Entity({name: 'order-item'})

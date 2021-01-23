@@ -9,7 +9,9 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
-import {InvoiceEnum, OrderLine, Store} from "..";
+import { InvoiceEnum } from "../enums/InvoiceEnum";
+import { OrderLine } from "../order-line/order-line.entity";
+import { Store } from "../Store/store.entity";
 
 registerEnumType(InvoiceEnum, {
     name: 'InvoiceEnum'

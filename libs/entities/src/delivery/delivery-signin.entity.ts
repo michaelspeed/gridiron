@@ -9,7 +9,8 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
-import { Delivery, DeliveryPool } from "..";
+import { Delivery } from "./delivery.entity";
+import { DeliveryPool } from "./delivery-pool.entity";
 
 @ObjectType('DeliverySignIn', {isAbstract: true})
 @Entity({name: 'delivery-signin'})

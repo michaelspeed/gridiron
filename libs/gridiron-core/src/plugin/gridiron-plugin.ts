@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import {DocumentNode} from 'graphql';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
 import {MODULE_METADATA} from '@nestjs/common/constants';
 import {Module} from '@nestjs/common';
-import {pick, Type} from '../common';
 import {RuntimeGridIronConfig} from '../config';
 import {PLUGIN_METADATA} from './plugin-metadata';
+import { pick, Type } from '@gridiron/gridiron-common';
 
 export interface GridironPluginMetadata extends ModuleMetadata {
     configuration?: PluginConfigurationFn

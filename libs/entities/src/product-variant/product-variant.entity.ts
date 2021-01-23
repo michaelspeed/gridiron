@@ -16,17 +16,17 @@ import {
     PagingStrategies,
     Relation
 } from '@nestjs-query/query-graphql';
-import {
-    BillingAgreement, CartItem,
-    OrderItem,
-    Product,
-    ProductVariantAsset,
-    ProductVariantPrice,
-    ProductVariantSpecifications,
-    Seo,
-    View,
-    StockKeeping, Review
-} from '../';
+import { Product } from '../product/product.entity';
+import { ProductVariantAsset } from './product-variant-asset.entity';
+import { ProductVariantPrice } from './product-variant-price.entity';
+import { BillingAgreement } from '../billing-agreement/BillingAgreement';
+import { ProductVariantSpecifications } from './product-variant-specifications.entity';
+import { Seo } from '../Seo/Seo.entity';
+import { StockKeeping } from '../stock-movement/stock-keeping.entity';
+import { OrderItem } from '../order-item/order-item.entity';
+import { View } from '../view/view.entity';
+import { CartItem } from '../cart/cartItem.entity';
+import { Review } from '../reviews/review.entity';
 
 @ObjectType('ProductVariant', {isAbstract: true})
 @Entity({name: 'productVariant'})

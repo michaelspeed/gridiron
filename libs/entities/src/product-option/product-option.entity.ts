@@ -10,7 +10,8 @@ import {
 } from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {ProductOptionGroup, ProductVariant} from '../';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { ProductOptionGroup } from '../product-option-group/product-option-group.entity';
 
 @ObjectType('ProductOption', {isAbstract: true})
 @Entity({name: 'productOption'})

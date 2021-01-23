@@ -1,4 +1,4 @@
-import {ID, JobState, JsonCompatible} from '../common';
+import { JsonCompatible, ID, JobState } from '@gridiron/gridiron-common';
 import {Job} from './Job';
 
 export type JobData<T> = JsonCompatible<T>;

@@ -1,7 +1,7 @@
+import { PaymentMethod } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {PaymentMethod} from "../../../entity";
 
 @Injectable()
 export class PaymentMethodService {

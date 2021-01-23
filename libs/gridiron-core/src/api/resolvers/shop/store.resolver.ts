@@ -1,7 +1,6 @@
+import { ViewEnum, Store, View } from "@gridiron/entities";
 import {Args, Context, Mutation, Query, registerEnumType, Resolver} from "@nestjs/graphql";
-import {Store, View} from "../../../entity";
 import {ShopStoreService} from "../../../service";
-import {ViewEnum} from "../../../enums";
 
 registerEnumType(ViewEnum, {
     name: 'ViewEnum'

@@ -9,7 +9,8 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
-import { User, ProductVariant } from "..";
+import { User } from "../user/user.entity";
+import { ProductVariant } from "../product-variant/product-variant.entity";
 
 @ObjectType('Review', {isAbstract: true})
 @Entity({name: 'review'})

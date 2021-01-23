@@ -1,7 +1,7 @@
+import { TaxRate, TaxCategory } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {TaxCategory, TaxRate} from '../../../entity';
 
 @Injectable()
 export class TaxCategoryService {

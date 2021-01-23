@@ -9,7 +9,8 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
-import {ProductVariantPrice, Store} from "..";
+import { ProductVariantPrice } from "../product-variant/product-variant-price.entity";
+import { Store } from "../Store/store.entity";
 
 @ObjectType('StockBackLog', {isAbstract: true})
 @Entity({name: 'stock-back-log'})

@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import {FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
 import {Store} from "../Store/store.entity";
-import { SettlementType } from "..";
+import { SettlementType } from "../enums/SettlementType";
 
 registerEnumType(SettlementType, {
     name: 'SettlementType'

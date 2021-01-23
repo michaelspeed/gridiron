@@ -1,8 +1,7 @@
+import { StockKeepingType, StockKeeping, ProductVariant, Store, StoreTypeEnum, Vendor } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {ProductVariant, StockKeeping, Store, StoreTypeEnum, Vendor} from '../../../entity';
-import {StockKeepingType} from '../../../enums/StockKeepingType';
 
 @Injectable()
 export class StocksService {

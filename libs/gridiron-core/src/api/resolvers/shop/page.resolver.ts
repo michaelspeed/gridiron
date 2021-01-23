@@ -1,8 +1,8 @@
+import { Page } from "@gridiron/entities";
 import {Query, Resolver} from "@nestjs/graphql";
-import {Page} from "../../../entity";
 import {ShopPagesService} from "../../../service";
 
-@Resolver(of => Page)
+@Resolver(() => Page)
 export class ShopPageResolver {
     constructor(
         private readonly shopPagesService: ShopPagesService

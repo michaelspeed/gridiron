@@ -1,8 +1,8 @@
 import {Args, Context, ID, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {Order, PaymentMethod} from "../../../entity";
 import {ShopOrderService} from "../../../service/services/shop/order.service";
 import {CartItemDto} from "../../dto/shop/CartItemDto";
 import {ShopPaymentService} from "../../../service/services/shop/payment.service";
+import { Order, PaymentMethod } from "@gridiron/entities";
 
 @Resolver(() => Order)
 export class ShopOrderResolver {

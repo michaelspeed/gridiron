@@ -1,7 +1,7 @@
+import { ProductVariant, Seo } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {ProductVariant, Seo} from '../../../entity';
 
 @Injectable()
 export class SeoService {

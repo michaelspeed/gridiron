@@ -1,27 +1,15 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
-import {Connection, In, MoreThan, Not} from "typeorm";
-import {
-    Asset,
-    Product,
-    ProductVariant,
-    ProductVariantPrice,
-    Review,
-    StockKeeping,
-    Store, User,
-    Vendor, Zip
-} from "../../../entity";
+import {Connection} from "typeorm";
+
 import {JwtService} from "@nestjs/jwt";
+import { ProductVariant, Asset, Product, ProductVariantPrice, StockKeeping, Zip, Review, User } from "@gridiron/entities";
 
 interface GetProductAssetInterface {
     variantId?: string
     prodId?: string
 }
 
-interface GetAvailability {
-    stock: boolean
-    zip: boolean
-}
 
 @Injectable()
 export class ShopProductsService {
@@ -31,7 +19,7 @@ export class ShopProductsService {
     ) {}
 
     async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })
@@ -64,7 +52,7 @@ export class ShopProductsService {
     }
 
     async getProdAsset({variantId, prodId}: GetProductAssetInterface): Promise<Asset> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             let asset
             if (variantId) {
                 const variatn = await this.connection.getRepository(ProductVariant).findOne({where:{id: variantId}, relations: ['asset', 'asset.asset']})
@@ -104,7 +92,7 @@ export class ShopProductsService {
         })
     }
 
-    async getPriceForVariants(id: string, zip?: string): Promise<ProductVariant> {
+    async getPriceForVariants(id: string): Promise<ProductVariant> {
         return new Promise(async (resolve, reject) => {
             this.connection.getRepository(ProductVariant)
                 .findOne({where:{id}, relations: ['price','price.promoprice', 'price.store', 'price.store.vendor', 'price.store.vendor.zip']})
@@ -114,7 +102,7 @@ export class ShopProductsService {
     }
 
     async GetStocksAndZipAvailability(variantId: string, zipf: number): Promise<ProductVariantPrice[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             /*const zips = await this.connection.getRepository(Zip).findOne({where:{code: zipf}, relations: ['store']})
             const stores = zips.store.map(item => item.id)
             const qb = await this.connection.getRepository(ProductVariantPrice)
@@ -157,7 +145,7 @@ export class ShopProductsService {
     }
 
     async ShiftProductVariant(name: string, productId: string): Promise<ProductVariant> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const allvars = await this.connection.getRepository(ProductVariant).find({where:{product:{id: productId}}})
             const nameSplit = name.split(" ")
             for (const vars of allvars) {
@@ -185,16 +173,16 @@ export class ShopProductsService {
     }
 
     async reviewsForVariant(id: string): Promise<Review[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const revs = await this.connection.getRepository(Review).find({where:{variant:{id}}, take: 10})
             resolve(revs)
         })
     }
 
     async getSingleProductVariantPrices(id: string): Promise<ProductVariantPrice> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const variants = await this.connection.getRepository(ProductVariant).find({where:{product: {id}}, relations: ['price']})
-            let allPrices: ProductVariantPrice[] = []
+            const allPrices: ProductVariantPrice[] = []
             for (const varsf of variants) {
                 allPrices.push(...varsf.price)
             }

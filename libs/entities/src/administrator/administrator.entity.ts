@@ -9,9 +9,10 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {AdministratorEnum, User} from '..';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
+import { AdministratorEnum } from '../enums/RoleEnums';
+import { User } from '../user/user.entity';
 
 registerEnumType(AdministratorEnum, {
     name: 'AdministratorEnum'

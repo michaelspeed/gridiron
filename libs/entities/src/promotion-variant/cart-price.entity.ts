@@ -9,7 +9,8 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
-import { PricePromoType, Collection } from "..";
+import { PricePromoType } from "../enums/PriceType";
+import { Collection } from "../collection/collection.entity";
 
 registerEnumType(PricePromoType, {
     name: 'PricePromoType'

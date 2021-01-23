@@ -1,8 +1,8 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Between, Connection} from "typeorm";
-import {Administrator, Delivery, DeliveryPool, DeliverySignIn, DeliveryStranded, User} from "../../../entity";
 import * as moment from "moment";
+import { DeliveryPool, DeliveryStranded, Delivery, Administrator, User, DeliverySignIn } from "@gridiron/entities";
 
 @Injectable()
 export class DeliveryService {

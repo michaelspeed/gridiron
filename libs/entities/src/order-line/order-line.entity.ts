@@ -16,16 +16,15 @@ import {
     PagingStrategies,
     Relation
 } from '@nestjs-query/query-graphql';
-import {
-    DeliveryPool,
-    Invoice,
-    Order,
-    OrderItem,
-    OrderStageType,
-    Refund,
-    ServiceableOrders,
-    Store} from '..';
 import GraphQLJSON from "graphql-type-json";
+import { OrderStageType } from '../enums/OrderStageType';
+import { Order } from '../order/order.entity';
+import { OrderItem } from '../order-item/order-item.entity';
+import { Store } from '../Store/store.entity';
+import { DeliveryPool } from '../delivery/delivery-pool.entity';
+import { Refund } from '../refund/refund.entity';
+import { ServiceableOrders } from '../serviceable/serviceableOrders.entity';
+import { Invoice } from '../invoice/Invoice.entity';
 
 registerEnumType(OrderStageType, {
     name: 'OrderStageType'

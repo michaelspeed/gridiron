@@ -1,8 +1,7 @@
+import { Page, PageCategory } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Page} from "../../../entity";
-import {PageCategory} from "../../../enums";
 
 @Injectable()
 export class ShopPagesService {

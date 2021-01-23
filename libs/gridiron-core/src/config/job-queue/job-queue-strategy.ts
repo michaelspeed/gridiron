@@ -1,4 +1,4 @@
-import {ID, InjectableStrategy} from '../../common';
+import { ID, InjectableStrategy } from '@gridiron/gridiron-common';
 import {Job} from '../../job-queue';
 
 export interface JobQueueStrategy extends InjectableStrategy {

@@ -1,24 +1,13 @@
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {
-    Accounts,
-    AuthenticatedSession,
-    Store, StoreBalance,
-    StoreTypeEnum,
-    User,
-    Vendor,
-    VendorLicense,
-    VendorPlans,
-    Zone
-} from '../../../entity';
 import uniqid from 'uniqid';
 import * as bcrypt from 'bcrypt';
 import {JwtService} from '@nestjs/jwt';
 import {SessionService} from '../global/session.service';
 import {EventBus, VendorEvents} from '../../../event-bus';
 import * as moment from 'moment';
-import { VendorPlanPrice, VendorPlanTenure } from '../../..';
+import { Vendor, User, AuthenticatedSession, Store, Zone, StoreTypeEnum, StoreBalance, Accounts, VendorLicense, VendorPlans, VendorPlanTenure, VendorPlanPrice } from '@gridiron/entities';
 
 @Injectable()
 export class VendorService {

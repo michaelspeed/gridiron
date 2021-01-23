@@ -1,5 +1,5 @@
+import { isClassInstance, isObject, simpleDeepClone } from '@gridiron/gridiron-common';
 import {GridIronConfig, PartialGridironConfig} from './GridIronConfig';
-import {isClassInstance, isObject, simpleDeepClone} from '../common';
 
 export function mergeConfig<T extends GridIronConfig>(target: T, source: PartialGridironConfig, depth = 0): T {
     if (!source) {

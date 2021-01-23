@@ -1,8 +1,7 @@
+import { Settlements, Store, Vendor, VendorPlans, StoreBalance, VendorPlanPrice, SettlementType } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Settlements, Store, StoreBalance, Vendor, VendorPlans} from "../../../entity";
-import {SettlementType, VendorPlanPrice} from "../../../enums";
 import {ConfigService} from "../../../config";
 
 @Injectable()

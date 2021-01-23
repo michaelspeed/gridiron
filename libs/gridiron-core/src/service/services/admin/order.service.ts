@@ -1,17 +1,16 @@
 import {Injectable, OnModuleInit} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Order, OrderItem, OrderLine, ProductVariantPrice, User} from "../../../entity";
 import {EventBus} from "../../../event-bus";
 import {OrderLineDto} from "../../../api/dto/admin/OrderLineDto";
 import {classToPlain} from "class-transformer";
 import {OrderLineEvents} from "../../../event-bus";
 import {merge} from "rxjs";
 import {debounceTime} from "rxjs/operators";
-import { OrderStageType } from "../../../enums";
 import {Job, JobQueue, JobQueueService, OrderLineJobData, OrderLineMessages} from "../../../job-queue";
 import {WorkerService} from "../../../worker";
 import {Logger} from '../../../config/logger/GridIronLogger'
+import { Order, User, OrderLine, ProductVariantPrice, OrderItem, OrderStageType } from "@gridiron/entities";
 
 @Injectable()
 export class OrderService implements OnModuleInit {

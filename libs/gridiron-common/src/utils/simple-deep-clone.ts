@@ -27,6 +27,7 @@ export function simpleDeepClone<T extends string | number | any[] | object>(inpu
     // handle case: object
     output = {};
     for (i in input) {
+        // eslint-disable-next-line no-prototype-builtins
         if (input.hasOwnProperty(i)) {
             output[i] = simpleDeepClone((input as any)[i]);
         }

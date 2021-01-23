@@ -11,7 +11,15 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Address, Administrator, Cart, Delivery, Order, ResetCode, Review, Vendor, View} from '..';
+import { Administrator } from '../administrator/administrator.entity';
+import { Vendor } from '../vendor/vendor.entity';
+import { Delivery } from '../delivery/delivery.entity';
+import { Address } from '../address/address.entity';
+import { Order } from '../order/order.entity';
+import { Cart } from '../cart/cart.entity';
+import { View } from '../view/view.entity';
+import { Review } from '../reviews/review.entity';
+import { ResetCode } from '../reset-code/reset-code.entity';
 
 @ObjectType('User', {isAbstract: true})
 @Relation('administrator', () => Administrator, {nullable: true})

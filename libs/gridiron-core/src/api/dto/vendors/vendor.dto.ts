@@ -1,5 +1,5 @@
+import { User, Vendor } from '@gridiron/entities';
 import {Field, ObjectType} from '@nestjs/graphql';
-import {User, Vendor} from '../../../entity';
 
 @ObjectType({isAbstract: true})
 export class VendorDto {

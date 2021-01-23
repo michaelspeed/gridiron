@@ -8,7 +8,8 @@ import {
     OneToOne,
     PrimaryGeneratedColumn} from 'typeorm';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Vendor, VendorPlans} from '../';
+import { Vendor } from '../vendor/vendor.entity';
+import { VendorPlans } from './vendor-plans';
 
 @ObjectType('VendorLicense', {isAbstract: true})
 @Entity({name: 'vendor-license'})

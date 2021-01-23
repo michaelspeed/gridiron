@@ -1,5 +1,5 @@
+import { Product, Asset, FacetValue, ProductAsset, Collection } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
-import {Asset, Collection, FacetValue, Product, ProductAsset} from '../../../entity';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection, EntitySubscriberInterface, EventSubscriber} from 'typeorm';
 import {EventBus, ProductEvents} from '../../../event-bus';

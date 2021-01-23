@@ -1,7 +1,8 @@
 import {BaseEntity, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {FilterableField} from '@nestjs-query/query-graphql';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
-import {CartItem, User} from '../';
+import { CartItem } from './cartItem.entity';
+import { User } from '../user/user.entity';
 
 @ObjectType('Cart', {isAbstract: true})
 @Entity({name: 'cart'})

@@ -1,7 +1,8 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
-import {Store, TaxRate} from '..';
+import { TaxRate } from '../tax-rate/tax-rate.entity';
+import { Store } from '../Store/store.entity';
 
 @ObjectType('TaxCategory', {isAbstract: true})
 @Entity({name: 'taxCategory'})

@@ -1,5 +1,5 @@
+import { Collection, FacetValue } from "@gridiron/entities";
 import {Field, ObjectType} from "@nestjs/graphql";
-import {Collection, FacetValue} from "../../../entity";
 
 @ObjectType({isAbstract: true})
 export class CollectionSingleResponse {

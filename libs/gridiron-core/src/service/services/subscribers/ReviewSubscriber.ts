@@ -1,5 +1,5 @@
+import { Review, ProductVariant } from "@gridiron/entities";
 import {EntitySubscriberInterface, EventSubscriber, getConnection, InsertEvent} from "typeorm";
-import {ProductVariant, Review} from "../../../entity";
 
 @EventSubscriber()
 export class ReviewSubscriber implements EntitySubscriberInterface<Review> {
@@ -9,7 +9,7 @@ export class ReviewSubscriber implements EntitySubscriberInterface<Review> {
     }
 
     beforeInsert(event: InsertEvent<Review>): Promise<any> | void {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const allReviews = await getConnection().getRepository(Review).find({where:{variant:{id: event.entity.variant.id}}})
             if (allReviews.length > 0) {
                 const reviewArray = allReviews.map(item => item.stars)

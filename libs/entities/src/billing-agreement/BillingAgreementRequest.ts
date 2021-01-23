@@ -10,7 +10,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {FilterableField, FilterableRelation, PagingStrategies} from '@nestjs-query/query-graphql';
-import {BillingAgreement, BillingAgreementState} from '..';
+import { BillingAgreement } from './BillingAgreement';
+import { BillingAgreementState } from '../enums/BillingAgreementEnum';
 
 @ObjectType('BillingAgreementRequest', {isAbstract: true})
 @Entity('billing-agreement-request')

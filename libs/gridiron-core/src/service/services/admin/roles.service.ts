@@ -1,8 +1,7 @@
+import { Permission, Role } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {Role} from '../../../entity';
-import {Permission} from '../../../enums';
 
 @Injectable()
 export class RolesService {

@@ -1,6 +1,5 @@
+import { Administrator, Country, CountryCode, Permission, Role, RoleType, Store, StoreBalance, User } from '@gridiron/entities';
 import {Injectable, OnModuleInit} from '@nestjs/common';
-import {Administrator, Country, Role, Store, StoreBalance, User} from './entity';
-import {CountryCode, Permission, RoleType} from './enums';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()

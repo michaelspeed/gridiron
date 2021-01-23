@@ -1,9 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {ConfigService, Logger} from '../../../config';
 import {UpdateAssetInput} from '../../../api/dto/admin/admin-types';
-import {Asset} from '../../../entity';
 import {Stream} from 'stream';
-import {AssetType, getAssetType, ID, ListQueryOptions, PaginatedList} from '../../../common';
 import * as path from 'path';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection, Like} from 'typeorm';
@@ -13,6 +11,8 @@ import {patchEntity} from '../../helpers/utils/patch-entity';
 import {FileUpload} from 'graphql-upload';
 import {ListQueryBuilder} from '../../helpers/list-query-builder/list-query-builder';
 import { promisify } from 'util';
+import { Asset } from '@gridiron/entities';
+import { ID, ListQueryOptions, PaginatedList, getAssetType, AssetType } from '@gridiron/gridiron-common';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const sizeOf = promisify(require('image-size'));
@@ -39,7 +39,7 @@ export class AssetsService {
         return this.connection.getRepository(Asset).findOne(id)
     }
 
-    findByFileName(fileName: string, exact: boolean = true): Promise<Asset | undefined> {
+    findByFileName(fileName: string, exact = true): Promise<Asset | undefined> {
         const source = exact ? fileName : Like(path.basename(fileName, path.extname(fileName)) + '%')
         return this.connection.getRepository(Asset).findOne({
             where: {

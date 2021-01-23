@@ -12,8 +12,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Asset} from "../";
 import { MenuBuilderTypes } from '../enums/MenuBuilderTypes';
+import { Asset } from '../asset/asset.entity';
 
 registerEnumType(MenuBuilderTypes, {
     name: 'MenuBuilderTypes'

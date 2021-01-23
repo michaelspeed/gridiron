@@ -3,9 +3,9 @@ import {ConfigService, Logger} from '../config';
 import {JobQueue} from './job-queue';
 import {JobQueueStrategy} from '../config/job-queue/job-queue-strategy';
 import {CreateQueueOptions, JobData} from './types';
-import {ID} from '../common';
 import {Job} from './Job';
 import {ProcessContext} from '../process-context';
+import { ID } from '@gridiron/gridiron-common';
 
 @Injectable()
 export class JobQueueService implements OnApplicationBootstrap, OnModuleDestroy {

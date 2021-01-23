@@ -1,8 +1,10 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {ProductVariantPrice, TaxCategory, Zone} from '..';
 import {DecimalTransformer} from '../utils/ValueTransformers';
+import { TaxCategory } from '../tax-category/tax-category.entity';
+import { Zone } from '../zone/zone.entity';
+import { ProductVariantPrice } from '../product-variant/product-variant-price.entity';
 
 @ObjectType('TaxRate', {isAbstract: true})
 @Relation('category', () => TaxCategory, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})

@@ -16,7 +16,6 @@ import {ZoneResolver} from './resolvers/admin/zone.resolver';
 import {CountryResolver} from './resolvers/admin/country.resolver';
 import {JwtModule} from '@nestjs/jwt';
 import {NestjsQueryTypeOrmModule} from '@nestjs-query/query-typeorm';
-import {coreEntityMap} from '../entity/coreEntityMap';
 import {SeoResolver} from './resolvers/admin/seo.resolver';
 import {adminServiceMap} from '../service/services/admin/adminServicesMap';
 import {EventBusModule} from '../event-bus';
@@ -70,6 +69,7 @@ import {HsnResolver} from "./resolvers/admin/hsn.resolver";
 import {ServiceableResolver} from "./resolvers/admin/serviceable.resolver";
 import {DefaultController} from "./controllers/default.controller";
 import { JobQueueModule } from '../job-queue/job-queue.module';
+import { coreEntityMap } from '@gridiron/entities';
 
 const adminResolvers = [
     AdministratorResolver,

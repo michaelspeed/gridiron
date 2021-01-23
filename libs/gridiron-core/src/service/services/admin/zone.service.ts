@@ -1,5 +1,5 @@
+import { Zone, Country } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
-import {Country, Zone} from '../../../entity';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
 
@@ -25,7 +25,7 @@ export class ZoneService {
             const zone = await this.connection.getRepository(Zone).findOne({where:{id}})
             const country = await this.connection.getRepository(Country).findOne({where:{id: countryId}, relations: ['zone']})
             this.connection.createQueryBuilder().relation(Country, 'zone').of(country).add(zone)
-                .then(value => {
+                .then(() => {
                     resolve(zone)
                 }).catch(error => reject(error))
         })

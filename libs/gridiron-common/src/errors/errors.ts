@@ -1,4 +1,4 @@
-import { coreEntityMap } from '@gridiron/entities';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {ApolloError} from 'apollo-client';
 import { ID } from '..';
 
@@ -34,7 +34,7 @@ export class UserInputError extends LangError {
 }
 
 export class EntityNotFoundError extends LangError {
-    constructor(entityName: keyof typeof coreEntityMap, id: ID) {
+    constructor(entityName, id: ID) {
         super('error.entity-with-id-not-found', { entityName, id }, 'ENTITY_NOT_FOUND', LogLevel.Warn);
     }
 }

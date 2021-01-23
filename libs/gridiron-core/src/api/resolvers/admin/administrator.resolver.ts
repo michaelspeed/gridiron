@@ -101,7 +101,7 @@ export class AdministratorResolver {
     async GetAllAdministrator(
         @Args({name: 'search', nullable: true}) search: string,
     ): Promise<Administrator[]> {
-        return this.administratorService.getAllAdministrators(search)
+        return this.administratorService.getAllAdministrators()
     }
 
     @Mutation(() => Administrator)

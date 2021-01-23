@@ -1,7 +1,7 @@
+import { Zip, Vendor, Store } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {Store, Vendor, Zip} from '../../../entity';
 
 @Injectable()
 export class ZipService {

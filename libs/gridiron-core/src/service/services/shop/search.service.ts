@@ -1,8 +1,8 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Search} from "../../../entity";
 import {JwtService} from "@nestjs/jwt";
+import { Search } from "@gridiron/entities";
 
 @Injectable()
 export class ShopSearchService {

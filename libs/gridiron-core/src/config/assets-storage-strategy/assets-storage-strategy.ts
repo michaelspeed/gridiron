@@ -1,6 +1,6 @@
 import {Stream} from 'stream';
 import {Request} from 'express';
-import {InjectableStrategy} from '../../common';
+import { InjectableStrategy } from '@gridiron/gridiron-common';
 
 export interface AssetsStorageStrategy extends InjectableStrategy {
     writeFileFromBuffer(fileName: string, data: Buffer): Promise<string>

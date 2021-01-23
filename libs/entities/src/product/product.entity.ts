@@ -12,17 +12,15 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {
-    Asset,
-    Collection,
-    FacetValue,
-    ProductAsset,
-    ProductOptionGroup,
-    ProductVariant,
-    View,
-    Hsn,
-    Serviceable
-} from '../';
+import { ProductAsset } from './product-asset.entity';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { FacetValue } from '../facet-value/facet-value.entity';
+import { ProductOptionGroup } from '../product-option-group/product-option-group.entity';
+import { Serviceable } from '../serviceable/serviceable.entity';
+import { Asset } from '../asset/asset.entity';
+import { Collection } from '../collection/collection.entity';
+import { Hsn } from '../hsn/hsn.entity';
+import { View } from '../view/view.entity';
 
 @ObjectType('Product', {isAbstract: true})
 @Entity({name: 'product'})

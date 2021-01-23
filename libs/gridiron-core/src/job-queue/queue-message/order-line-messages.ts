@@ -1,4 +1,4 @@
-import {OrderStageType} from "../../enums";
+import { OrderStageType } from "@gridiron/entities";
 import {WorkerMessage} from "../../worker";
 
 export interface ProcessOrderLineResponse {

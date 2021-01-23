@@ -1,10 +1,10 @@
-import {GridIronEntity} from '../../../entity/base/base.entity';
 import {BaseEntity, Connection, FindConditions, FindManyOptions, FindOneOptions, FindOptionsUtils, SelectQueryBuilder} from 'typeorm';
-import {Injectable} from '@nestjs/common';
+import {Injectable, Type} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
-import {ListQueryOptions, Type} from '../../../common';
 import {parseSortParams} from './parse-sort-params';
 import {parseFilterParams} from './parse-filter-params';
+import { GridIronEntity } from '@gridiron/entities';
+import { ListQueryOptions } from '@gridiron/gridiron-common';
 
 export type ExtendedListQueryOptions<T extends GridIronEntity | BaseEntity> = {
     relations?: string[]
@@ -18,7 +18,7 @@ export class ListQueryBuilder {
         @InjectConnection() private connection: Connection
     ) {}
 
-    build<T extends GridIronEntity | BaseEntity>(
+    build<T extends BaseEntity>(
         entity: Type<T>,
         options: ListQueryOptions<T> = {},
         extendedOptions: ExtendedListQueryOptions<T> = {}

@@ -8,7 +8,8 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableConnection, FilterableField, PagingStrategies} from "@nestjs-query/query-graphql";
-import {Product, ProductVariantPrice} from "..";
+import { Product } from "../product/product.entity";
+import { ProductVariantPrice } from "../product-variant/product-variant-price.entity";
 
 @ObjectType('Hsn', {isAbstract: true})
 @Entity({name: 'hsn'})

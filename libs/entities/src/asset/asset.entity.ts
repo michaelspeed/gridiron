@@ -1,4 +1,5 @@
 import {
+    BaseEntity,
     Column,
     CreateDateColumn, DeleteDateColumn,
     Entity,
@@ -13,9 +14,13 @@ import {FocalPoint} from '../common/FocalPoint';
 import {GraphQLJSONObject} from 'graphql-type-json';
 import {AssetsFolder} from './assets-folder.entity';
 import {DeepPartial} from '@gridiron/gridiron-common';
-import {GridIronEntity} from '../base/base.entity';
-import {Collection, Menu, Product, ProductAsset, ProductVariant, Store} from '../';
 import { AssetType } from '../enums/AssetType';
+import { ProductAsset } from '../product/product-asset.entity';
+import { Product } from '../product/product.entity';
+import { Collection } from '../collection/collection.entity';
+import { Menu } from '../menu/menu.entity';
+import { Store } from '../Store/store.entity';
+import { ProductVariant } from '../product-variant/product-variant.entity';
 
 registerEnumType(AssetType, {
     name: 'AssetType'
@@ -28,10 +33,15 @@ registerEnumType(AssetType, {
 @Relation('collection', () => Collection, {nullable: true, pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true, relationName: 'collection'})
 @Relation('menu', () => Menu, {nullable: true, pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true, relationName: 'menu'})
 @Relation('store', () => Store, {nullable: true, pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true, relationName: 'store'})
-export class Asset extends GridIronEntity {
+export class Asset extends BaseEntity {
 
     constructor(input?: DeepPartial<Asset>) {
-        super(input);
+        super();
+        if (input) {
+            for (const [key, value] of Object.entries(input)) {
+                (this as any)[key] = value
+            }
+        }
     }
 
     @FilterableField(() => ID)
@@ -82,28 +92,28 @@ export class Asset extends GridIronEntity {
     @Column()
     preview: string;
 
-    @OneToMany(type1 => ProductVariant, vr => vr.asset)
+    @OneToMany(() => ProductVariant, vr => vr.asset)
     variantAsset: ProductVariant[]
 
-    @OneToMany(type1 => Product, pr => pr.featuredAsset)
+    @OneToMany(() => Product, pr => pr.featuredAsset)
     featured: Product[]
 
-    @OneToMany(type1 => ProductAsset, passet => passet.asset)
+    @OneToMany(() => ProductAsset, passet => passet.asset)
     productAsset: ProductAsset[]
 
     @Field(() => GraphQLJSONObject)
     @Column('simple-json', { nullable: true })
     focalPoint?: FocalPoint;
 
-    @ManyToOne(type => AssetsFolder, folder => folder.assets)
+    @ManyToOne(() => AssetsFolder)
     folder: AssetsFolder
 
-    @OneToOne(type => Collection, collection => collection.asset)
+    @OneToOne(() => Collection, collection => collection.asset)
     collection: Collection
 
-    @OneToOne(type => Menu, menu => menu.asset)
+    @OneToOne(() => Menu, menu => menu.asset)
     menu: Menu
 
-    @OneToOne(type => Store, store => store.logo)
+    @OneToOne(() => Store, store => store.logo)
     store: Store
 }

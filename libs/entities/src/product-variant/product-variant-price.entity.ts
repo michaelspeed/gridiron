@@ -11,7 +11,13 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, FilterableRelation, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {CartItem, Hsn, ProductVariant, PromotionVariantPrice, StockBackLog, Store, TaxRate} from '../';
+import { ProductVariant } from './product-variant.entity';
+import { TaxRate } from '../tax-rate/tax-rate.entity';
+import { Store } from '../Store/store.entity';
+import { PromotionVariantPrice } from '../promotion-variant/promotion-variant-price.entity';
+import { StockBackLog } from '../stock-movement/stock-back-log.entity';
+import { Hsn } from '../hsn/hsn.entity';
+import { CartItem } from '../cart/cartItem.entity';
 
 @ObjectType('ProductVariantPrice', {isAbstract: true})
 @Entity({name: 'productVariantPrice'})

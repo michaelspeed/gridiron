@@ -1,17 +1,9 @@
-import {Args, Context, Field, ID, Int, Mutation, ObjectType, Query, Resolver} from "@nestjs/graphql";
-import {Asset, Product, ProductVariant, ProductVariantPrice, Review} from "../../../entity";
+import { ProductVariant, Product, ProductVariantPrice, Asset, Review } from "@gridiron/entities";
+import {Args, Context, ID, Int, Mutation, Query, Resolver} from "@nestjs/graphql";
 import {ShopProductsService} from "../../../service";
 
-@ObjectType()
-class StockZip {
-    @Field()
-    stock: boolean
 
-    @Field()
-    zip: boolean
-}
-
-@Resolver(of => ProductVariant)
+@Resolver(() => ProductVariant)
 export class ShopProductVariantResolver {
     constructor(
         private readonly shopProductsService: ShopProductsService

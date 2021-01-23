@@ -1,8 +1,12 @@
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Cancellation, ProductVariant, Sale, StockMovement, Store,} from '..';
 import { StockKeepingType } from '../enums/StockKeepingType';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { Store } from '../Store/store.entity';
+import { StockMovement } from './stock-movement.entity';
+import { Cancellation } from './cancellation.entity';
+import { Sale } from './sale.entity';
 
 registerEnumType(StockKeepingType, {
     name: 'StockKeepingType'

@@ -1,7 +1,6 @@
+import { Address, AddressType } from "@gridiron/entities";
 import {Args, Context, ID, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {Address} from "../../../entity";
 import {ShopAddressService} from "../../../service";
-import {AddressType} from "../../../enums/AddressType";
 
 @Resolver(() => Address)
 export class ShopAddressResolver {

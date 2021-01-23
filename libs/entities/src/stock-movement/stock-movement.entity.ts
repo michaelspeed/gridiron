@@ -1,7 +1,7 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {StockKeeping} from '..';
+import { StockKeeping } from './stock-keeping.entity';
 
 @ObjectType('StockMovement', {isAbstract: true})
 @Entity({name: 'StockMovement'})

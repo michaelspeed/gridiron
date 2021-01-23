@@ -1,7 +1,7 @@
+import { Cart, CartItem, ProductVariantPrice, ProductVariant, User } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Cart, CartItem, ProductVariant, ProductVariantPrice, User} from "../../../entity";
 
 @Injectable()
 export class ShopCartService {

@@ -1,7 +1,6 @@
+import { normalizeString } from '@gridiron/gridiron-common';
 import * as path from 'path';
 import {AssetsNamingStrategy} from './assets-naming-strategy';
-import {normalizeString} from '../../common';
-
 export class DefaultAssetsNamingStrategy implements AssetsNamingStrategy {
     private readonly numberingRe = /__(\d+)(\.[^.]+)?$/;
 

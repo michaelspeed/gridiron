@@ -1,9 +1,8 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Address, User} from "../../../entity";
 import {JwtService} from "@nestjs/jwt";
-import {AddressType} from "../../../enums/AddressType";
+import { Address, AddressType, User } from "@gridiron/entities";
 
 @Injectable()
 export class ShopAddressService {

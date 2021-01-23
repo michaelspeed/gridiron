@@ -11,7 +11,8 @@ import {
 } from 'typeorm';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
-import {Store, Zone} from '..';
+import { Zone } from '../zone/zone.entity';
+import { Store } from '../Store/store.entity';
 
 export enum CountryZone {
     ASIA = 'ASIA',

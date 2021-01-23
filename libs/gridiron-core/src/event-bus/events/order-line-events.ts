@@ -1,6 +1,5 @@
+import { OrderLine, OrderStageType, User } from "@gridiron/entities";
 import {GridIronEvents} from "../";
-import {OrderLine, User} from "../../entity";
-import {OrderStageType} from "../../enums/OrderStageType";
 
 export class OrderLineEvents extends GridIronEvents {
     constructor(

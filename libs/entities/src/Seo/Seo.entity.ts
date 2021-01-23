@@ -1,7 +1,8 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
-import {Collection, ProductVariant} from '..';
+import {Collection} from '../collection/collection.entity';
+import { ProductVariant } from '../product-variant/product-variant.entity';
 
 @ObjectType('Seo', {isAbstract: true})
 @Entity({name: 'seo'})

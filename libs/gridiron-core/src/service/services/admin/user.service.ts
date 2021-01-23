@@ -1,9 +1,9 @@
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {ResetCode, User} from '../../../entity';
 import {JwtService} from '@nestjs/jwt';
 import uniqid from 'uniqid'
+import { User, ResetCode } from '@gridiron/entities';
 
 @Injectable()
 export class UserService {

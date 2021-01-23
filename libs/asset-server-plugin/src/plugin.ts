@@ -5,21 +5,15 @@ import {createHash} from 'crypto';
 import * as express from 'express';
 import {NextFunction, Request, Response} from 'express';
 import { fromBuffer } from 'file-type';
-import fs from 'fs-extra';
+import * as fs from 'fs-extra';
 import {AssetServerOptions, ImageTransformPreset} from './types';
 import {defaultAssetStorageStrategyFactory} from './default-storage-strategy-factory';
 import {SharpAssetPreviewStrategy} from './SharpAssetPreviewStrategy';
 import {HashedNamingStrategy} from './hashed-naming-strategy';
 import {loggerCtx} from './constants';
 import {transformImage} from './transform-image';
-import {
-    AssetsStorageStrategy, createProxyHandler,
-    GridironPlugin,
-    HealthCheckRegistryService, Logger,
-    OnGridironBootstrap,
-    OnGridironClose,
-    PluginCommonModule, RuntimeGridIronConfig, Type
-} from '@gridiron/gridiron-core';
+import { Type } from '@gridiron/gridiron-common';
+import { AssetsStorageStrategy, createProxyHandler, GridironPlugin, HealthCheckRegistryService, Logger, OnGridironBootstrap, OnGridironClose, PluginCommonModule, RuntimeGridIronConfig } from '@gridiron/gridiron-core';
 
 
 @GridironPlugin({

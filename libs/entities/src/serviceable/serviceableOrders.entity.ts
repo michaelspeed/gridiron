@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
 import {ID, ObjectType} from "@nestjs/graphql";
-import {OrderLine} from "../";
+import { OrderLine } from "../order-line/order-line.entity";
 
 @ObjectType('ServiceableOrders', {isAbstract: true})
 @Entity({name: 'serviceableorder'})

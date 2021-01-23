@@ -1,10 +1,9 @@
 import {Injectable, OnModuleInit} from '@nestjs/common';
 import {EventBus, VendorEvents} from '../../../event-bus';
-import {BillingAgreement, BillingAgreementRequest, Collection, ProductVariant, Store, Vendor} from '../../../entity';
-import {BillingAgreementEnum, BillingAgreementState} from '../../../enums/BillingAgreementEnum';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
 import {JobQueue, JobQueueService} from '../../../job-queue/';
+import { Vendor, BillingAgreement, BillingAgreementEnum, BillingAgreementState, Collection, BillingAgreementRequest, ProductVariant, Store } from '@gridiron/entities';
 
 @Injectable()
 export class BillingAgreementService implements OnModuleInit {
@@ -54,7 +53,7 @@ export class BillingAgreementService implements OnModuleInit {
     }
 
     onCreateVendorMultipleAgreement(vendor: Vendor): Promise<BillingAgreement[]> {
-        return new Promise<BillingAgreement[]>(async (resolve, reject) => {
+        return new Promise<BillingAgreement[]>(async (resolve) => {
             const allBillingAgreement: BillingAgreement[] = []
             const allCollection = await this.connection.getRepository(Collection).find()
             for (const col of allCollection) {

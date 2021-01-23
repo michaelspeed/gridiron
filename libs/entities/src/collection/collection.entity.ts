@@ -11,7 +11,12 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Seo, BillingAgreement, Product, CartPrice, View, Asset} from '../';
+import { BillingAgreement } from '../billing-agreement/BillingAgreement';
+import { Product } from '../product/product.entity';
+import { Seo } from '../Seo/Seo.entity';
+import { Asset } from '../asset/asset.entity';
+import { CartPrice } from '../promotion-variant/cart-price.entity';
+import { View } from '../view/view.entity';
 
 @ObjectType('Collection', {isAbstract: true})
 @Entity({name: 'collection'})

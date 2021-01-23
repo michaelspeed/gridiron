@@ -1,0 +1,4232 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AssetCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  type: Int
+  mimeType: Int
+  width: Int
+  height: Int
+  fileSize: Int
+  source: Int
+  preview: Int
+}
+
+type AssetSumAggregate {
+  width: Float
+  height: Float
+  fileSize: Float
+}
+
+type AssetAvgAggregate {
+  width: Float
+  height: Float
+  fileSize: Float
+}
+
+type AssetMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  type: AssetType
+  mimeType: String
+  width: Float
+  height: Float
+  fileSize: Float
+  source: String
+  preview: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum AssetType {
+  IMAGE
+  VIDEO
+  BINARY
+}
+
+type AssetMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  type: AssetType
+  mimeType: String
+  width: Float
+  height: Float
+  fileSize: Float
+  source: String
+  preview: String
+}
+
+type AssetFeaturedsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type AssetFeaturedsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type AssetFeaturedsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type AssetProductAssetsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type AssetProductAssetsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type AssetProductAssetsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type RoleCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+  description: Int
+}
+
+type RoleMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  description: String
+}
+
+type RoleMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  description: String
+}
+
+type CollectionCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  isRoot: Int
+  inMenu: Int
+  position: Int
+  isPrivate: Int
+  name: Int
+  description: Int
+}
+
+type CollectionSumAggregate {
+  position: Float
+}
+
+type CollectionAvgAggregate {
+  position: Float
+}
+
+type CollectionMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  position: Float
+  name: String
+  description: String
+}
+
+type CollectionMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  position: Float
+  name: String
+  description: String
+}
+
+type CollectionChildrenCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  isRoot: Int
+  inMenu: Int
+  position: Int
+  isPrivate: Int
+  name: Int
+  description: Int
+}
+
+type CollectionChildrenSumAggregate {
+  position: Float
+}
+
+type CollectionChildrenAvgAggregate {
+  position: Float
+}
+
+type CollectionChildrenMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  position: Float
+  name: String
+  description: String
+}
+
+type CollectionChildrenMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  position: Float
+  name: String
+  description: String
+}
+
+type CollectionProductsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type CollectionProductsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type CollectionProductsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type CollectionAgreementsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  value: Int
+}
+
+type CollectionAgreementsSumAggregate {
+  value: Float
+}
+
+type CollectionAgreementsAvgAggregate {
+  value: Float
+}
+
+type CollectionAgreementsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  value: Float
+}
+
+type CollectionAgreementsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  value: Float
+}
+
+type ChannelCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  code: Int
+  token: Int
+  defaultLanguageCode: Int
+  currencyCode: Int
+  pricesIncludeTax: Int
+}
+
+type ChannelMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  code: String
+  token: String
+  defaultLanguageCode: LanguageCode
+  currencyCode: CurrencyCode
+}
+
+enum LanguageCode {
+  aa
+  ab
+  af
+  ak
+  sq
+  am
+  ar
+  an
+  hy
+  as
+  av
+  ae
+  ay
+  az
+  ba
+  bm
+  eu
+  be
+  bn
+  bh
+  bi
+  bs
+  br
+  bg
+  my
+  ca
+  ch
+  ce
+  zh
+  cu
+  cv
+  kw
+  co
+  cr
+  cs
+  da
+  dv
+  nl
+  dz
+  en
+  eo
+  et
+  ee
+  fo
+  fj
+  fi
+  fr
+  fy
+  ff
+  ka
+  de
+  gd
+  ga
+  gl
+  gv
+  el
+  gn
+  gu
+  ht
+  ha
+  he
+  hz
+  hi
+  ho
+  hr
+  hu
+  ig
+  is
+  io
+  ii
+  iu
+  ie
+  ia
+  id
+  ik
+  it
+  jv
+  ja
+  kl
+  kn
+  ks
+  kr
+  kk
+  km
+  ki
+  rw
+  ky
+  kv
+  kg
+  ko
+  kj
+  ku
+  lo
+  la
+  lv
+  li
+  ln
+  lt
+  lb
+  lu
+  lg
+  mk
+  mh
+  ml
+  mi
+  mr
+  ms
+  mg
+  mt
+  mn
+  na
+  nv
+  nr
+  nd
+  ng
+  ne
+  nn
+  nb
+  no
+  ny
+  oc
+  oj
+  or
+  om
+  os
+  pa
+  fa
+  pi
+  pl
+  pt
+  ps
+  qu
+  rm
+  ro
+  rn
+  ru
+  sg
+  sa
+  si
+  sk
+  sl
+  se
+  sm
+  sn
+  sd
+  so
+  st
+  es
+  sc
+  sr
+  ss
+  su
+  sw
+  sv
+  ty
+  ta
+  tt
+  te
+  tg
+  tl
+  th
+  bo
+  ti
+  to
+  tn
+  ts
+  tk
+  tr
+  tw
+  ug
+  uk
+  ur
+  uz
+  ve
+  vi
+  vo
+  cy
+  wa
+  wo
+  xh
+  yi
+  yo
+  za
+  zu
+}
+
+enum CurrencyCode {
+  AED
+  AFN
+  ALL
+  AMD
+  ANG
+  AOA
+  ARS
+  AUD
+  AWG
+  AZN
+  BAM
+  BBD
+  BDT
+  BGN
+  BHD
+  BIF
+  BMD
+  BND
+  BOB
+  BRL
+  BSD
+  BTN
+  BWP
+  BYN
+  BZD
+  CAD
+  CDF
+  CHF
+  CLP
+  CNY
+  COP
+  CRC
+  CUC
+  CUP
+  CVE
+  CZK
+  DJF
+  DKK
+  DOP
+  DZD
+  EGP
+  ERN
+  ETB
+  EUR
+  FJD
+  FKP
+  GBP
+  GEL
+  GHS
+  GIP
+  GMD
+  GNF
+  GTQ
+  GYD
+  HKD
+  HNL
+  HRK
+  HTG
+  HUF
+  IDR
+  ILS
+  INR
+  IQD
+  IRR
+  ISK
+  JMD
+  JOD
+  JPY
+  KES
+  KGS
+  KHR
+  KMF
+  KPW
+  KRW
+  KWD
+  KYD
+  KZT
+  LAK
+  LBP
+  LKR
+  LRD
+  LSL
+  LYD
+  MAD
+  MDL
+  MGA
+  MKD
+  MMK
+  MNT
+  MOP
+  MRU
+  MUR
+  MVR
+  MWK
+  MXN
+  MYR
+  MZN
+  NAD
+  NGN
+  NIO
+  NOK
+  NPR
+  NZD
+  OMR
+  PAB
+  PEN
+  PGK
+  PHP
+  PKR
+  PLN
+  PYG
+  QAR
+  RON
+  RSD
+  RUB
+  RWF
+  SAR
+  SBD
+  SCR
+  SDG
+  SEK
+  SGD
+  SHP
+  SLL
+  SOS
+  SRD
+  SSP
+  STN
+  SVC
+  SYP
+  SZL
+  THB
+  TJS
+  TMT
+  TND
+  TOP
+  TRY
+  TTD
+  TWD
+  TZS
+  UAH
+  UGX
+  USD
+  UYU
+  UZS
+  VES
+  VND
+  VUV
+  WST
+  XAF
+  XCD
+  XOF
+  XPF
+  YER
+  ZAR
+  ZMW
+  ZWL
+}
+
+type ChannelMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  code: String
+  token: String
+  defaultLanguageCode: LanguageCode
+  currencyCode: CurrencyCode
+}
+
+type StoreCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  storeName: Int
+  phoneNumber: Int
+  officialemail: Int
+  zipcode: Int
+  streetAddress1: Int
+  streetAddress2: Int
+  GSTIN: Int
+  singleStore: Int
+  rentalStore: Int
+  channelMarkets: Int
+  services: Int
+  assetAPI: Int
+  mainAPI: Int
+}
+
+type StoreMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type StoreMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type StoreInvoicesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  type: Int
+  total: Int
+  amount: Int
+  fees: Int
+  tax: Int
+  nulled: Int
+}
+
+type StoreInvoicesSumAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type StoreInvoicesAvgAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type StoreInvoicesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+enum InvoiceEnum {
+  STORE
+  CONSUMER
+  MASTER
+}
+
+type StoreInvoicesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type StoreZipsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  slug: Int
+  code: Int
+}
+
+type StoreZipsSumAggregate {
+  code: Float
+}
+
+type StoreZipsAvgAggregate {
+  code: Float
+}
+
+type StoreZipsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type StoreZipsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type StoreBacklogsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StoreBacklogsSumAggregate {
+  quantity: Float
+}
+
+type StoreBacklogsAvgAggregate {
+  quantity: Float
+}
+
+type StoreBacklogsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StoreBacklogsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StoreCartsCountAggregate {
+  id: Int
+}
+
+type StoreCartsMinAggregate {
+  id: ID
+}
+
+type StoreCartsMaxAggregate {
+  id: ID
+}
+
+type StorePricesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  price: Int
+  taxIncluded: Int
+}
+
+type StorePricesSumAggregate {
+  price: Float
+}
+
+type StorePricesAvgAggregate {
+  price: Float
+}
+
+type StorePricesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type StorePricesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type StoreSettlementsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  amount: Int
+  taxamount: Int
+  finalamount: Int
+  transactionID: Int
+  remarks: Int
+  type: Int
+}
+
+type StoreSettlementsSumAggregate {
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+}
+
+type StoreSettlementsAvgAggregate {
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+}
+
+type StoreSettlementsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+  transactionID: String
+  remarks: String
+  type: SettlementType
+}
+
+enum SettlementType {
+  PROCESSING
+  PROCESSED
+}
+
+type StoreSettlementsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+  transactionID: String
+  remarks: String
+  type: SettlementType
+}
+
+type StoreSkusCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+  available_quantity: Int
+  threshold: Int
+  multiple: Int
+  backorder: Int
+  stockstatus: Int
+  sku: Int
+  type: Int
+}
+
+type StoreSkusSumAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type StoreSkusAvgAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type StoreSkusMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+enum StockKeepingType {
+  GLOBAL
+  VENDOR
+}
+
+type StoreSkusMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+type TaxCategoryCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+}
+
+type TaxCategoryMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type TaxCategoryMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type TaxCategoryRatesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  value: Int
+  enabled: Int
+}
+
+type TaxCategoryRatesSumAggregate {
+  value: Float
+}
+
+type TaxCategoryRatesAvgAggregate {
+  value: Float
+}
+
+type TaxCategoryRatesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type TaxCategoryRatesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type TaxRateCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  value: Int
+  enabled: Int
+}
+
+type TaxRateSumAggregate {
+  value: Float
+}
+
+type TaxRateAvgAggregate {
+  value: Float
+}
+
+type TaxRateMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type TaxRateMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type TaxRateVariantsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  price: Int
+  taxIncluded: Int
+}
+
+type TaxRateVariantsSumAggregate {
+  price: Float
+}
+
+type TaxRateVariantsAvgAggregate {
+  price: Float
+}
+
+type TaxRateVariantsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type TaxRateVariantsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type UserCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  email: Int
+  verified: Int
+  verificationToken: Int
+  passwordResetToken: Int
+  identifierChangeToken: Int
+  pendingIdentifier: Int
+  lastLogin: Int
+  firstName: Int
+  lastName: Int
+  phoneNumber: Int
+}
+
+type UserMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String
+  verificationToken: String
+  passwordResetToken: String
+  identifierChangeToken: String
+  pendingIdentifier: String
+  lastLogin: DateTime
+  firstName: String
+  lastName: String
+  phoneNumber: String
+}
+
+type UserMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String
+  verificationToken: String
+  passwordResetToken: String
+  identifierChangeToken: String
+  pendingIdentifier: String
+  lastLogin: DateTime
+  firstName: String
+  lastName: String
+  phoneNumber: String
+}
+
+type UserOrdersCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  totalPrice: Int
+  address: Int
+}
+
+type UserOrdersSumAggregate {
+  totalPrice: Float
+}
+
+type UserOrdersAvgAggregate {
+  totalPrice: Float
+}
+
+type UserOrdersMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  totalPrice: Float
+  address: String
+}
+
+type UserOrdersMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  totalPrice: Float
+  address: String
+}
+
+type UserAddressesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  fullName: Int
+  addressLine: Int
+  city: Int
+  state: Int
+  landmark: Int
+  postalCode: Int
+  phoneNumber: Int
+  alternatePhoneNumber: Int
+  defaultShippingAddress: Int
+  defaultBillingAddress: Int
+  addressType: Int
+}
+
+type UserAddressesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  fullName: String
+  addressLine: String
+  city: String
+  state: String
+  landmark: String
+  postalCode: String
+  phoneNumber: String
+  alternatePhoneNumber: String
+  addressType: AddressType
+}
+
+enum AddressType {
+  HOME
+  WORK
+}
+
+type UserAddressesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  fullName: String
+  addressLine: String
+  city: String
+  state: String
+  landmark: String
+  postalCode: String
+  phoneNumber: String
+  alternatePhoneNumber: String
+  addressType: AddressType
+}
+
+type VendorCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  vendorName: Int
+  phoneNumber: Int
+  email: Int
+}
+
+type VendorMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type VendorMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type VendorZipsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  slug: Int
+  code: Int
+}
+
+type VendorZipsSumAggregate {
+  code: Float
+}
+
+type VendorZipsAvgAggregate {
+  code: Float
+}
+
+type VendorZipsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type VendorZipsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type ZoneCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+}
+
+type ZoneMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type ZoneMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type ZoneMembersCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+  name: Int
+  enabled: Int
+}
+
+type ZoneMembersMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  name: String
+}
+
+type ZoneMembersMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  name: String
+}
+
+type ZoneStoresCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  storeName: Int
+  phoneNumber: Int
+  officialemail: Int
+  zipcode: Int
+  streetAddress1: Int
+  streetAddress2: Int
+  GSTIN: Int
+  singleStore: Int
+  rentalStore: Int
+  channelMarkets: Int
+  services: Int
+  assetAPI: Int
+  mainAPI: Int
+}
+
+type ZoneStoresMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type ZoneStoresMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type ZoneTaxratesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  value: Int
+  enabled: Int
+}
+
+type ZoneTaxratesSumAggregate {
+  value: Float
+}
+
+type ZoneTaxratesAvgAggregate {
+  value: Float
+}
+
+type ZoneTaxratesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type ZoneTaxratesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  value: Float
+}
+
+type CountryCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+  name: Int
+  enabled: Int
+}
+
+type CountryMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  name: String
+}
+
+type CountryMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  name: String
+}
+
+type CountryStoresCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  storeName: Int
+  phoneNumber: Int
+  officialemail: Int
+  zipcode: Int
+  streetAddress1: Int
+  streetAddress2: Int
+  GSTIN: Int
+  singleStore: Int
+  rentalStore: Int
+  channelMarkets: Int
+  services: Int
+  assetAPI: Int
+  mainAPI: Int
+}
+
+type CountryStoresMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type CountryStoresMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type CountryZonesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+}
+
+type CountryZonesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type CountryZonesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+}
+
+type SeoCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  urlKey: Int
+  metatitle: Int
+}
+
+type SeoMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  urlKey: String
+  metatitle: String
+}
+
+type SeoMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  urlKey: String
+  metatitle: String
+}
+
+type FacetCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  isPrivate: Int
+  code: Int
+}
+
+type FacetMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type FacetMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type FacetProductsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type FacetProductsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type FacetProductsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type FacetValuesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+}
+
+type FacetValuesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type FacetValuesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type FacetValueCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+}
+
+type FacetValueMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type FacetValueMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type FacetValueProductsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type FacetValueProductsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type FacetValueProductsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ProductCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type ProductMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ProductMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ProductOptionsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  code: Int
+}
+
+type ProductOptionsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductFacetsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+}
+
+type ProductFacetsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type ProductFacetsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+}
+
+type ProductVariantsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  dum_price: Int
+  enabled: Int
+  sku: Int
+  name: Int
+  rating: Int
+  trackInventory: Int
+}
+
+type ProductVariantsSumAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductVariantsAvgAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductVariantsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductVariantsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductAssetsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type ProductAssetsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductAssetsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductVariantCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  dum_price: Int
+  enabled: Int
+  sku: Int
+  name: Int
+  rating: Int
+  trackInventory: Int
+}
+
+type ProductVariantSumAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductVariantAvgAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductVariantMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductVariantMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductVariantLinesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  quantity: Int
+}
+
+type ProductVariantLinesSumAggregate {
+  quantity: Float
+}
+
+type ProductVariantLinesAvgAggregate {
+  quantity: Float
+}
+
+type ProductVariantLinesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  quantity: Float
+}
+
+type ProductVariantLinesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  quantity: Float
+}
+
+type ProductVariantStocksCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+  available_quantity: Int
+  threshold: Int
+  multiple: Int
+  backorder: Int
+  stockstatus: Int
+  sku: Int
+  type: Int
+}
+
+type ProductVariantStocksSumAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type ProductVariantStocksAvgAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type ProductVariantStocksMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+type ProductVariantStocksMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+type ProductVariantAgreementsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  value: Int
+}
+
+type ProductVariantAgreementsSumAggregate {
+  value: Float
+}
+
+type ProductVariantAgreementsAvgAggregate {
+  value: Float
+}
+
+type ProductVariantAgreementsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  value: Float
+}
+
+type ProductVariantAgreementsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  value: Float
+}
+
+type ProductVariantPricesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  price: Int
+  taxIncluded: Int
+}
+
+type ProductVariantPricesSumAggregate {
+  price: Float
+}
+
+type ProductVariantPricesAvgAggregate {
+  price: Float
+}
+
+type ProductVariantPricesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type ProductVariantPricesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type ProductOptionCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  code: Int
+}
+
+type ProductOptionMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionVariantsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  dum_price: Int
+  enabled: Int
+  sku: Int
+  name: Int
+  rating: Int
+  trackInventory: Int
+}
+
+type ProductOptionVariantsSumAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductOptionVariantsAvgAggregate {
+  dum_price: Float
+  rating: Float
+}
+
+type ProductOptionVariantsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductOptionVariantsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  dum_price: Float
+  sku: String
+  name: String
+  rating: Float
+}
+
+type ProductOptionGroupCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  code: Int
+}
+
+type ProductOptionGroupMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionGroupMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionGroupOptionsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  code: Int
+}
+
+type ProductOptionGroupOptionsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductOptionGroupOptionsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  code: String
+}
+
+type ProductVariantPriceCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  price: Int
+  taxIncluded: Int
+}
+
+type ProductVariantPriceSumAggregate {
+  price: Float
+}
+
+type ProductVariantPriceAvgAggregate {
+  price: Float
+}
+
+type ProductVariantPriceMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type ProductVariantPriceMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type ProductVariantPriceBacklogsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type ProductVariantPriceBacklogsSumAggregate {
+  quantity: Float
+}
+
+type ProductVariantPriceBacklogsAvgAggregate {
+  quantity: Float
+}
+
+type ProductVariantPriceBacklogsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type ProductVariantPriceBacklogsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type ProductVariantAssetCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type ProductVariantAssetMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductVariantAssetMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductAssetCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type ProductAssetMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductAssetMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type VendorPlansCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  isActive: Int
+  name: Int
+  planValue: Int
+}
+
+type VendorPlansSumAggregate {
+  planValue: Float
+}
+
+type VendorPlansAvgAggregate {
+  planValue: Float
+}
+
+type VendorPlansMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  planValue: Float
+}
+
+type VendorPlansMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  planValue: Float
+}
+
+type VendorPlansLicencesCountAggregate {
+  id: Int
+  deletedAt: Int
+  tenureStart: Int
+  tenureEnd: Int
+}
+
+type VendorPlansLicencesMinAggregate {
+  id: ID
+  deletedAt: DateTime
+  tenureStart: DateTime
+  tenureEnd: DateTime
+}
+
+type VendorPlansLicencesMaxAggregate {
+  id: ID
+  deletedAt: DateTime
+  tenureStart: DateTime
+  tenureEnd: DateTime
+}
+
+type VendorLicenseCountAggregate {
+  id: Int
+  deletedAt: Int
+  tenureStart: Int
+  tenureEnd: Int
+}
+
+type VendorLicenseMinAggregate {
+  id: ID
+  deletedAt: DateTime
+  tenureStart: DateTime
+  tenureEnd: DateTime
+}
+
+type VendorLicenseMaxAggregate {
+  id: ID
+  deletedAt: DateTime
+  tenureStart: DateTime
+  tenureEnd: DateTime
+}
+
+type StockKeepingCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+  available_quantity: Int
+  threshold: Int
+  multiple: Int
+  backorder: Int
+  stockstatus: Int
+  sku: Int
+  type: Int
+}
+
+type StockKeepingSumAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type StockKeepingAvgAggregate {
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+}
+
+type StockKeepingMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+type StockKeepingMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+  available_quantity: Float
+  threshold: Float
+  sku: String
+  type: StockKeepingType
+}
+
+type StockKeepingSalesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StockKeepingSalesSumAggregate {
+  quantity: Float
+}
+
+type StockKeepingSalesAvgAggregate {
+  quantity: Float
+}
+
+type StockKeepingSalesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockKeepingSalesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockKeepingCancelsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StockKeepingCancelsSumAggregate {
+  quantity: Float
+}
+
+type StockKeepingCancelsAvgAggregate {
+  quantity: Float
+}
+
+type StockKeepingCancelsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockKeepingCancelsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockKeepingMovementsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StockKeepingMovementsSumAggregate {
+  quantity: Float
+}
+
+type StockKeepingMovementsAvgAggregate {
+  quantity: Float
+}
+
+type StockKeepingMovementsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockKeepingMovementsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type SaleCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type SaleSumAggregate {
+  quantity: Float
+}
+
+type SaleAvgAggregate {
+  quantity: Float
+}
+
+type SaleMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type SaleMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockMovementCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StockMovementSumAggregate {
+  quantity: Float
+}
+
+type StockMovementAvgAggregate {
+  quantity: Float
+}
+
+type StockMovementMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockMovementMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type CancellationCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type CancellationSumAggregate {
+  quantity: Float
+}
+
+type CancellationAvgAggregate {
+  quantity: Float
+}
+
+type CancellationMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type CancellationMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type OrderCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  totalPrice: Int
+  address: Int
+}
+
+type OrderSumAggregate {
+  totalPrice: Float
+}
+
+type OrderAvgAggregate {
+  totalPrice: Float
+}
+
+type OrderMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  totalPrice: Float
+  address: String
+}
+
+type OrderMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  totalPrice: Float
+  address: String
+}
+
+type OrderLinesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  stage: Int
+}
+
+type OrderLinesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  stage: OrderStageType
+}
+
+enum OrderStageType {
+  CREATED
+  PACKAGED
+  PROCESSED
+  SHIPPED
+  DELIVERED
+  RETURNINITIATED
+  RETURNED
+  RETURNEDREFUNDED
+}
+
+type OrderLinesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  stage: OrderStageType
+}
+
+type ZipCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  slug: Int
+  code: Int
+}
+
+type ZipSumAggregate {
+  code: Float
+}
+
+type ZipAvgAggregate {
+  code: Float
+}
+
+type ZipMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type ZipMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  slug: String
+  code: Float
+}
+
+type ZipStoresCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  storeName: Int
+  phoneNumber: Int
+  officialemail: Int
+  zipcode: Int
+  streetAddress1: Int
+  streetAddress2: Int
+  GSTIN: Int
+  singleStore: Int
+  rentalStore: Int
+  channelMarkets: Int
+  services: Int
+  assetAPI: Int
+  mainAPI: Int
+}
+
+type ZipStoresMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type ZipStoresMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  storeName: String
+  phoneNumber: String
+  officialemail: String
+  zipcode: String
+  streetAddress1: String
+  streetAddress2: String
+  GSTIN: String
+  assetAPI: String
+  mainAPI: String
+}
+
+type ZipVendorsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  vendorName: Int
+  phoneNumber: Int
+  email: Int
+}
+
+type ZipVendorsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type ZipVendorsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type MenuCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  title: Int
+  targetId: Int
+  target: Int
+}
+
+type MenuMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  targetId: String
+  target: MenuBuilderTypes
+}
+
+enum MenuBuilderTypes {
+  COLLECTION
+  VARIANT
+  FACET
+  PROMO
+  HEADER
+}
+
+type MenuMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  targetId: String
+  target: MenuBuilderTypes
+}
+
+type MenuChildrenCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  title: Int
+  targetId: Int
+  target: Int
+}
+
+type MenuChildrenMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  targetId: String
+  target: MenuBuilderTypes
+}
+
+type MenuChildrenMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  targetId: String
+  target: MenuBuilderTypes
+}
+
+type PageCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  title: Int
+  targetId: Int
+  pageType: Int
+  pageCategory: Int
+}
+
+type PageMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  title: String
+  targetId: String
+  pageType: PageType
+  pageCategory: PageCategory
+}
+
+enum PageType {
+  LIST
+  SINGLE
+}
+
+enum PageCategory {
+  HOME
+  CATEGORY
+  SINGLEPROD
+  PRODVARIANT
+}
+
+type PageMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  title: String
+  targetId: String
+  pageType: PageType
+  pageCategory: PageCategory
+}
+
+type AddressCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  fullName: Int
+  addressLine: Int
+  city: Int
+  state: Int
+  landmark: Int
+  postalCode: Int
+  phoneNumber: Int
+  alternatePhoneNumber: Int
+  defaultShippingAddress: Int
+  defaultBillingAddress: Int
+  addressType: Int
+}
+
+type AddressMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  fullName: String
+  addressLine: String
+  city: String
+  state: String
+  landmark: String
+  postalCode: String
+  phoneNumber: String
+  alternatePhoneNumber: String
+  addressType: AddressType
+}
+
+type AddressMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  fullName: String
+  addressLine: String
+  city: String
+  state: String
+  landmark: String
+  postalCode: String
+  phoneNumber: String
+  alternatePhoneNumber: String
+  addressType: AddressType
+}
+
+type SettlementsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  amount: Int
+  taxamount: Int
+  finalamount: Int
+  transactionID: Int
+  remarks: Int
+  type: Int
+}
+
+type SettlementsSumAggregate {
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+}
+
+type SettlementsAvgAggregate {
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+}
+
+type SettlementsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+  transactionID: String
+  remarks: String
+  type: SettlementType
+}
+
+type SettlementsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  taxamount: Float
+  finalamount: Float
+  transactionID: String
+  remarks: String
+  type: SettlementType
+}
+
+type OrderLineCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  stage: Int
+}
+
+type OrderLineMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  stage: OrderStageType
+}
+
+type OrderLineMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  stage: OrderStageType
+}
+
+type OrderLineInvoicesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  type: Int
+  total: Int
+  amount: Int
+  fees: Int
+  tax: Int
+  nulled: Int
+}
+
+type OrderLineInvoicesSumAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type OrderLineInvoicesAvgAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type OrderLineInvoicesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type OrderLineInvoicesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type OrderItemCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  quantity: Int
+}
+
+type OrderItemSumAggregate {
+  quantity: Float
+}
+
+type OrderItemAvgAggregate {
+  quantity: Float
+}
+
+type OrderItemMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  quantity: Float
+}
+
+type OrderItemMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  quantity: Float
+}
+
+type PromotionVariantPriceCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  priceType: Int
+  value: Int
+  forever: Int
+  startsAt: Int
+  endsAt: Int
+  enabled: Int
+}
+
+type PromotionVariantPriceSumAggregate {
+  value: Float
+}
+
+type PromotionVariantPriceAvgAggregate {
+  value: Float
+}
+
+type PromotionVariantPriceMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  priceType: PricePromoType
+  value: Float
+  startsAt: DateTime
+  endsAt: DateTime
+}
+
+enum PricePromoType {
+  FLAT
+  PERCENTAGE
+}
+
+type PromotionVariantPriceMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  priceType: PricePromoType
+  value: Float
+  startsAt: DateTime
+  endsAt: DateTime
+}
+
+type CartPriceRulesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  priceType: Int
+  value: Int
+}
+
+type CartPriceRulesSumAggregate {
+  value: Float
+}
+
+type CartPriceRulesAvgAggregate {
+  value: Float
+}
+
+type CartPriceRulesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  priceType: PricePromoType
+  value: Float
+}
+
+type CartPriceRulesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  priceType: PricePromoType
+  value: Float
+}
+
+type AccountCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type AccountMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type AccountMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type DeliveryCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type DeliveryMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type DeliveryMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type DeliverySignInsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+}
+
+type DeliverySignInsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type DeliverySignInsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type StockBackLogCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  quantity: Int
+}
+
+type StockBackLogSumAggregate {
+  quantity: Float
+}
+
+type StockBackLogAvgAggregate {
+  quantity: Float
+}
+
+type StockBackLogMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type StockBackLogMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  quantity: Float
+}
+
+type InvoiceCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  type: Int
+  total: Int
+  amount: Int
+  fees: Int
+  tax: Int
+  nulled: Int
+}
+
+type InvoiceSumAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type InvoiceAvgAggregate {
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type InvoiceMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type InvoiceMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  type: InvoiceEnum
+  total: Float
+  amount: Float
+  fees: Float
+  tax: Float
+}
+
+type RefundCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  reason: Int
+  destination: Int
+  transactionId: Int
+  stage: Int
+}
+
+type RefundMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  reason: String
+  destination: String
+  transactionId: String
+  stage: RefundEnum
+}
+
+enum RefundEnum {
+  INITIATED
+  REFUNDED
+}
+
+type RefundMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  reason: String
+  destination: String
+  transactionId: String
+  stage: RefundEnum
+}
+
+type PaymentCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  amount: Int
+  errorMessage: Int
+  transactionId: Int
+}
+
+type PaymentSumAggregate {
+  amount: Float
+}
+
+type PaymentAvgAggregate {
+  amount: Float
+}
+
+type PaymentMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  errorMessage: String
+  transactionId: String
+}
+
+type PaymentMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  amount: Float
+  errorMessage: String
+  transactionId: String
+}
+
+type ViewCodeCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  name: Int
+  value: Int
+  description: Int
+}
+
+type ViewCodeMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  value: String
+  description: String
+}
+
+type ViewCodeMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  name: String
+  value: String
+  description: String
+}
+
+type HsnCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  code: Int
+  value: Int
+}
+
+type HsnSumAggregate {
+  value: Float
+}
+
+type HsnAvgAggregate {
+  value: Float
+}
+
+type HsnMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  value: Float
+}
+
+type HsnMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  code: String
+  value: Float
+}
+
+type HsnPricesCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  price: Int
+  taxIncluded: Int
+}
+
+type HsnPricesSumAggregate {
+  price: Float
+}
+
+type HsnPricesAvgAggregate {
+  price: Float
+}
+
+type HsnPricesMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type HsnPricesMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  price: Float
+}
+
+type HsnProdsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type HsnProdsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type HsnProdsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ServiceableCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  name: Int
+  type: Int
+  mode: Int
+}
+
+type ServiceableMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  type: ServiceableTypes
+  mode: ServiceableOrderTypes
+}
+
+enum ServiceableTypes {
+  VENDOR
+  PRODUCT
+}
+
+enum ServiceableOrderTypes {
+  IMMEDIATE
+  DATE
+}
+
+type ServiceableMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  type: ServiceableTypes
+  mode: ServiceableOrderTypes
+}
+
+type ServiceableProductsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  deletedAt: Int
+  productName: Int
+  slug: Int
+  description: Int
+}
+
+type ServiceableProductsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ServiceableProductsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+  productName: String
+  slug: String
+  description: String
+}
+
+type ServiceableVendorsCountAggregate {
+  id: Int
+  createdAt: Int
+  updatedAt: Int
+  vendorName: Int
+  phoneNumber: Int
+  email: Int
+}
+
+type ServiceableVendorsMinAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type ServiceableVendorsMaxAggregate {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  vendorName: String
+  phoneNumber: String
+  email: String
+}
+
+type Query {
+  GetMenu: MenuResponseTypes!
+  getAllCollection: [Collection!]!
+  GetCollectionTree: [Collection!]!
+  GetSingleCollection(id: ID!): CollectionSingleResponse!
+  GetFacetsByCollection(id: ID!): [FacetValue!]!
+  GetProductVariantForCollection(search: String, limit: Int, id: ID!): [ProductVariant!]!
+  GetAllProdsWithPriceRangeAndFacet(search: String, last: Int, start: Int, facetIds: [String!]!, id: ID!): [ProductVariant!]!
+  getHomePage: Page!
+  getSingleProductVariant(id: ID!): ProductVariant!
+  singProductInfo(id: ID!): Product!
+  singProductPrice(id: ID!): ProductVariant!
+  GetStocksAndZipAvailability(zipf: Int!, variantId: ID!): [ProductVariantPrice!]!
+  getProductVariantByProduct(id: ID!): [ProductVariant!]!
+  getProductAsset(prodId: ID, variantId: ID): Asset!
+  GetSingleProductPrice(id: ID!): ProductVariantPrice!
+  GetDefaultStore: Store
+  GetCurrentUser: User!
+  GetUserAddress: [Address!]!
+  GetAllSearch: [Search!]!
+  queryFacet(collection: ID, id: ID!): [Product!]!
+  GetFacetDocument(id: ID!): FacetValue!
+  GetCart(id: ID!): Cart!
+  getPaymentCodes: PaymentMethod!
+  getMyOrders: [Order!]!
+  getSingleOrder(id: ID!): Order!
+}
+
+type MenuResponseTypes {
+  menu: String!
+}
+
+type Collection {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  isRoot: Boolean!
+  inMenu: Boolean!
+  position: Float!
+  isPrivate: Boolean!
+  name: String!
+  description: String!
+  children: [Collection!]!
+  products: [Product!]!
+  seo: Seo!
+  asset: Asset!
+  agreements: [BillingAgreement!]!
+  cartPrice: CartPriceRules!
+}
+
+type Product {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  productName: String!
+  slug: String!
+  description: String!
+  hsn: Hsn
+  collection: Collection
+  options: [ProductOptionGroup!]!
+  featuredAsset: Asset!
+  facets: [FacetValue!]!
+  assets: [ProductAsset!]
+  variants: [ProductVariant!]!
+  serviceable: Serviceable!
+  viewcode: [String!]!
+}
+
+type Hsn {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  code: String!
+  value: Float!
+}
+
+type ProductOptionGroup {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  name: String!
+  code: String!
+  product: Product!
+  options: [ProductOption!]!
+}
+
+type ProductOption {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  name: String!
+  code: String!
+}
+
+type Asset {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  name: String!
+  type: AssetType!
+  mimeType: String!
+  width: Float!
+  height: Float!
+  fileSize: Float!
+  source: String!
+  preview: String!
+  focalPoint: JSONObject!
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type FacetValue {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  code: String!
+  product: [Product!]!
+  facet: Facet!
+}
+
+type Facet {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  name: String!
+  isPrivate: Boolean!
+  code: String!
+}
+
+type ProductAsset {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  product: Product!
+  asset: Asset!
+}
+
+type ProductVariant {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  dum_price: Float!
+  enabled: Boolean!
+  sku: String!
+  name: String!
+  rating: Float!
+  product: Product!
+  trackInventory: Boolean!
+  asset: ProductVariantAsset
+  price: [ProductVariantPrice!]
+  specs: ProductVariantSpecs
+  seo: Seo
+  agreements: [BillingAgreement!]!
+  stock: [StockKeeping!]!
+  line: [OrderItem!]!
+  carts: [CartItem!]!
+  reviews: [Review!]!
+  viewcode: [String!]!
+}
+
+type ProductVariantAsset {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  asset: Asset!
+  variant: ProductVariant!
+}
+
+type ProductVariantPrice {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  price: Float!
+  taxIncluded: Boolean!
+  hsn: Hsn!
+  tax: TaxRate!
+  variant: ProductVariant!
+  store: Store
+  promoprice: PromotionVariantPrice
+  cartItem: CartItem
+  backlog: StockBackLog
+}
+
+type TaxRate {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  value: Float!
+  enabled: Boolean!
+}
+
+type Store {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  storeName: String!
+  phoneNumber: String!
+  officialemail: String!
+  zipcode: String!
+  streetAddress1: String!
+  streetAddress2: String!
+  GSTIN: String!
+  singleStore: Boolean!
+  rentalStore: Boolean!
+  channelMarkets: Boolean!
+  services: Boolean!
+  assetAPI: String!
+  mainAPI: String!
+  type: StoreTypeEnum!
+  vendor: Vendor
+  logo: Asset!
+  cart: [CartItem!]!
+  backlogs: StockBackLog!
+  zip: Zip
+}
+
+enum StoreTypeEnum {
+  DEFAULT
+  VENDOR
+}
+
+type Vendor {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  vendorName: String!
+  phoneNumber: String!
+  email: String!
+  zip: Zip
+}
+
+type Zip {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  slug: String!
+  code: Float!
+}
+
+type CartItem {
+  id: ID!
+  quantity: Float!
+  cart: Cart!
+  variant: ProductVariant!
+  store: Store!
+  price: ProductVariantPrice!
+}
+
+type Cart {
+  id: ID!
+  items: [CartItem!]!
+  user: User
+}
+
+type User {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  verified: Boolean!
+  verificationToken: String
+  passwordResetToken: String
+  identifierChangeToken: String
+  pendingIdentifier: String
+  lastLogin: DateTime
+  firstName: String
+  lastName: String
+  phoneNumber: String!
+  administrator: Administrator
+  vendor: Vendor
+  delivery: Delivery
+  cart: Cart
+  view: [View!]!
+  reviews: [Review!]!
+  address: [Address!]
+  order: [Order!]
+  reset: [ResetCode!]
+}
+
+type Administrator {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  type: AdministratorEnum!
+  user: User!
+}
+
+enum AdministratorEnum {
+  SUPERADMIN
+  STAFF
+}
+
+type Delivery {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  user: User!
+  signIn: [DeliverySignIn!]!
+}
+
+type DeliverySignIn {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  delivery: Delivery!
+  pool: DeliveryPool!
+}
+
+type DeliveryPool {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  signIn: DeliverySignIn!
+  lines: [OrderLine!]!
+}
+
+type OrderLine {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  priceField: JSON!
+  stage: OrderStageType!
+  item: OrderItem!
+  store: Store!
+  invoice: [Invoice!]!
+  refund: Refund!
+  serviceable: ServiceableOrders!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type OrderItem {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  quantity: Float!
+  productVariant: ProductVariant!
+}
+
+type Invoice {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  type: InvoiceEnum!
+  total: Float!
+  amount: Float!
+  fees: Float!
+  tax: Float!
+  nulled: Boolean!
+}
+
+type Refund {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  reason: String!
+  destination: String!
+  transactionId: String!
+  stage: RefundEnum!
+}
+
+type ServiceableOrders {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  dateTime: DateTime!
+}
+
+type View {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Review {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  stars: Int!
+  text: String!
+  user: User!
+  variant: ProductVariant!
+}
+
+type Address {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  fullName: String!
+  addressLine: String!
+  city: String!
+  state: String!
+  landmark: String!
+  postalCode: String!
+  phoneNumber: String!
+  alternatePhoneNumber: String!
+  defaultShippingAddress: Boolean!
+  defaultBillingAddress: Boolean!
+  addressType: AddressType!
+}
+
+type Order {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  totalPrice: Float!
+  address: String!
+  mode: PaymentModes!
+  line: [OrderLine!]!
+}
+
+enum PaymentModes {
+  card
+  netbanking
+  wallet
+  emi
+  upi
+  cod
+}
+
+type ResetCode {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  code: String!
+  user: User!
+}
+
+type StockBackLog {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  quantity: Float!
+}
+
+type PromotionVariantPrice {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  priceType: PricePromoType!
+  value: Float!
+  forever: Boolean!
+  startsAt: DateTime!
+  endsAt: DateTime!
+  enabled: Boolean!
+}
+
+type ProductVariantSpecs {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  specs: JSON!
+  variant: ProductVariant!
+}
+
+type Seo {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  urlKey: String!
+  metatitle: String!
+  metakeywords: [String!]
+  metadesc: String!
+}
+
+type BillingAgreement {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  value: Float!
+  type: BillingAgreementEnum!
+  state: BillingAgreementState!
+  variant: ProductVariant!
+  collection: Collection
+  store: Store!
+  request: [BillingAgreementRequest!]!
+}
+
+enum BillingAgreementEnum {
+  PLANBASE
+  COLLECTIONBASE
+  COMISSIONBASE
+  PRODCOMMISSION
+}
+
+enum BillingAgreementState {
+  APPROVED
+  PENDING
+  REJECTED
+}
+
+type BillingAgreementRequest {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  value: Float!
+  state: BillingAgreementState!
+}
+
+type StockKeeping {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  quantity: Float!
+  available_quantity: Float!
+  threshold: Float!
+  multiple: Boolean!
+  backorder: Boolean!
+  stockstatus: Boolean!
+  sku: String!
+  type: StockKeepingType!
+  variant: ProductVariant!
+}
+
+type Serviceable {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  type: ServiceableTypes!
+  mode: ServiceableOrderTypes!
+}
+
+type CartPriceRules {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  priceType: PricePromoType!
+  value: Float!
+}
+
+type CollectionSingleResponse {
+  collection: Collection!
+  facetValues: [FacetValue!]!
+}
+
+type Page {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  title: String!
+  targetId: String!
+  single: JSON
+  list: [String!]
+  pageType: PageType!
+  pageCategory: PageCategory!
+}
+
+type Search {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  search: String!
+  userId: String!
+}
+
+type PaymentMethod {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  api: String!
+  secretKey: String!
+  enabled: Boolean!
+}
+
+type Mutation {
+  ShiftProductVariant(prodId: String!, name: String!): ProductVariant!
+  creteReview(stars: Float!, varId: String!, text: String!): Review!
+  createView(variant: ViewEnum!, id: String!): View!
+  CreateUser(lname: String!, fname: String!, phone: String!, password: String!, email: String!): UserResponse!
+  LoginUser(password: String!, email: String!): UserResponse!
+  UpdateAccountInfo(lname: String!, fname: String!, phone: String!): User!
+  RequestResetCode(email: String!): ResetCode!
+  CreateNewAddress(type: AddressType!, phoneNumber: String!, postalCode: String!, landmark: String!, state: String!, city: String!, addressLine: String!, fullName: String!): Address!
+  UpdateNewAddress(id: ID!, type: AddressType!, phoneNumber: String!, postalCode: String!, landmark: String!, state: String!, city: String!, addressLine: String!, fullName: String!): Address!
+  RegisterSearch(search: String!): Search!
+  addToCart(quantity: Int!, price: ID!, store: ID!, variant: ID!, userId: ID!): CartItem!
+  removeCartItem(cartId: ID!): CartItem!
+  createShopOrder(transaction: String, orderLineDto: [CartItemDto!]!, address: String!): Order!
+}
+
+enum ViewEnum {
+  PRODUCT
+  VARIANT
+  COLLECTION
+}
+
+type UserResponse {
+  user: User!
+  token: String!
+}
+
+input CartItemDto {
+  priceId: String!
+  quantity: Float!
+}

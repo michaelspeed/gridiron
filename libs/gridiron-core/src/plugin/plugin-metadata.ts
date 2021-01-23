@@ -1,7 +1,7 @@
+import { notNullOrUndefined, Type } from '@gridiron/gridiron-common';
 import {DynamicModule} from '@nestjs/common';
 import {MODULE_METADATA} from '@nestjs/common/constants';
 import {APIExtensionDefinition, PluginConfigurationFn, PluginLifecycleMethods} from './gridiron-plugin';
-import {notNullOrUndefined, Type} from '../common';
 
 export const PLUGIN_METADATA = {
     CONFIGURATION: 'configuration',

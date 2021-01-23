@@ -1,18 +1,10 @@
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import {
-    Asset,
-    Product,
-    ProductOption,
-    ProductOptionGroup,
-    ProductVariant, ProductVariantAsset,
-    ProductVariantPrice,
-    ProductVariantSpecifications, Store, StoreTypeEnum,
-} from '../../../entity';
 import slugify from 'slugify'
 import {ProductOptionsDto} from '../../../api/dto/admin/private-variant';
 import fastCartesian from 'fast-cartesian'
+import { ProductVariantSpecifications, ProductVariant, Product, ProductOptionGroup, ProductOption, ProductVariantPrice, ProductVariantAsset, Asset, Store, StoreTypeEnum } from '@gridiron/entities';
 
 @Injectable()
 export class ProductVariantsService {
@@ -44,7 +36,7 @@ export class ProductVariantsService {
         prodId: string,
         options: ProductOptionsDto[]
     ): Promise<ProductVariant[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const product = await this.connection.getRepository(Product).findOne({where:{id: prodId}})
             const cartesianArray = []
             for (const opts of options) {
@@ -71,7 +63,7 @@ export class ProductVariantsService {
                 prodvariant.name = `${product.productName} ${itsm.join(' ')}`
                 prodvariant.product = product
                 prodvariant.viewcode = []
-                const pordverd = await this.connection.getRepository(ProductVariant).save(prodvariant)
+                await this.connection.getRepository(ProductVariant).save(prodvariant)
                 prodVariants.push(prodvariant)
             }
             resolve(prodVariants)

@@ -9,7 +9,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {FilterableConnection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
-import {Vendor, Store} from "..";
+import { Vendor } from '../vendor/vendor.entity';
+import { Store } from '../Store/store.entity';
 
 @ObjectType('Zip', {isAbstract: true})
 @Entity({name: 'zip'})

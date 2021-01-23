@@ -1,5 +1,5 @@
+import { Store, StoreTypeEnum, Country } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
-import {Country, Store, StoreTypeEnum} from '../../../entity';
 
 @Injectable()
 export class StoreService {
@@ -29,7 +29,7 @@ export class StoreService {
             store.streetAddress1 = streetAddress1
             store.streetAddress2 = streetAddress2
             store.zipcode = zipcode
-            store.country = country!
+            store.country = country
             store.services = true
             store.save().then(value => {
                 resolve(value)

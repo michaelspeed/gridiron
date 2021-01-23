@@ -6,7 +6,7 @@ import {getConfig, setConfig} from './config/config-helpers';
 import {InternalServerError, ReadOnlyRequired, Type} from '@gridiron/gridiron-common';
 import {NestjsQueryTypeOrmModule} from '@nestjs-query/query-typeorm';
 import {getConfigurationFunction, getEntitiesFromPlugin} from './plugin/plugin-metadata';
-import {coreEntityMap} from './entity/coreEntityMap';
+import { coreEntityMap } from '@gridiron/entities';
 
 export const GridironVersion = '0.0.1'
 
@@ -180,7 +180,4 @@ function workerWelcomeMessage(config: GridIronConfig) {
     Logger.info(`GridIron Worker started${transportString}${connectionString}`);
 }
 
-function logWelcomeMessage(config: GridIronConfig) {
-    let version: string = GridironVersion
-
-}
+function logWelcomeMessage(config: GridIronConfig) {}

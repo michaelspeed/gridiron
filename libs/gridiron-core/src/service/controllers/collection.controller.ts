@@ -6,8 +6,7 @@ import {asyncObservable} from "../../worker";
 import {Observable} from "rxjs";
 import {CollectionLineMessage} from "../../job-queue";
 import {Logger} from "../../config";
-import {BillingAgreement, Collection, Vendor, VendorPlans} from "../../entity";
-import {BillingAgreementEnum, BillingAgreementState} from "../../enums";
+import { Collection, Vendor, VendorPlans, BillingAgreement, BillingAgreementEnum, BillingAgreementState } from "@gridiron/entities";
 
 @Controller()
 export class CollectionController {
@@ -31,7 +30,7 @@ export class CollectionController {
                 newBill.value = plan.planValue
                 newBill.state = BillingAgreementState.APPROVED
                 newBill.save()
-                    .then(value => {
+                    .then(() => {
                         observer.next({
                             total: vendorId.length,
                             completed: ++completed,

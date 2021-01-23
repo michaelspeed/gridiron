@@ -8,7 +8,10 @@ import {
 } from 'typeorm';
 import {FilterableField} from '@nestjs-query/query-graphql';
 import {ID, ObjectType} from '@nestjs/graphql';
-import {Collection, Product, ProductVariant, User} from '..';
+import { User } from '../user/user.entity';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { Collection } from '../collection/collection.entity';
+import { Product } from '../product/product.entity';
 
 @ObjectType('View', {isAbstract: true})
 @Entity({name: 'view'})

@@ -3,7 +3,7 @@ import {ConnectionOptions} from 'typeorm';
 import {ApiOptions, AssetOptions, AuthOptions, GridIronConfig, JobQueueOptions, RuntimeGridIronConfig, WorkerOptions} from './GridIronConfig';
 import {GridIronLogger} from './logger/GridIronLogger';
 import {getConfig} from './config-helpers';
-import {Type} from '../common';
+import { Type } from '@gridiron/gridiron-common';
 
 @Injectable()
 export class ConfigService implements GridIronConfig {

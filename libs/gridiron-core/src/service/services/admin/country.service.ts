@@ -1,5 +1,5 @@
+import { Country } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
-import {Country} from '../../../entity';
 
 @Injectable()
 export class CountryService {

@@ -1,6 +1,6 @@
 import {EntitySubscriberInterface, EventSubscriber, InsertEvent} from 'typeorm';
 import axios from 'axios'
-import { Zip } from '../../..';
+import { Zip } from '@gridiron/entities';
 
 @EventSubscriber()
 export class ZipSubscriber implements EntitySubscriberInterface<Zip>{
@@ -11,7 +11,7 @@ export class ZipSubscriber implements EntitySubscriberInterface<Zip>{
     }
 
     beforeInsert(event: InsertEvent<Zip>): Promise<any> | void {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const url = `https://api.postalpincode.in/pincode/${event.entity.code}`
             axios.get(url).then(value => {
                 event.entity.name = value.data[0].PostOffice[0].District

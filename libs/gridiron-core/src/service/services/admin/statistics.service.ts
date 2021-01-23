@@ -1,8 +1,8 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Between, Connection} from "typeorm";
-import {OrderLine, Product, View} from "../../../entity";
 import * as moment from "moment";
+import { Product, OrderLine, View } from "@gridiron/entities";
 
 @Injectable()
 export class StatisticsService {

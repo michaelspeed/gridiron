@@ -1,7 +1,7 @@
+import { FacetValue, Product } from "@gridiron/entities";
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
-import {Collection, FacetValue, Product} from "../../../entity";
 
 @Injectable()
 export class ShopFacetService {
@@ -10,7 +10,7 @@ export class ShopFacetService {
     ) {}
 
     async facetPageService(id: string, collection?): Promise<Product[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const qb = this.connection.getRepository(Product).createQueryBuilder('product')
             qb.innerJoinAndSelect('product.facets', 'facets')
             qb.leftJoinAndSelect('product.collection', 'collection')

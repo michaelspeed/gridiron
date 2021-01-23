@@ -1,8 +1,8 @@
 import {Injectable, OnModuleDestroy} from '@nestjs/common';
-import {Type} from '../common';
 import {GridIronEvents} from './gridIron-events';
 import {Observable, Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
+import { Type } from '@gridiron/gridiron-common';
 
 export type EventHandler<T extends GridIronEvents> = (event: T) => void;
 export type UnsubscribeFn = () => void;

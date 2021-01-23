@@ -1,9 +1,9 @@
+import { Collection, FacetValue, ProductVariant } from "@gridiron/entities";
 import {Args, ID, Int, Query, Resolver} from "@nestjs/graphql";
-import {Collection, FacetValue, ProductVariant} from "../../../entity";
 import {ShopCollectionService} from "../../../service";
 import {CollectionSingleResponse} from "../../dto/shop/CollectionSingleResponse";
 
-@Resolver(of => Collection)
+@Resolver(() => Collection)
 export class ShopCollectionResolver {
     constructor(
         private readonly collectionService: ShopCollectionService
@@ -23,7 +23,7 @@ export class ShopCollectionResolver {
     async GetSingleCollection(
         @Args('id', {type: () => ID}) id: string,
     ): Promise<CollectionSingleResponse> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const singleCol = await this.collectionService.GetSingleCollection(id)
             resolve({
                 collection: singleCol,

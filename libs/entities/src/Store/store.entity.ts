@@ -17,19 +17,21 @@ import {
     PagingStrategies,
     Relation
 } from '@nestjs-query/query-graphql';
-import {
-    BillingAgreement,
-    CartItem,
-    Country, Invoice,
-    OrderLine,
-    ProductVariantPrice, StockBackLog,
-    StockKeeping,
-    TaxCategory,
-    Vendor, Zip,
-    Zone,
-    Settlements,
-    StoreBalance, Asset
-} from '..';
+import { Country } from '../country/country.entity';
+import { StoreBalance } from './storeBalance.entity';
+import { Asset } from '../asset/asset.entity';
+import { StockKeeping } from '../stock-movement/stock-keeping.entity';
+import { Settlements } from '../settlement/settlement.entity';
+import { ProductVariantPrice } from '../product-variant/product-variant-price.entity';
+import { CartItem } from '../cart/cartItem.entity';
+import { StockBackLog } from '../stock-movement/stock-back-log.entity';
+import { Zip } from '../Zip/zip.entity';
+import { Invoice } from '../invoice/Invoice.entity';
+import { Zone } from '../zone/zone.entity';
+import { TaxCategory } from '../tax-category/tax-category.entity';
+import { Vendor } from '../vendor/vendor.entity';
+import { BillingAgreement } from '../billing-agreement/BillingAgreement';
+import { OrderLine } from '../order-line/order-line.entity';
 
 export enum StoreTypeEnum {
     DEFAULT = 'default',
@@ -77,7 +79,7 @@ export class Store extends BaseEntity {
     @Column({ unique: true })
     officialemail: string;
 
-    @ManyToOne(type1 => Zone, zone => zone.stores)
+    @ManyToOne(() => Zone, zone => zone.stores)
     region: Zone;
 
     @FilterableField()

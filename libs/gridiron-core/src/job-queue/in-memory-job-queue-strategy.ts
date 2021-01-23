@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { ID, JobState, notNullOrUndefined } from '@gridiron/gridiron-common';
 import {JobQueueStrategy} from '../config/job-queue/job-queue-strategy';
-import {ID, JobState, notNullOrUndefined} from '../common';
 import {Job} from './Job';
 
 export class InMemoryJobQueueStrategy implements JobQueueStrategy {
@@ -35,6 +37,7 @@ export class InMemoryJobQueueStrategy implements JobQueueStrategy {
         return this.jobs.get(id);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     async findMany(options?: any): Promise<any> {}
 
     async findManyById(ids: ID[]): Promise<Job[]> {

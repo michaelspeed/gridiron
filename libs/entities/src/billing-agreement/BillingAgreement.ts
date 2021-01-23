@@ -10,7 +10,11 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import { BillingAgreementEnum, BillingAgreementState, Collection, ProductVariant, Store, BillingAgreementRequest } from '..';
+import { BillingAgreementEnum, BillingAgreementState } from '../enums/BillingAgreementEnum';
+import { Collection } from '../collection/collection.entity';
+import { ProductVariant } from '../product-variant/product-variant.entity';
+import { Store } from '../Store/store.entity';
+import { BillingAgreementRequest } from './BillingAgreementRequest';
 
 registerEnumType(BillingAgreementEnum, {
     name: 'BillingAgreementEnum'

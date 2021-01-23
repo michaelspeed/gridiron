@@ -1,7 +1,9 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
-import {CurrencyCode, LanguageCode, Zone} from '..';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
+import { LanguageCode } from '../enums/LanguageCode';
+import { CurrencyCode } from '../enums/CurrencyCode';
+import { Zone } from '../zone/zone.entity';
 
 registerEnumType(LanguageCode, {
     name: 'LanguageCode'
@@ -38,10 +40,10 @@ export class Channel extends BaseEntity {
     @Column('varchar')
     defaultLanguageCode: LanguageCode;
 
-    @ManyToOne(type => Zone)
+    @ManyToOne(() => Zone)
     defaultTaxZone: Zone;
 
-    @ManyToOne(type => Zone)
+    @ManyToOne(() => Zone)
     defaultShippingZone: Zone;
 
     @FilterableField(() => CurrencyCode)

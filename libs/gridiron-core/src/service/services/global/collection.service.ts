@@ -4,11 +4,10 @@ import {Connection} from "typeorm";
 import {CollectionEvents, EventBus} from "../../../event-bus";
 import {CollectionLineJobData, CollectionLineMessage, Job, JobQueue, JobQueueService} from "../../../job-queue";
 import {WorkerService} from "../../../worker";
-import {Vendor} from "../../../entity";
 import {merge} from "rxjs";
 import {debounceTime} from "rxjs/operators";
-import {VendorPlanPrice} from "../../../enums";
 import {Logger} from "../../../config";
+import { Vendor, VendorPlanPrice } from "@gridiron/entities";
 
 @Injectable()
 export class GlobalCollectionsService implements OnModuleInit {

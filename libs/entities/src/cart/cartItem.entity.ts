@@ -1,7 +1,10 @@
 import {Field, ID, ObjectType} from "@nestjs/graphql";
 import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
-import {Cart, ProductVariant, ProductVariantPrice, Store} from "..";
+import { Cart } from "./cart.entity";
+import { ProductVariant } from "../product-variant/product-variant.entity";
+import { Store } from "../Store/store.entity";
+import { ProductVariantPrice } from "../product-variant/product-variant-price.entity";
 
 @ObjectType('CartItem', {isAbstract: true})
 @Entity('catritem')

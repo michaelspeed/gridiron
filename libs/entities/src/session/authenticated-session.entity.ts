@@ -1,6 +1,6 @@
 import {ChildEntity, ManyToOne} from 'typeorm';
+import { User } from '../user/user.entity';
 import {Session} from './session.entity';
-import {User} from '../';
 
 @ChildEntity()
 export class AuthenticatedSession extends Session {

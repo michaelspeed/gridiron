@@ -10,7 +10,7 @@ import {
 import {FilterableField} from "@nestjs-query/query-graphql";
 import {Field, ID, ObjectType, registerEnumType} from "@nestjs/graphql";
 import GraphQLJSON from "graphql-type-json";
-import { PageType, PageCategory } from "..";
+import { PageCategory, PageType } from "../enums/PageType";
 
 registerEnumType(PageType, {
     name: 'PageType'

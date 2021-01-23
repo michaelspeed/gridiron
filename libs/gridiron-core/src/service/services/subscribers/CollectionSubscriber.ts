@@ -1,7 +1,7 @@
 import {Connection, EntitySubscriberInterface, EventSubscriber, InsertEvent} from 'typeorm';
-import {Collection} from '../../../entity';
 import {Injectable} from "@nestjs/common";
 import {CollectionEvents, EventBus} from "../../../event-bus";
+import { Collection } from '@gridiron/entities';
 
 @Injectable()
 @EventSubscriber()
@@ -20,7 +20,7 @@ export class CollectionSubscriber implements EntitySubscriberInterface<Collectio
     }
 
     afterInsert(event: InsertEvent<Collection>): Promise<any> | void {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve) => {
             if (event.entity) {
                 this.eventBus.publish(new CollectionEvents(event.entity, 'created'))
                 resolve()

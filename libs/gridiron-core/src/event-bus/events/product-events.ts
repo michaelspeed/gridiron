@@ -1,5 +1,5 @@
+import { Product } from '@gridiron/entities';
 import {GridIronEvents} from '../';
-import {Product} from '../../entity';
 
 export class ProductEvents extends GridIronEvents {
     constructor(

@@ -11,8 +11,8 @@ import {
 import {Country} from '../country/country.entity';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField, Relation} from '@nestjs-query/query-graphql';
-import { User } from '..';
 import { AddressType } from '../enums/AddressType';
+import { User } from '../user/user.entity';
 
 registerEnumType(AddressType, {
     name: 'AddressType'

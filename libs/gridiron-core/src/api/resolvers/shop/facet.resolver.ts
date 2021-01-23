@@ -1,5 +1,5 @@
+import { Facet, Product, FacetValue } from "@gridiron/entities";
 import {Args, ID, Query, Resolver} from "@nestjs/graphql";
-import {Facet, FacetValue, Product} from "../../../entity";
 import {ShopFacetService} from "../../../service";
 
 @Resolver(() => Facet)

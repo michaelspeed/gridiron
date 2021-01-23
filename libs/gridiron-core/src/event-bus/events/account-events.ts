@@ -1,5 +1,5 @@
+import { User } from "@gridiron/entities";
 import {GridIronEvents} from "../gridIron-events";
-import {User} from "../../entity";
 
 export class AccountRegisterEvents extends GridIronEvents {
     constructor(

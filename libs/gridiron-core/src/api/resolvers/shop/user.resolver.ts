@@ -1,7 +1,7 @@
-import {Args, Context, ID, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {ResetCode, User} from "../../../entity";
+import {Args, Context, Mutation, Query, Resolver} from "@nestjs/graphql";
 import {UserResponse} from "../../dto/shop/UserResponse";
 import {ShopUserService} from "../../../service/services/shop/user.service";
+import { User, ResetCode } from "@gridiron/entities";
 
 @Resolver(() => User)
 export class ShopUserResolver {
