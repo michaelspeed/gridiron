@@ -331,8 +331,7 @@ export class OrderController {
                     })
                 }
                 break;
-                case OrderStageType.PROCESSED: {
-                }
+                case OrderStageType.PROCESSED: {}
                 break;
                 default:{
                     observer.next({

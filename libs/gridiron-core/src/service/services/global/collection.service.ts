@@ -7,7 +7,7 @@ import {WorkerService} from "../../../worker";
 import {merge} from "rxjs";
 import {debounceTime} from "rxjs/operators";
 import {Logger} from "../../../config";
-import { Vendor, VendorPlanPrice } from "@gridiron/entities";
+import { BillingAgreement, BillingAgreementEnum, BillingAgreementState, Collection, Vendor, VendorPlanPrice, VendorPlans } from "@gridiron/entities";
 
 @Injectable()
 export class GlobalCollectionsService implements OnModuleInit {
@@ -36,7 +36,35 @@ export class GlobalCollectionsService implements OnModuleInit {
             process: async (job) => {
                 const allNecessaryVendors = await this.connection.getRepository(Vendor).find({where:{license:{plans:{priceStrategy: VendorPlanPrice.INDIVIDUALCOLLECTION}}}})
                 const vendorIds = allNecessaryVendors.map(item => item.id)
-                this.doAsCollectionIsAdded(job.data.collectionId, vendorIds, job)
+                // this.doAsCollectionIsAdded(job.data.collectionId, vendorIds, job)
+                this.applyCollectionLineChanges({collectionId: job.data.collectionId, vendorId: vendorIds})
+            }
+        })
+    }
+
+    applyCollectionLineChanges({collectionId, vendorId}: CollectionLineMessage["data"]): Promise<any> {
+        return new Promise(async(resolve, reject) => {
+            const collection = await this.connection.getRepository(Collection).findOne({where:{id: collectionId}})
+            let completed = 0
+            for (const vends of vendorId) {
+                const vendor = await this.connection.getRepository(Vendor).findOne({where:{id: vends}, relations:['license', 'license.plans', 'store']})
+                const plan = await this.connection.getRepository(VendorPlans).findOne({where:{id: vendor.license.plans.id}})
+                const newBill = new BillingAgreement()
+                newBill.type = BillingAgreementEnum.COLLECTIONBASE
+                newBill.store = vendor.store
+                newBill.collection = collection
+                newBill.value = plan.planValue
+                newBill.state = BillingAgreementState.APPROVED
+                newBill.save()
+                    .then(() => {
+                        resolve({
+                            total: vendorId.length,
+                            completed: ++completed,
+                            collectionId: collectionId,
+                            vendorId: vends
+                        })
+                    })
+                    .catch(err => reject(err))
             }
         })
     }

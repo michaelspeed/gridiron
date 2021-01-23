@@ -5,7 +5,6 @@ import {MessagePattern} from "@nestjs/microservices";
 import {asyncObservable} from "../../worker";
 import {Observable} from "rxjs";
 import {CollectionLineMessage} from "../../job-queue";
-import {Logger} from "../../config";
 import { Collection, Vendor, VendorPlans, BillingAgreement, BillingAgreementEnum, BillingAgreementState } from "@gridiron/entities";
 
 @Controller()
@@ -17,7 +16,6 @@ export class CollectionController {
     @MessagePattern(CollectionLineMessage.pattern)
     applyCollectionLineChanges({collectionId, vendorId}: CollectionLineMessage["data"]): Observable<CollectionLineMessage["response"]> {
         return asyncObservable(async observer => {
-            Logger.verbose(`Processing Collection ${collectionId}`)
             const collection = await this.connection.getRepository(Collection).findOne({where:{id: collectionId}})
             let completed = 0
             for (const vends of vendorId) {
