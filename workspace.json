@@ -219,10 +219,87 @@
           }
         }
       }
+    },
+    "admin": {
+      "root": "apps/admin",
+      "sourceRoot": "apps/admin",
+      "projectType": "application",
+      "generators": {},
+      "targets": {
+        "build": {
+          "executor": "@edbzn/nuxt:build",
+          "options": {
+            "root": "apps/admin",
+            "outputPath": "dist/apps/admin"
+          }
+        },
+        "serve": {
+          "executor": "@edbzn/nuxt:serve",
+          "options": {
+            "root": "apps/admin",
+            "outputPath": "dist/apps/admin"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/admin/**/*.{js,ts}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/admin"
+          ],
+          "options": {
+            "jestConfig": "apps/admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-e2e": {
+      "root": "apps/admin-e2e",
+      "sourceRoot": "apps/admin-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-e2e/cypress.json",
+            "tsConfig": "apps/admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/admin-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
     "defaultCollection": "@nrwl/nest"
   },
-  "defaultProject": "gridiron"
+  "defaultProject": "gridiron",
+  "generators": {
+    "@edbzn/nuxt": {
+      "application": {
+        "linter": "eslint",
+        "unitTestRunner": "jest",
+        "e2eTestRunner": "cypress"
+      }
+    }
+  }
 }

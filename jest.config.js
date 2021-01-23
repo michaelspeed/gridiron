@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/asset-server-plugin',
     '<rootDir>/libs/gridiron-common',
     '<rootDir>/libs/entities',
+    '<rootDir>/apps/admin',
   ],
 };

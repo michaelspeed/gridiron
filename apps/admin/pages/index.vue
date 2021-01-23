@@ -1,0 +1,65 @@
+<template>
+  <div class="container">
+    <div>
+      <Logo />
+      <h1 class="title">admin</h1>
+      <div class="links">
+        <a
+          href="https://github.com/edbzn/nx-nuxt"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--grey"
+        >
+          Learn more about @edbzn/nuxt
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({});
+</script>
+
+<style>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-weight: 300;
+  margin: 15px 0;
+  font-size: 100px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
+}
+</style>
