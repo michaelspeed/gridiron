@@ -4,6 +4,7 @@ import {OrderStageType, RefundEnum} from "../../../enums";
 
 @EventSubscriber()
 export class RefundSubscriber implements EntitySubscriberInterface<Refund> {
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return Refund
     }

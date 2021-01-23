@@ -1,7 +1,6 @@
-import {BooleanOperators, DateOperators, FilterParameter, NullOptionals, NumberOperators, StringOperators} from '../../../common/types/common-types';
+import {BooleanOperators, DateOperators, FilterParameter, NullOptionals, NumberOperators, StringOperators, assertNever, Type, UserInputError} from '@gridiron/gridiron-common';
 import {GridIronEntity} from '../../../entity/base/base.entity';
 import {BaseEntity, Connection, ConnectionOptions} from 'typeorm';
-import {assertNever, Type, UserInputError} from '../../../common';
 import {getColumnMetadata} from './get-column-metadata';
 import {DateUtils} from 'typeorm/util/DateUtils';
 

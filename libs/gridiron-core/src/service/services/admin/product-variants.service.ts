@@ -9,11 +9,9 @@ import {
     ProductVariant, ProductVariantAsset,
     ProductVariantPrice,
     ProductVariantSpecifications, Store, StoreTypeEnum,
-    TaxRate
 } from '../../../entity';
 import slugify from 'slugify'
-import {cartesianProduct} from '../../helpers/cartesianCalculation';
-import {ProductOptionsDto, ProductOptionsInputDto} from '../../../api/dto/admin/private-variant';
+import {ProductOptionsDto} from '../../../api/dto/admin/private-variant';
 import fastCartesian from 'fast-cartesian'
 
 @Injectable()
@@ -48,8 +46,8 @@ export class ProductVariantsService {
     ): Promise<ProductVariant[]> {
         return new Promise(async (resolve, reject) => {
             const product = await this.connection.getRepository(Product).findOne({where:{id: prodId}})
-            let cartesianArray = []
-            for (let opts of options) {
+            const cartesianArray = []
+            for (const opts of options) {
                 cartesianArray.push(opts.optionTags)
                 const optionCode = `${product.slug}-${slugify(opts.optionname, {lower: true, strict: true})}`
                 const optionGroup = new ProductOptionGroup()
@@ -57,7 +55,7 @@ export class ProductVariantsService {
                 optionGroup.code = optionCode
                 optionGroup.product = product
                 const poptions = await this.connection.getRepository(ProductOptionGroup).save(optionGroup)
-                for (let mainopts of opts.optionTags) {
+                for (const mainopts of opts.optionTags) {
                     const options = new ProductOption()
                     options.code = mainopts
                     options.name = mainopts.toUpperCase()
@@ -67,8 +65,8 @@ export class ProductVariantsService {
             }
 
             const fastCas = fastCartesian(cartesianArray)
-            let prodVariants: any[] = []
-            for (let itsm of fastCas) {
+            const prodVariants: any[] = []
+            for (const itsm of fastCas) {
                 const prodvariant = new ProductVariant()
                 prodvariant.name = `${product.productName} ${itsm.join(' ')}`
                 prodvariant.product = product
@@ -87,8 +85,8 @@ export class ProductVariantsService {
         return new Promise(async (resolve, reject) => {
             const product = await this.connection.getRepository(Product).findOne({where:{id: prodId}})
             const getProups = await this.connection.getRepository(ProductOptionGroup).find({where:{product:{id: prodId}}, relations: ['options']})
-            let cartesianArray = []
-            for (let opts of options) {
+            const cartesianArray = []
+            for (const opts of options) {
                 cartesianArray.push(opts.optionTags)
                 for (const mainopts of opts.optionTags) {
                     const findOpt = await this.connection.getRepository(ProductOptionGroup).findOne({where:{}})
@@ -175,7 +173,7 @@ export class ProductVariantsService {
         productVariantId: string,
         storeId: string
     ): Promise<ProductVariantPrice | null> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const prodvar = await this.connection.getRepository(ProductVariantPrice).findOne({where: {variant: {id: productVariantId}, store:{id: storeId}}, relations: ['tax']})
             console.log(prodvar)
             resolve(prodvar)

@@ -18,6 +18,7 @@
   "projects": {
     "gridiron": { "tags": [] },
     "gridiron-core": { "tags": [] },
-    "asset-server-plugin": { "tags": [] }
+    "asset-server-plugin": { "tags": [] },
+    "gridiron-common": { "tags": [] }
   }
 }

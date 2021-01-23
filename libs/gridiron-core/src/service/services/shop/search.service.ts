@@ -12,7 +12,7 @@ export class ShopSearchService {
     ) {}
 
     private async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })

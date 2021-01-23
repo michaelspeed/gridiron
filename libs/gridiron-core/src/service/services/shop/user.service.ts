@@ -14,14 +14,14 @@ export class ShopUserService {
     ) {}
 
     private async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })
     }
 
     private async createToken(userId: string): Promise<string> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const tokenize = {userId}
             const token = await this.jwtService.sign(tokenize)
             resolve(token)

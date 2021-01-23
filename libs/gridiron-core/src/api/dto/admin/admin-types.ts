@@ -1,6 +1,6 @@
 import {FileUpload} from 'graphql-upload';
-import {Field, Float, InputType, Int, ObjectType, registerEnumType} from '@nestjs/graphql';
-import {DateOperators, ID, NumberOperators, StringOperators} from '../../../common';
+import {Field, Float, Int, ObjectType, registerEnumType} from '@nestjs/graphql';
+import {DateOperators, NumberOperators, StringOperators} from '@gridiron/gridiron-common';
 
 export declare type Scalars = {
     ID: string;
@@ -86,7 +86,7 @@ export class AssetSortParameter {
 
     @Field(() => SortOrder)
     preview?: SortOrder
-};
+}
 
 @ObjectType({isAbstract: true})
 export class AssetFilterParameter {
@@ -100,7 +100,7 @@ export class AssetFilterParameter {
     height?: NumberOperators
     source?: StringOperators
     preview?: StringOperators
-};
+}
 
 @ObjectType({isAbstract: true})
 export class AssetListOptions {
@@ -112,9 +112,9 @@ export class AssetListOptions {
 
     sort?: Maybe<AssetSortParameter>;
     filter?: Maybe<AssetFilterParameter>;
-};
+}
 
 @ObjectType({isAbstract: true})
 export class QueryAssetsArgs  {
     options?: any
-};
+}

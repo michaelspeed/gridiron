@@ -1,5 +1,5 @@
 import {Context, Query, Resolver} from "@nestjs/graphql";
-import {Accounts, Address} from "../../../entity";
+import {Accounts} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import {AccountsService} from "../../../service";

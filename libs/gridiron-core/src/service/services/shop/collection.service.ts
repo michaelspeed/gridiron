@@ -1,6 +1,6 @@
 import {Injectable} from "@nestjs/common";
 import {InjectConnection} from "@nestjs/typeorm";
-import {Connection, getConnection, In, Not} from "typeorm";
+import {Connection, getConnection, Not} from "typeorm";
 import {Collection, FacetValue, ProductVariant, Search} from "../../../entity";
 
 @Injectable()
@@ -22,9 +22,9 @@ export class ShopCollectionService {
     }
 
     async GetCollectionFacets(id: string): Promise<FacetValue[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const col = await this.connection.getRepository(Collection).findOne({where:{id}, relations:['products', 'children', 'children.products']})
-            let prods = []
+            const prods = []
             for (const progs of col.products) {
                 prods.push(progs.id)
             }
@@ -49,9 +49,9 @@ export class ShopCollectionService {
     }
 
     async GetAllProductForCollection(id: string, limit?: number, search?: string): Promise<ProductVariant[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const col = await this.connection.getRepository(Collection).findOne({where:{id}, relations:['products', 'children']})
-            let colIds = []
+            const colIds = []
             colIds.push(col.id)
             for (const cods of col.children) {
                 colIds.push(cods.id)
@@ -79,9 +79,9 @@ export class ShopCollectionService {
     }
 
     async GetAllProdsWithPriceRangeAndFacet(colId: string, facetIds: string[], start?: number, last?: number, search?: string): Promise<ProductVariant[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const col = await this.connection.getRepository(Collection).findOne({where:{id: colId}, relations:['products', 'children']})
-            let colIds = []
+            const colIds = []
             colIds.push(col.id)
             for (const cods of col.children) {
                 colIds.push(cods.id)

@@ -20,7 +20,7 @@ export class BillingAgreementService implements OnModuleInit {
     onModuleInit() {
         const vendorEvent$ = this.eventBus.ofType(VendorEvents)
 
-        vendorEvent$.subscribe(value => {
+        vendorEvent$.subscribe((value: VendorEvents) => {
             this.createBillingAgreementOnVendorCreation.add(JSON.stringify(value.vendor))
         })
 
@@ -57,7 +57,7 @@ export class BillingAgreementService implements OnModuleInit {
         return new Promise<BillingAgreement[]>(async (resolve, reject) => {
             const allBillingAgreement: BillingAgreement[] = []
             const allCollection = await this.connection.getRepository(Collection).find()
-            for (let col of allCollection) {
+            for (const col of allCollection) {
                 const billingAgreement = new BillingAgreement()
                 billingAgreement.type = BillingAgreementEnum.COLLECTIONBASE
                 billingAgreement.store = vendor.store

@@ -2,9 +2,9 @@ import {AssetServerOptions} from "./types";
 import { Request } from 'express';
 import * as path from 'path';
 import { Readable, Stream } from 'stream';
-import {AssetsStorageStrategy, Logger} from "@gridiron/core";
+import {AssetsStorageStrategy, Logger} from "@gridiron/gridiron-core";
 import {loggerCtx} from "./constants";
-import AWS from 'aws-sdk';
+import * as AWS from 'aws-sdk';
 
 export type S3Credentials = {
     accessKeyId: string;

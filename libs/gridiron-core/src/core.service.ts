@@ -17,7 +17,7 @@ export class CoreService implements OnModuleInit {
     }
 
     async startInitialSetup(): Promise<any> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve, reject) => {
             const alladministratos = await Administrator.count()
             if (alladministratos === 0) {
                 const initUser = new User()
@@ -43,11 +43,11 @@ export class CoreService implements OnModuleInit {
     }
 
     async startCountryData(): Promise<any> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve, reject) => {
             const allCount = await Country.find()
             if (allCount.length === 0) {
                 let total = CountryCode.length
-                for (let country of CountryCode) {
+                for (const country of CountryCode) {
                     const cont = new Country()
                     cont.name = country.name
                     cont.code = country.code
@@ -97,10 +97,10 @@ export class CoreService implements OnModuleInit {
     }
 
     async startStoreBalance(): Promise<any> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve, reject) => {
             const allStore = await Store.find({relations: ['balance']})
             console.log(allStore)
-            for (let store of allStore) {
+            for (const store of allStore) {
                 if (!store.balance) {
                     const bal = new StoreBalance()
                     bal.balance = 0

@@ -139,6 +139,46 @@
           }
         }
       }
+    },
+    "gridiron-common": {
+      "root": "libs/gridiron-common",
+      "sourceRoot": "libs/gridiron-common/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/gridiron-common/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/gridiron-common"
+          ],
+          "options": {
+            "jestConfig": "libs/gridiron-common/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/gridiron-common",
+            "tsConfig": "libs/gridiron-common/tsconfig.lib.json",
+            "packageJson": "libs/gridiron-common/package.json",
+            "main": "libs/gridiron-common/src/index.ts",
+            "assets": [
+              "libs/gridiron-common/*.md"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

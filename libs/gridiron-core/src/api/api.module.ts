@@ -1,5 +1,4 @@
 import {Module} from '@nestjs/common';
-import {ConfigModule} from '../config';
 import {GqlJson} from './config/scalars/GqlJson';
 import {AdminApiModule, ApiSharedModule, ShopApiModule} from './api-internal-modules';
 import {configureAdminGraphQLModule, configureShopGraphQLModule} from './config/graphql-module-config';

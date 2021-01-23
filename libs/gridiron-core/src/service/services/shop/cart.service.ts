@@ -13,7 +13,7 @@ export class ShopCartService {
         return this.connection.getRepository(Cart).findOne({where:{user:{id: userId}}, relations: ['items']})
     }
 
-    async addToCart(userId: string, variant: String, store: String, price: String, quantity: number): Promise<CartItem> {
+    async addToCart(userId: string, variant: string, store: string, price: string, quantity: number): Promise<CartItem> {
         return new Promise(async (resolve, reject) => {
             const cart = await this.connection.getRepository(Cart).findOne({where:{user:{id: userId}}})
             if (cart) {

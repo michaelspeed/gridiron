@@ -13,14 +13,14 @@ export class UserService {
     ) {}
 
     private async DecryptToken(token: string): Promise<{userId: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const decoded: any = await this.jwtService.decode(token)
             resolve(decoded)
         })
     }
 
     GetCurrentUser(token: string): Promise<User> {
-        return new Promise<User>(async (resolve, reject) => {
+        return new Promise<User>(async (resolve) => {
             const decoded = await this.DecryptToken(token)
             const user = await this.connection.getRepository(User).findOne({where:{id: decoded.userId}, relations: ['administrator', 'vendor']})
             resolve(user)

@@ -4,7 +4,7 @@ import {DynamicModule} from '@nestjs/common';
 import {ConfigModule, ConfigService} from '../../config';
 import {getDynamicGraphQLModulesForPlugins} from '../../plugin/dynamic-plugin-api.module';
 import {getPluginApiExtensions} from '../../plugin/plugin-metadata';
-import {notNullOrUndefined} from '../../common';
+import {notNullOrUndefined} from '@gridiron/gridiron-common';
 import * as path from 'path'
 
 export interface GraphQLApiOptions {

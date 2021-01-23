@@ -1,8 +1,9 @@
 import {DNSHealthIndicator, TerminusModule} from '@nestjs/terminus';
 import {Server} from 'http';
-import path from 'path';
+import * as path from 'path';
 import {createHash} from 'crypto';
-import express, {NextFunction, Request, Response} from 'express';
+import * as express from 'express';
+import {NextFunction, Request, Response} from 'express';
 import { fromBuffer } from 'file-type';
 import fs from 'fs-extra';
 import {AssetServerOptions, ImageTransformPreset} from './types';
@@ -18,7 +19,7 @@ import {
     OnGridironBootstrap,
     OnGridironClose,
     PluginCommonModule, RuntimeGridIronConfig, Type
-} from '@gridiron/core';
+} from '@gridiron/gridiron-core';
 
 
 @GridironPlugin({

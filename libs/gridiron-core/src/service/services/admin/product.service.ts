@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {Asset, Collection, FacetValue, Product, ProductAsset} from '../../../entity';
 import {InjectConnection} from '@nestjs/typeorm';
-import {Connection, EntitySubscriberInterface, EventSubscriber, UpdateEvent} from 'typeorm';
+import {Connection, EntitySubscriberInterface, EventSubscriber} from 'typeorm';
 import {EventBus, ProductEvents} from '../../../event-bus';
 
 @Injectable()
@@ -14,26 +14,27 @@ export class ProductService implements EntitySubscriberInterface<Product>{
         connection.subscribers.push(this)
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return Product
     }
 
     createProduct(name: string, desc: string, slug: string, assets:string[], facets: string[], featured: string): Promise<Product> {
-        return new Promise<Product>(async (resolve, reject) => {
+        return new Promise<Product>(async (resolve) => {
             const prod = new Product()
             prod.productName = name
             prod.description = desc
             prod.slug = slug
             prod.viewcode = []
             prod.featuredAsset = await this.connection.getRepository(Asset).findOne({where: {id: featured}})
-            let prodFacet: FacetValue[] = []
+            const prodFacet: FacetValue[] = []
             for (const facetId of facets) {
                 const face = await FacetValue.findOne({where: {id: facetId}})
                 prodFacet.push(face)
             }
             prod.facets = prodFacet
             this.connection.getRepository(Product).save(prod).then(async (value) => {
-                let allProdAssets: ProductAsset[] = []
+                const allProdAssets: ProductAsset[] = []
                 for (const assetId of assets) {
                     const asset = await this.connection.getRepository(Asset).findOne({where: {id: assetId}})
                     const prodAsset = new ProductAsset()
@@ -62,7 +63,7 @@ export class ProductService implements EntitySubscriberInterface<Product>{
             const prod = await Product.findOne({where: {id}})
             prod.productName = name
             prod.description = desc
-            let prodFacet: FacetValue[] = []
+            const prodFacet: FacetValue[] = []
             prod.featuredAsset = await this.connection.getRepository(Asset).findOne({where: {id: featured}})
             for (const facetId of facets) {
                 const face = await FacetValue.findOne({where: {id: facetId}})

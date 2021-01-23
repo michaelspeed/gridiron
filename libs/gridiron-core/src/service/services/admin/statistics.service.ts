@@ -10,8 +10,8 @@ export class StatisticsService {
         @InjectConnection() readonly connection: Connection
     ) {}
 
-    async getProductStatistics(productId: string, type: string = 'MONTH', store?: string) {
-        return new Promise<any>(async (resolve, reject) => {
+    async getProductStatistics(productId: string, type = 'MONTH', store?: string) {
+        return new Promise<any>(async (resolve) => {
             const prod = await this.connection.getRepository(Product).findOne({where:{id: productId}, relations: ['variants']})
             const vards = prod.variants.map(item => item.id)
             let breaks = 1
@@ -105,8 +105,8 @@ export class StatisticsService {
         })
     }
 
-    async getProductViews(productId: string, type: string = 'MONTH') {
-        return new Promise<any>(async (resolve, reject) => {
+    async getProductViews(productId: string, type = 'MONTH') {
+        return new Promise<any>(async (resolve) => {
             switch (type) {
                 case 'MONTH': {
                     const adder = 'day'
@@ -214,8 +214,8 @@ export class StatisticsService {
     }
 
 
-    async getAdminViews(type: string = 'MONTH') {
-        return new Promise<any>(async (resolve, reject) => {
+    async getAdminViews(type = 'MONTH') {
+        return new Promise<any>(async (resolve) => {
             switch (type) {
                 case 'MONTH': {
                     const adder = 'day'
@@ -313,8 +313,8 @@ export class StatisticsService {
         })
     }
 
-    async getStoreOrderStatistics(storeId: string, type: string = 'MONTH') {
-        return new Promise<any>(async (resolve, reject) => {
+    async getStoreOrderStatistics(storeId: string, type = 'MONTH') {
+        return new Promise<any>(async (resolve) => {
             switch (type) {
                 case 'MONTH': {
                     const adder = 'day'
@@ -437,8 +437,8 @@ export class StatisticsService {
         })
     }
 
-    async getAdminOrderStatistics(type: string = 'MONTH') {
-        return new Promise<any>(async (resolve, reject) => {
+    async getAdminOrderStatistics(type = 'MONTH') {
+        return new Promise<any>(async (resolve) => {
             switch (type) {
                 case 'MONTH': {
                     const adder = 'day'

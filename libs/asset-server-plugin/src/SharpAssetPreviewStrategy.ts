@@ -1,7 +1,7 @@
 
 import sharp from 'sharp';
-import path from 'path';
-import {AssetsPreviewStrategy, AssetType, getAssetType} from '@gridiron/core';
+import * as path from 'path';
+import {AssetsPreviewStrategy, AssetType, getAssetType} from '@gridiron/gridiron-core';
 
 export class SharpAssetPreviewStrategy implements AssetsPreviewStrategy {
 

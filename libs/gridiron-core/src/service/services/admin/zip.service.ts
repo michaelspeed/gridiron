@@ -26,7 +26,7 @@ export class ZipService {
                 allZips.push(getzip)
             }
             store.zip = allZips
-            this.connection.getRepository(Store).save(store).then(value => {
+            this.connection.getRepository(Store).save(store).then(() => {
                 resolve(store.vendor)
             }).catch(error => reject(error))
         })

@@ -3,6 +3,7 @@ import {ProductVariant, Review} from "../../../entity";
 
 @EventSubscriber()
 export class ReviewSubscriber implements EntitySubscriberInterface<Review> {
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return Review
     }

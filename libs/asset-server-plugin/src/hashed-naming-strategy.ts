@@ -1,6 +1,6 @@
-import path from 'path';
+import * as path from 'path';
 import {createHash} from 'crypto';
-import {DefaultAssetsNamingStrategy} from '@gridiron/core';
+import {DefaultAssetsNamingStrategy} from '@gridiron/gridiron-core';
 
 export class HashedNamingStrategy extends DefaultAssetsNamingStrategy {
 

@@ -29,7 +29,7 @@ export class OrderService implements OnModuleInit {
         const orderLineEvents$ = this.eventBus.ofType(OrderLineEvents)
         merge(orderLineEvents$)
             .pipe(debounceTime(50))
-            .subscribe(async (event) => {
+            .subscribe(async (event: OrderLineEvents) => {
                 this.applyOrderQueue.add({
                     lineId: event.orderLine.id,
                     type: event.type
@@ -46,7 +46,7 @@ export class OrderService implements OnModuleInit {
     }
 
     async createOrder(userId: string, priceIds: OrderLineDto[], address: string): Promise<Order> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             console.log(userId, priceIds, address)
             const neworder = new Order()
             neworder.user = await this.connection.getRepository(User).findOne({id: userId})

@@ -5,6 +5,7 @@ import { Zip } from '../../..';
 @EventSubscriber()
 export class ZipSubscriber implements EntitySubscriberInterface<Zip>{
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return Zip
     }

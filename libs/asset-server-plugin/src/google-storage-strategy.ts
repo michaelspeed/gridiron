@@ -1,8 +1,8 @@
-import {AssetsStorageStrategy} from "@gridiron/core";
+import {AssetsStorageStrategy} from "@gridiron/gridiron-core";
 import {Stream} from "stream";
 import {Request} from 'express'
 import {Bucket, Storage} from '@google-cloud/storage'
-import getRawBody from 'raw-body';
+import * as getRawBody from 'raw-body';
 import {AssetServerOptions} from "./types";
 
 export type GoogleBucketCredentials = {

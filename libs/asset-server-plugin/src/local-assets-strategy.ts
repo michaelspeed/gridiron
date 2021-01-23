@@ -1,8 +1,8 @@
 import {Stream} from 'stream';
 import fs from 'fs-extra';
-import path from 'path';
+import * as path from 'path';
 import {Request} from 'express';
-import {AssetsStorageStrategy} from '@gridiron/core';
+import {AssetsStorageStrategy} from '@gridiron/gridiron-core';
 
 export class LocalAssetsStrategy implements AssetsStorageStrategy {
     toAbsoluteUrl:((request: Request, identifier: string) => string) | undefined

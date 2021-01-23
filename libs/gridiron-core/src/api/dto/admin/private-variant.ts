@@ -1,4 +1,4 @@
-import {ArgsType, Field, ID, ObjectType} from '@nestjs/graphql';
+import {ArgsType, Field, ID} from '@nestjs/graphql';
 
 @ArgsType()
 export class ProductOptionsDto {

@@ -1,9 +1,8 @@
 import {GridIronEntity} from '../../../entity/base/base.entity';
 import {BaseEntity, Connection, OrderByCondition} from 'typeorm';
-import {NullOptionals, SortParameter, Type, UserInputError} from '../../../common';
+import {NullOptionals, SortParameter, Type, UserInputError, unique} from '@gridiron/gridiron-common';
 import {getColumnMetadata} from './get-column-metadata';
 import {ColumnMetadata} from 'typeorm/metadata/ColumnMetadata';
-import {unique} from '../../../common/utils/unique';
 
 export function parseSortParams<T extends GridIronEntity | BaseEntity>(
     connection: Connection,

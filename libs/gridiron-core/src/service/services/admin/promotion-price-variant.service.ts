@@ -10,7 +10,7 @@ export class PromotionPriceVariantService {
     ) {}
 
     async GetPromotionPriceForStore(userId: string): Promise<ProductVariantPrice[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const vendor = await this.connection.getRepository(Vendor).findOne({where:{user: {id: userId}}, relations: ['store']})
             const promoPrice = await this.connection.getRepository(ProductVariantPrice)
                 .find({where:{store:{id: vendor.store.id}}, relations: ['promoprice'], order:{createdAt: "DESC"}})
@@ -20,7 +20,7 @@ export class PromotionPriceVariantService {
                     allPrices.push(itsm)
                 }
             }
-            reject(allPrices)
+            resolve(allPrices)
         })
     }
 }

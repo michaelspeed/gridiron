@@ -1,4 +1,4 @@
-import {AssetsNamingStrategy, AssetsStorageStrategy} from '@gridiron/core';
+import {AssetsNamingStrategy, AssetsStorageStrategy} from '@gridiron/gridiron-core';
 
 export type ImageTransformMode = 'crop' | 'resize';
 

@@ -3,6 +3,7 @@ import {StockBackLog, StockKeeping} from "../../../entity";
 
 @EventSubscriber()
 export class StockSubscriber implements EntitySubscriberInterface<StockKeeping> {
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return StockKeeping
     }

@@ -26,7 +26,7 @@ export class GlobalCollectionsService implements OnModuleInit {
         const collectionEvents$ = this.eventBus.ofType(CollectionEvents)
         merge(collectionEvents$)
             .pipe(debounceTime(50))
-            .subscribe(async (event) => {
+            .subscribe(async (event: CollectionEvents) => {
                 this.applyCollectionQueue.add({
                     collectionId: event.collection.id
                 })
@@ -46,7 +46,7 @@ export class GlobalCollectionsService implements OnModuleInit {
     async doAsCollectionIsAdded(collectionId: string, vendorIds: string[], job: Job<CollectionLineJobData>): Promise<void> {
         this.workerService.send(new CollectionLineMessage({collectionId: collectionId, vendorId: vendorIds}))
             .subscribe({
-                next: ({completed, total, collectionId, vendorId}) => {
+                next: ({completed, total}) => {
                     const progress = Math.ceil((completed / total) * 100)
                     job.setProgress(progress)
                 },

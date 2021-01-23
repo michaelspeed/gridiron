@@ -30,7 +30,7 @@ export class VendorService {
     ) {}
 
     async findOneVendor(userId: string): Promise<Vendor> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const vendor = await this.connection.getRepository(Vendor).findOne({where:{user:{id: userId}}, relations: ['store']})
             if (vendor) {
                 resolve(vendor)
@@ -42,7 +42,7 @@ export class VendorService {
     }
 
     createVendorToken(userId: string, vendorId: string, sessionId: string): Promise<string> {
-        return new Promise<string>(async (resolve, reject) => {
+        return new Promise<string>(async (resolve) => {
             const tokenize = {userId, vendorId, sessionId}
             const token = await this.jwtService.sign(tokenize)
             resolve(token)
@@ -116,7 +116,7 @@ export class VendorService {
         rentals: boolean,
         planID: string
     ): Promise<{vendor: Vendor, user: User, session: AuthenticatedSession}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const vendor = new Vendor()
             vendor.email = email
             vendor.vendorName = `${fname} ${lname}`
@@ -208,7 +208,7 @@ export class VendorService {
                 reject({message: 'Plan not found'})
             }
             plan.isActive = status
-            this.connection.getRepository(VendorPlans).save(plan).then(value => {
+            this.connection.getRepository(VendorPlans).save(plan).then(() => {
                 resolve(plan)
             })
         })

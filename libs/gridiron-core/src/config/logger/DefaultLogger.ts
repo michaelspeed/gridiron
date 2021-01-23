@@ -100,6 +100,7 @@ export class DefaultLogger implements GridIronLogger {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     private ensureString(message: string | object | any[]): string {
         return typeof message === 'string' ? message : JSON.stringify(message, null, 2);
     }

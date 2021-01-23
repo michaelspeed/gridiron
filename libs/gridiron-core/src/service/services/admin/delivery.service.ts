@@ -11,7 +11,7 @@ export class DeliveryService {
     ) {}
 
     async GetPoolStrength(): Promise<DeliveryPool[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const pools = await this.connection.getRepository(DeliveryPool)
                 .find({
                     where:{
@@ -24,7 +24,7 @@ export class DeliveryService {
     }
 
     async GetStrandedDelivery(): Promise<{count: number}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const stranded = await this.connection.getRepository(DeliveryStranded).count()
             resolve({
                 count: stranded
@@ -53,7 +53,6 @@ export class DeliveryService {
 
     async SetDeliveryActive(userId: string, type: boolean): Promise<DeliverySignIn> {
         return new Promise(async (resolve, reject) => {
-            const user = await this.connection.getRepository(User).findOne({where:{id: userId}, relations: ['delivery']})
             const deliverySignIn = new DeliverySignIn()
             deliverySignIn.online = type
             const deliveryPool = new DeliveryPool()

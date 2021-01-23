@@ -14,6 +14,7 @@ export class CollectionSubscriber implements EntitySubscriberInterface<Collectio
         connection.subscribers.push(this)
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     listenTo(): Function | string {
         return Collection
     }

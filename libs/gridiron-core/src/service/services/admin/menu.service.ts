@@ -11,7 +11,7 @@ export class AdminMenuService {
     ) {}
 
     async getMenuTree(): Promise<{menu: string}> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
           const men = await this.connection.getTreeRepository(Menu).findTrees()
           resolve({
               menu: JSON.stringify(men)
