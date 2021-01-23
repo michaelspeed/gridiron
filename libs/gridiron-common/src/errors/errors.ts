@@ -1,7 +1,6 @@
 import {ApolloError} from 'apollo-client';
-import {LogLevel} from '../../config';
-import {coreEntityMap} from '../../entity/coreEntityMap';
-import {ID} from '../../common';
+import { ID } from '..';
+import {LogLevel} from '@gridiron/gridiron-core';
 
 export abstract class LangError extends ApolloError {
     protected constructor(

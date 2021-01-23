@@ -1,7 +1,7 @@
 import {DynamicModule} from '@nestjs/common';
 import {getModuleMetadata, graphQLResolversFor, isDynamicModule} from './plugin-metadata';
 import {getConfig} from '../config/config-helpers';
-import {notNullOrUndefined, Type} from '../common';
+import {notNullOrUndefined, Type} from '@gridiron/gridiron-common';
 
 const dynamicApiModuleClassMap: { [name: string]: Type<any> } = {};
 

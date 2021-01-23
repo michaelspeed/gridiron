@@ -19,7 +19,8 @@
       "@gridiron/asset-server-plugin": [
         "libs/asset-server-plugin/src/index.ts"
       ],
-      "@gridiron/gridiron-common": ["libs/gridiron-common/src/index.ts"]
+      "@gridiron/gridiron-common": ["libs/gridiron-common/src/index.ts"],
+      "@gridiron/entities": ["libs/entities/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -19,6 +19,7 @@
     "gridiron": { "tags": [] },
     "gridiron-core": { "tags": [] },
     "asset-server-plugin": { "tags": [] },
-    "gridiron-common": { "tags": [] }
+    "gridiron-common": { "tags": [] },
+    "entities": { "tags": [] }
   }
 }

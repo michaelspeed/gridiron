@@ -11,8 +11,7 @@ import {PluginModule} from './plugin/plugin.module';
 import {ProcessContextModule} from './process-context/process-context.module';
 import {ModuleRef} from '@nestjs/core';
 import {RequestHandler} from 'express';
-import { InjectableStrategy } from './common/types/injectable-strategy';
-import { Injector } from './common/injector';
+import { InjectableStrategy, Injector } from '@gridiron/gridiron-common';
 
 @Module({
   imports:[
@@ -87,7 +86,7 @@ export class CoreModule implements NestModule, OnApplicationBootstrap, OnApplica
         }
     }
 
-    private getInjectableStrategies(): InjectableStrategy[] {
+    private getInjectableStrategies(): InjectableStrategy[] | any {
         const { jobQueueStrategy } = this.configService.jobQueueOptions;
         return [
             jobQueueStrategy,

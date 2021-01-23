@@ -3,7 +3,7 @@ import {TcpClientOptions, Transport} from '@nestjs/microservices';
 import {NestFactory} from '@nestjs/core';
 import {DefaultLogger, GridIronConfig, Logger, RuntimeGridIronConfig} from './config';
 import {getConfig, setConfig} from './config/config-helpers';
-import {InternalServerError, ReadOnlyRequired, Type} from './common';
+import {InternalServerError, ReadOnlyRequired, Type} from '@gridiron/gridiron-common';
 import {NestjsQueryTypeOrmModule} from '@nestjs-query/query-typeorm';
 import {getConfigurationFunction, getEntitiesFromPlugin} from './plugin/plugin-metadata';
 import {coreEntityMap} from './entity/coreEntityMap';
