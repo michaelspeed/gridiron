@@ -10,7 +10,7 @@
     "@nestjs/core": "^7.0.9",
     "@nestjs/graphql": "^7.9.1",
     "@nestjs/jwt": "^7.0.0",
-    "@nestjs/microservices": "^7.6.5",
+    "@nestjs/microservices": "^7.0.11",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/terminus": "^7.0.1",
     "@nestjs/typeorm": "^7.0.0",
@@ -72,5 +72,7 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4",
     "webpack-node-externals": "^2.5.2"
-  }
+  },
+  "main": "src/index.js",
+  "typings": "src/index.d.ts"
 }

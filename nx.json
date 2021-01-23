@@ -15,5 +15,9 @@
       "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "projects": { "gridiron": { "tags": [] }, "gridiron-core": { "tags": [] } }
+  "projects": {
+    "gridiron": { "tags": [] },
+    "gridiron-core": { "tags": [] },
+    "asset-server-plugin": { "tags": [] }
+  }
 }

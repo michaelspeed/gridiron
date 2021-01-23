@@ -99,6 +99,46 @@
           }
         }
       }
+    },
+    "asset-server-plugin": {
+      "root": "libs/asset-server-plugin",
+      "sourceRoot": "libs/asset-server-plugin/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/asset-server-plugin/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/asset-server-plugin"
+          ],
+          "options": {
+            "jestConfig": "libs/asset-server-plugin/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/asset-server-plugin",
+            "tsConfig": "libs/asset-server-plugin/tsconfig.lib.json",
+            "packageJson": "libs/asset-server-plugin/package.json",
+            "main": "libs/asset-server-plugin/src/index.ts",
+            "assets": [
+              "libs/asset-server-plugin/*.md"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

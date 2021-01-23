@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gridiron/gridiron-core": ["libs/gridiron-core/src/index.ts"]
+      "@gridiron/gridiron-core": ["libs/gridiron-core/src/index.ts"],
+      "@gridiron/asset-server-plugin": ["libs/asset-server-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
