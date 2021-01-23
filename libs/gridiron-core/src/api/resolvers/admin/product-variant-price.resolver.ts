@@ -1,10 +1,10 @@
 import {Args, Float, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
-import {ProductVariantPrice} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {ProductVariantsService} from '../../../service/services/admin/product-variants.service';
+import { ProductVariantPrice } from '@gridiron/entities';
 
-@Resolver(of => ProductVariantPrice)
+@Resolver(() => ProductVariantPrice)
 export class ProductVariantPriceResolver extends CRUDResolver(ProductVariantPrice, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

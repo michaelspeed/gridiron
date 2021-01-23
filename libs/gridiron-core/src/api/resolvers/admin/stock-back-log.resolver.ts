@@ -1,7 +1,7 @@
 import {Resolver} from "@nestjs/graphql";
-import {StockBackLog} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { StockBackLog } from "@gridiron/entities";
 
 @Resolver(() => StockBackLog)
 export class StockBackLogResolver extends CRUDResolver(StockBackLog, {

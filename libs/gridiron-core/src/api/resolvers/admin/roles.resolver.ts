@@ -1,11 +1,10 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {Role} from '../../../entity';
 import {RolesService} from '../../../service';
-import {Permission} from '../../../enums';
+import { Role, Permission } from '@gridiron/entities';
 
-@Resolver(of => Role)
+@Resolver(() => Role)
 export class RolesResolver extends CRUDResolver(Role, {
     create: {
         disabled: true

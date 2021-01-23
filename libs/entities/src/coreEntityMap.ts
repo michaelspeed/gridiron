@@ -56,8 +56,6 @@ import {Settlements} from "./settlement/settlement.entity";
 import {Delivery} from "./delivery/delivery.entity";
 import {DeliveryPool} from "./delivery/delivery-pool.entity";
 import {Search} from "./search/search.entity";
-import {CollectionQuery} from "./collection/collectionquery.entity";
-import {ProductQuery} from "./product/productquery.entity";
 import {PromotionVariantPrice} from "./promotion-variant/promotion-variant-price.entity";
 import {CartPrice} from "./promotion-variant/cart-price.entity";
 import {Accounts} from "./Accounts/accounts.entity";
@@ -152,65 +150,4 @@ export const coreEntityMap = {
     ViewCodes,
     Serviceable,
     ServiceableOrders
-}
-
-export const nestQueryDTOMap = {
-    Address,
-    Administrator,
-    Asset,
-    AssetsFolder,
-    BillingAgreement,
-    BillingAgreementRequest,
-    Seo,
-    Cart,
-    Channel,
-    Country,
-    CollectionQuery,
-    CollectionAsset,
-    Customer,
-    CustomerGroup,
-    Cancellation,
-    Facet,
-    FacetValue,
-    Fulfillment,
-    GlobalSettings,
-    HistoryEntry,
-    OrderHistoryEntry,
-    Order,
-    OrderItem,
-    OrderLine,
-    Pin,
-    ProductQuery,
-    ProductOption,
-    ProductOptionGroup,
-    ProductAsset,
-    ProductVariant,
-    ProductVariantPrice,
-    ProductVariantAsset,
-    ProductVariantSpecifications,
-    User,
-    Vendor,
-    VendorPin,
-    VendorPlans,
-    VendorLicense,
-    TaxCategory,
-    TaxRate,
-    Zone,
-    Sale,
-    Store,
-    Session,
-    StockKeeping,
-    StockMovement,
-    AuthenticatedSession,
-    AnonymousSession,
-    Role,
-    View,
-    Zip,
-    Menu,
-    Page,
-    StoreBalance,
-    Settlements,
-    Delivery,
-    DeliveryPool,
-    Search
 }

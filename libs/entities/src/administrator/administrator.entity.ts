@@ -9,10 +9,9 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {User} from '..';
+import {AdministratorEnum, User} from '..';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
-import {AdministratorEnum} from '../../enums';
 
 registerEnumType(AdministratorEnum, {
     name: 'AdministratorEnum'
@@ -58,7 +57,7 @@ export class Administrator extends BaseEntity {
 
     @Field(() => User)
     @Index()
-    @OneToOne(type => User, us => us.administrator)
+    @OneToOne(() => User, us => us.administrator)
     @JoinColumn()
     user: User;
 }

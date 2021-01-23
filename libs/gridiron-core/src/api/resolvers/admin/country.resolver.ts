@@ -2,10 +2,9 @@ import {Query, Resolver} from '@nestjs/graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {CountryService} from '../../../service';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
-import {Country} from '../../../entity'
+import { Country } from '@gridiron/entities';
 
-
-@Resolver(of => Country)
+@Resolver(() => Country)
 export class CountryResolver extends CRUDResolver(Country, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,
@@ -21,7 +20,7 @@ export class CountryResolver extends CRUDResolver(Country, {
         super(service);
     }
 
-    @Query(returns => [Country])
+    @Query(() => [Country])
     async GetAllCountries(): Promise<Country[]> {
         return this.countryService.GetAllCountry()
     }

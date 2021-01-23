@@ -21,11 +21,11 @@ import {
     Invoice,
     Order,
     OrderItem,
+    OrderStageType,
     Refund,
     ServiceableOrders,
     Store} from '..';
 import GraphQLJSON from "graphql-type-json";
-import { OrderStageType } from '../../enums';
 
 registerEnumType(OrderStageType, {
     name: 'OrderStageType'

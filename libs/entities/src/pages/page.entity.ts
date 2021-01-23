@@ -9,8 +9,8 @@ import {
 } from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
 import {Field, ID, ObjectType, registerEnumType} from "@nestjs/graphql";
-import {PageCategory, PageType} from "../../enums";
 import GraphQLJSON from "graphql-type-json";
+import { PageType, PageCategory } from "..";
 
 registerEnumType(PageType, {
     name: 'PageType'
@@ -56,11 +56,11 @@ export class Page extends BaseEntity {
     @Column({nullable: true, type: "simple-array"})
     list: string[]
 
-    @FilterableField(type => PageType)
+    @FilterableField(() => PageType)
     @Column({enum: PageType, type: "enum", default: PageType.LIST})
     pageType: PageType
 
-    @FilterableField(type => PageCategory)
+    @FilterableField(() => PageCategory)
     @Column({enum: PageCategory, type: "enum", default: PageCategory.HOME})
     pageCategory: PageCategory
 

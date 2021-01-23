@@ -35,11 +35,11 @@ export class ProductVariantAsset extends BaseEntity {
     deletedAt?: Date;
 
     @Field(() => Asset)
-    @ManyToOne(type => Asset, asset => asset.variantAsset)
+    @ManyToOne(() => Asset, asset => asset.variantAsset)
     asset: Asset
 
     @Field(() => ProductVariant)
-    @OneToOne(type => ProductVariant, variant => variant.asset)
+    @OneToOne(() => ProductVariant, variant => variant.asset)
     @JoinColumn()
     variant: ProductVariant
 }

@@ -1,4 +1,3 @@
-import {GridIronEntity} from '../../entity/base/base.entity';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {Connection, FilterableField, FilterableRelation, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {
@@ -6,15 +5,12 @@ import {
     Column,
     CreateDateColumn, DeleteDateColumn,
     Entity,
-    ManyToMany,
     ManyToOne,
     OneToMany,
-    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {BillingAgreementEnum, BillingAgreementState} from '../../enums';
-import {BillingAgreementRequest, Collection, ProductVariant, Store} from '../../entity';
+import { BillingAgreementEnum, BillingAgreementState, Collection, ProductVariant, Store, BillingAgreementRequest } from '..';
 
 registerEnumType(BillingAgreementEnum, {
     name: 'BillingAgreementEnum'
@@ -61,18 +57,18 @@ export class BillingAgreement extends BaseEntity {
     state: BillingAgreementState
 
     @Field(() => ProductVariant)
-    @ManyToOne(type => ProductVariant, variant => variant.agreements)
+    @ManyToOne(() => ProductVariant, variant => variant.agreements)
     variant: ProductVariant
 
     @Field(() => Collection, {nullable: true})
-    @ManyToOne(type1 => Collection, collect => collect.agreements)
+    @ManyToOne(() => Collection, collect => collect.agreements)
     collection: Collection
 
     @Field(() => Store)
-    @ManyToOne(type1 => Store, store => store.agreement)
+    @ManyToOne(() => Store, store => store.agreement)
     store: Store
 
     @Field(() => [BillingAgreementRequest])
-    @OneToMany(type1 => BillingAgreementRequest, request => request.agreement)
+    @OneToMany(() => BillingAgreementRequest, request => request.agreement)
     request: BillingAgreementRequest[]
 }

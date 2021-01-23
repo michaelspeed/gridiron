@@ -1,7 +1,7 @@
 import {Resolver} from "@nestjs/graphql";
-import {Refund} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { Refund } from "@gridiron/entities";
 
 @Resolver(() => Refund)
 export class RefundResolver extends CRUDResolver(Refund, {

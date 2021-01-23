@@ -5,7 +5,7 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {Connection, FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
-import { ProductAsset, ProductVariant, FacetValue, ProductOptionGroup, Asset, CollectionQuery, Collection } from "..";
+import { ProductAsset, ProductVariant, FacetValue, ProductOptionGroup, Asset, Collection } from "..";
 
 @ObjectType('Product', {isAbstract: true})
 @Connection('assets', () => ProductAsset, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
@@ -13,7 +13,7 @@ import { ProductAsset, ProductVariant, FacetValue, ProductOptionGroup, Asset, Co
 @Connection('facets', () => FacetValue, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 @Connection('options', () => ProductOptionGroup, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 @Relation('featuredAsset', () => Asset, {pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
-@Relation('collection', () => CollectionQuery, {nullable: true, pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
+@Relation('collection', () => Collection, {nullable: true, pagingStrategy: PagingStrategies.OFFSET, enableAggregate: true})
 export class ProductQuery {
     @FilterableField(() => ID)
     @PrimaryGeneratedColumn('uuid')

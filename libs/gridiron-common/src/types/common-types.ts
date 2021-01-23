@@ -1,4 +1,4 @@
-import {GridIronEntity} from '../../entity/base/base.entity';
+import {GridIronEntity} from '@gridiron/entities';
 import {BaseEntity} from 'typeorm';
 
 export type LocaleString = string & { _opaqueType: 'LocaleString' };

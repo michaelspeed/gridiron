@@ -1,4 +1,4 @@
-import {Field, ID, ObjectType} from "@nestjs/graphql";
+import {ID, ObjectType} from "@nestjs/graphql";
 import {
     BaseEntity,
     Column,
@@ -8,7 +8,7 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
-import {FilterableField, FilterableRelation, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
+import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
 import {ProductVariantPrice, Store} from "..";
 
 @ObjectType('StockBackLog', {isAbstract: true})

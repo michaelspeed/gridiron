@@ -80,15 +80,15 @@ export class User extends BaseEntity {
     phoneNumber: string;
 
     @Field(() => Administrator, {nullable: true})
-    @OneToOne(type => Administrator, ad => ad.user)
+    @OneToOne(() => Administrator, ad => ad.user)
     administrator: Administrator;
 
     @Field(() => Vendor, {nullable: true})
-    @OneToOne(type => Vendor, vendor => vendor.user)
+    @OneToOne(() => Vendor, vendor => vendor.user)
     vendor: Vendor
 
     @Field(() => Delivery, {nullable: true})
-    @OneToOne(type => Delivery, delivery => delivery.user)
+    @OneToOne(() => Delivery, delivery => delivery.user)
     @JoinColumn()
     delivery: Delivery
 

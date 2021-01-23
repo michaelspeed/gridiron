@@ -1,7 +1,7 @@
 import {Resolver} from '@nestjs/graphql';
-import {StockMovement} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { StockMovement } from '@gridiron/entities';
 
 @Resolver(() => StockMovement)
 export class StockMovementResolver extends CRUDResolver(StockMovement, {

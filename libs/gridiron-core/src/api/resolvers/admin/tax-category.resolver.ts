@@ -1,10 +1,9 @@
 import {Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
-import {QueryService} from '@nestjs-query/core';
-import {InjectQueryService} from '@nestjs-query/core/dist/src/decorators';
-import {TaxCategory} from '../../../entity';
+import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { TaxCategory } from '@gridiron/entities';
 
-@Resolver(of => TaxCategory)
+@Resolver(() => TaxCategory)
 export class TaxCategoryResolver extends CRUDResolver(TaxCategory, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

@@ -23,6 +23,6 @@ export class AssetsFolder extends BaseEntity {
     @Column()
     name: string;
 
-    @OneToMany(type => Asset, asset => asset.folder)
+    @OneToMany(() => Asset, asset => asset.folder)
     assets: Asset[]
 }

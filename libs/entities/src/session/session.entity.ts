@@ -1,6 +1,4 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, TableInheritance, UpdateDateColumn} from 'typeorm';
-import {Field, ID, ObjectType} from '@nestjs/graphql';
-import {FilterableField} from '@nestjs-query/query-graphql';
 
 @Entity({name: 'session'})
 @TableInheritance({ column: { type: 'varchar', name: 'type' } })

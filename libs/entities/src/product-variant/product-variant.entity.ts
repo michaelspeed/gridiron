@@ -3,8 +3,6 @@ import {
     Column,
     CreateDateColumn, DeleteDateColumn,
     Entity, JoinColumn,
-    JoinTable,
-    ManyToMany,
     ManyToOne, OneToMany,
     OneToOne,
     PrimaryGeneratedColumn,
@@ -21,9 +19,7 @@ import {
 import {
     BillingAgreement, CartItem,
     OrderItem,
-    OrderLine,
     Product,
-    ProductOption,
     ProductVariantAsset,
     ProductVariantPrice,
     ProductVariantSpecifications,
@@ -80,7 +76,7 @@ export class ProductVariant extends BaseEntity {
     rating: number;
 
     @Field(() => Product)
-    @ManyToOne(type => Product, prod => prod.variants)
+    @ManyToOne(() => Product, prod => prod.variants)
     product: Product
 
     @FilterableField()
@@ -88,27 +84,27 @@ export class ProductVariant extends BaseEntity {
     trackInventory: boolean;
 
     @Field(() => ProductVariantAsset, {nullable: true})
-    @OneToOne(type => ProductVariantAsset, prod => prod.variant)
+    @OneToOne(() => ProductVariantAsset, prod => prod.variant)
     asset: ProductVariantAsset
 
     @Field(() => [ProductVariantPrice], {nullable: true})
-    @OneToMany(type => ProductVariantPrice, price => price.variant)
+    @OneToMany(() => ProductVariantPrice, price => price.variant)
     price: ProductVariantPrice[]
 
     @Field(() => ProductVariantSpecifications, {nullable: true})
-    @OneToOne(type => ProductVariantSpecifications, specs => specs.variant)
+    @OneToOne(() => ProductVariantSpecifications, specs => specs.variant)
     @JoinColumn()
     specs: ProductVariantSpecifications
 
-    @OneToMany(type => View, view => view.variant)
+    @OneToMany(() => View, view => view.variant)
     view: View[]
 
     @Field(() => Seo,{nullable: true})
-    @OneToOne(type => Seo, seo => seo.variant)
+    @OneToOne(() => Seo, seo => seo.variant)
     seo: Seo
 
     @Field(() => [BillingAgreement])
-    @OneToMany(type => BillingAgreement, agreement => agreement.variant)
+    @OneToMany(() => BillingAgreement, agreement => agreement.variant)
     agreements: BillingAgreement[]
 
     @Field(() => [StockKeeping])
@@ -120,7 +116,7 @@ export class ProductVariant extends BaseEntity {
     line: OrderItem[]
 
     @Field(() => [CartItem])
-    @OneToMany(type => CartItem, cart => cart.variant)
+    @OneToMany(() => CartItem, cart => cart.variant)
     carts: CartItem[]
 
     @Field(() => [Review])

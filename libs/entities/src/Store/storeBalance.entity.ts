@@ -3,8 +3,7 @@ import {
     BaseEntity,
     Column,
     CreateDateColumn,
-    Entity, JoinColumn,
-    OneToOne,
+    Entity, OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
@@ -35,6 +34,6 @@ export class StoreBalance extends BaseEntity {
     @Column({default: 0, type: "float"})
     balanceVolume: number;
 
-    @OneToOne(type1 => Store, store => store.balance)
+    @OneToOne(() => Store, store => store.balance)
     store: Store
 }

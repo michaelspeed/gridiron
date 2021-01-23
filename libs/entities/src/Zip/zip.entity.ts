@@ -8,7 +8,7 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {Connection, FilterableConnection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
+import {FilterableConnection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
 import {Vendor, Store} from "..";
 
 @ObjectType('Zip', {isAbstract: true})

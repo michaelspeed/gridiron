@@ -2,14 +2,11 @@ import {ID, ObjectType} from '@nestjs/graphql';
 import {
     BaseEntity,
     Column,
-    CreateDateColumn,
     DeleteDateColumn,
     Entity,
     ManyToOne,
     OneToOne,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn
-} from 'typeorm';
+    PrimaryGeneratedColumn} from 'typeorm';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {Vendor, VendorPlans} from '../';
 
@@ -34,9 +31,9 @@ export class VendorLicense extends BaseEntity {
     @Column()
     tenureEnd: Date;
 
-    @OneToOne(type => Vendor)
+    @OneToOne(() => Vendor)
     vendor: Vendor
 
-    @ManyToOne(type => VendorPlans, plan => plan.licences)
+    @ManyToOne(() => VendorPlans, plan => plan.licences)
     plans: VendorPlans
 }

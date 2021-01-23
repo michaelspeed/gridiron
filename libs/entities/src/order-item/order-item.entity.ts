@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Order, OrderLine, ProductVariant, TaxCategory, TaxRate} from '..';
+import {OrderLine, ProductVariant, TaxRate} from '..';
 
 @ObjectType('OrderItem', {isAbstract: true})
 @Entity({name: 'order-item'})
@@ -40,10 +40,10 @@ export class OrderItem extends BaseEntity {
     quantity: number;
 
     @Field(() => ProductVariant)
-    @ManyToOne(type => ProductVariant, variant => variant.line)
+    @ManyToOne(() => ProductVariant, variant => variant.line)
     productVariant: ProductVariant;
 
-    @ManyToOne(type => TaxRate)
+    @ManyToOne(() => TaxRate)
     taxCategory: TaxRate;
 
     @OneToOne(() => OrderLine, line => line.item)

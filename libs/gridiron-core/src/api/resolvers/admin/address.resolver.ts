@@ -1,9 +1,9 @@
 import {Resolver} from "@nestjs/graphql";
-import {Address} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { Address } from "@gridiron/entities";
 
-@Resolver(of => Address)
+@Resolver(() => Address)
 export class AddressResolver extends CRUDResolver(Address, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

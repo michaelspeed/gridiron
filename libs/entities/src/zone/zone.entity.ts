@@ -26,13 +26,13 @@ export class Zone extends BaseEntity {
     @Column()
     name: string;
 
-    @ManyToMany(type => Country, count => count.zone)
+    @ManyToMany(() => Country, count => count.zone)
     @JoinTable()
     members: Country[];
 
-    @OneToMany(type => TaxRate, rate => rate.zone)
+    @OneToMany(() => TaxRate, rate => rate.zone)
     taxrates: TaxRate[]
 
-    @OneToMany(type => Store, store => store.region)
+    @OneToMany(() => Store, store => store.region)
     stores: Store[]
 }

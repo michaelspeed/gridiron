@@ -1,10 +1,10 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
-import {Seo} from '../../../entity/Seo/Seo.entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {SeoService} from '../../../service/services/admin/seo.service';
+import { Seo } from '@gridiron/entities';
 
-@Resolver(of => Seo)
+@Resolver(() => Seo)
 export class SeoResolver extends CRUDResolver(Seo, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

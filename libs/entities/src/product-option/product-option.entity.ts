@@ -4,7 +4,6 @@ import {
     CreateDateColumn,
     DeleteDateColumn,
     Entity,
-    ManyToMany,
     ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
@@ -42,7 +41,7 @@ export class ProductOption extends BaseEntity {
     @Column()
     code: string;
 
-    @ManyToOne(type => ProductOptionGroup, group => group.options)
+    @ManyToOne(() => ProductOptionGroup, group => group.options)
     group: ProductOptionGroup
 
 }

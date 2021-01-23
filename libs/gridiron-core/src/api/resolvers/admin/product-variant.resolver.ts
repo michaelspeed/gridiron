@@ -1,12 +1,11 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
-import {ProductVariant, ProductVariantSpecifications} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {ProductOptionsDto, ProductOptionsInputDto} from '../../dto/admin/private-variant';
 import {ProductVariantsService} from '../../../service/services/admin/product-variants.service';
 import GraphQLJSON from 'graphql-type-json';
+import { ProductVariant, ProductVariantSpecifications } from '@gridiron/entities';
 
-@Resolver(of => ProductVariant)
+@Resolver(() => ProductVariant)
 export class ProductVariantResolver extends CRUDResolver(ProductVariant, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,
@@ -28,7 +27,7 @@ export class ProductVariantResolver extends CRUDResolver(ProductVariant, {
         super(service);
     }
 
-    @Mutation(returns => [ProductVariant])
+    @Mutation(() => [ProductVariant])
     async CreateProductVariants(
         @Args({name: 'prodId', type: () => ID}) prodId: string,
         @Args('options') options: string,
@@ -36,7 +35,7 @@ export class ProductVariantResolver extends CRUDResolver(ProductVariant, {
         return this.productVariantsService.createProductOptions(prodId, JSON.parse(options))
     }
 
-    @Mutation(returns => ProductVariantSpecifications)
+    @Mutation(() => ProductVariantSpecifications)
     async CreateProductVariantSpecification(
         @Args({name: 'variantId', type: () => ID}) variantId: string,
         @Args({name: 'specs', type: () => GraphQLJSON}) specs: any,
@@ -44,7 +43,7 @@ export class ProductVariantResolver extends CRUDResolver(ProductVariant, {
         return this.productVariantsService.createProductVariantSpecs(variantId, specs)
     }
 
-    @Mutation(returns => ProductVariantSpecifications)
+    @Mutation(() => ProductVariantSpecifications)
     async UpdateProductVariantSpecification(
         @Args({name: 'id', type: () => ID}) id: string,
         @Args({name: 'specs', type: () => GraphQLJSON}) specs: any,
@@ -52,7 +51,7 @@ export class ProductVariantResolver extends CRUDResolver(ProductVariant, {
         return this.productVariantsService.updateProductVariantSpecs(id, specs)
     }
 
-    @Mutation(returns => ProductVariant)
+    @Mutation(() => ProductVariant)
     async UpdateVariantViewCode(
         @Args({name: 'variantId', type: () => ID}) id: string,
         @Args({name: 'viewcode', type: () => [String]}) viewcode: string[],

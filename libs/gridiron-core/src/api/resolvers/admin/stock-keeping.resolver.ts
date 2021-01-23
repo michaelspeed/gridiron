@@ -1,10 +1,9 @@
-import {StockKeeping} from '../../../entity';
 import {Args, Context, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {StockKeepingType} from '../../../enums/StockKeepingType';
 import {StocksService, VendorService} from '../../../service';
 import {JwtService} from '@nestjs/jwt';
+import { StockKeeping, StockKeepingType } from '@gridiron/entities';
 
 @Resolver(() => StockKeeping)
 export class StockKeepingResolver extends CRUDResolver(StockKeeping, {

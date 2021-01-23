@@ -1,8 +1,6 @@
 import {Args, Context, Float, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
-import {BillingAgreement, BillingAgreementRequest} from '../../../entity';
 import {BillingAgreementService, UserService} from '../../../service';
-import {CRUDResolver} from '@nestjs-query/query-graphql';
-import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { BillingAgreement, BillingAgreementRequest } from '@gridiron/entities';
 
 @Resolver(() => BillingAgreement)
 export class BillingAgreementResolver {

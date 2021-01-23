@@ -1,4 +1,4 @@
-import {Field, ObjectType} from '@nestjs/graphql';
+/* eslint-disable @typescript-eslint/ban-types */
 
 export type DeepPartial<T> = {
     [P in keyof T]?:

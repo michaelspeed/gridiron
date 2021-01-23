@@ -15,7 +15,6 @@ import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-q
 import {
     Asset,
     Collection,
-    Facet,
     FacetValue,
     ProductAsset,
     ProductOptionGroup,
@@ -68,32 +67,32 @@ export class Product extends BaseEntity {
     description: string;
 
     @Field(() => Hsn, {nullable: true})
-    @ManyToOne(type => Hsn, hsn => hsn.prod)
+    @ManyToOne(() => Hsn, hsn => hsn.prod)
     hsn: Hsn
 
     @Field(() => Collection, {nullable: true})
-    @ManyToOne(type => Collection, col => col.products)
+    @ManyToOne(() => Collection, col => col.products)
     collection: Collection
 
     @Field(() => [ProductOptionGroup])
-    @OneToMany(type => ProductOptionGroup, optGroup => optGroup.product)
+    @OneToMany(() => ProductOptionGroup, optGroup => optGroup.product)
     options: ProductOptionGroup[]
 
     @Field(() => Asset)
-    @ManyToOne(type => Asset, asset => asset.featured)
+    @ManyToOne(() => Asset, asset => asset.featured)
     featuredAsset: Asset
 
     @Field(() => [FacetValue])
-    @ManyToMany(type => FacetValue, facet => facet.product)
+    @ManyToMany(() => FacetValue, facet => facet.product)
     @JoinTable()
     facets: FacetValue[]
 
     @Field(() => [ProductAsset], {nullable: true})
-    @OneToMany(type => ProductAsset, prasset => prasset.product)
+    @OneToMany(() => ProductAsset, prasset => prasset.product)
     assets: ProductAsset[]
 
     @Field(() => [ProductVariant])
-    @OneToMany(type => ProductVariant, variant => variant.product)
+    @OneToMany(() => ProductVariant, variant => variant.product)
     variants: ProductVariant[]
 
     @Field(() => Serviceable)

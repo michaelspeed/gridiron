@@ -23,9 +23,9 @@ export class TaxCategory extends BaseEntity {
     @Column()
     name: string;
 
-    @ManyToOne(type => Store, store => store.taxCategory)
+    @ManyToOne(() => Store, store => store.taxCategory)
     store: Store
 
-    @OneToMany(type => TaxRate, rate => rate.category)
+    @OneToMany(() => TaxRate, rate => rate.category)
     rate: TaxRate[]
 }

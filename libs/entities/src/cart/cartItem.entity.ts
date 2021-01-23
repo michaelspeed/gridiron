@@ -1,5 +1,5 @@
 import {Field, ID, ObjectType} from "@nestjs/graphql";
-import {BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {FilterableField} from "@nestjs-query/query-graphql";
 import {Cart, ProductVariant, ProductVariantPrice, Store} from "..";
 
@@ -16,18 +16,18 @@ export class CartItem extends BaseEntity {
     quantity: number
 
     @Field(() => Cart)
-    @ManyToOne(type => Cart, cart => cart.items)
+    @ManyToOne(() => Cart, cart => cart.items)
     cart: Cart
 
     @Field(() => ProductVariant)
-    @ManyToOne(type => ProductVariant, variant => variant.carts)
+    @ManyToOne(() => ProductVariant, variant => variant.carts)
     variant: ProductVariant
 
     @Field(() => Store)
-    @ManyToOne(type => Store, store => store.cart)
+    @ManyToOne(() => Store, store => store.cart)
     store: Store
 
     @Field(() => ProductVariantPrice)
-    @ManyToOne(type => ProductVariantPrice, price => price.cartItem)
+    @ManyToOne(() => ProductVariantPrice, price => price.cartItem)
     price: ProductVariantPrice
 }

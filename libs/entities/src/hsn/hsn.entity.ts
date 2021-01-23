@@ -7,8 +7,8 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
-import {Connection, FilterableConnection, FilterableField, PagingStrategies} from "@nestjs-query/query-graphql";
-import {Product, ProductOptionGroup, ProductVariantPrice} from "..";
+import {FilterableConnection, FilterableField, PagingStrategies} from "@nestjs-query/query-graphql";
+import {Product, ProductVariantPrice} from "..";
 
 @ObjectType('Hsn', {isAbstract: true})
 @Entity({name: 'hsn'})
@@ -39,9 +39,9 @@ export class Hsn extends BaseEntity {
     @Column({type: "float", default: 0})
     value: number
 
-    @OneToMany(type => Product, prod => prod.hsn)
+    @OneToMany(() => Product, prod => prod.hsn)
     prod: Product[]
 
-    @OneToMany(type => ProductVariantPrice, price => price.hsn)
+    @OneToMany(() => ProductVariantPrice, price => price.hsn)
     price: ProductVariantPrice[]
 }

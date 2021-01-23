@@ -1,5 +1,5 @@
+import { PaymentMethod } from "@gridiron/entities";
 import {Args, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {PaymentMethod} from "../../../entity";
 import {PaymentMethodService} from "../../../service";
 
 @Resolver(() => PaymentMethod)

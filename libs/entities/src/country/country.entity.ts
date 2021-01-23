@@ -58,9 +58,9 @@ export class Country extends BaseEntity {
     @Column()
     enabled: boolean;
 
-    @ManyToMany(type => Zone, zone => zone.members)
+    @ManyToMany(() => Zone, zone => zone.members)
     zone: Zone[];
 
-    @OneToMany(type => Store, store => store.country)
+    @OneToMany(() => Store, store => store.country)
     stores: Store[]
 }

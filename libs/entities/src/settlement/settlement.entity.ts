@@ -4,13 +4,12 @@ import {
     Column,
     CreateDateColumn, DeleteDateColumn,
     Entity, ManyToOne,
-    OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
 import {Store} from "../Store/store.entity";
-import { SettlementType } from "../..";
+import { SettlementType } from "..";
 
 registerEnumType(SettlementType, {
     name: 'SettlementType'

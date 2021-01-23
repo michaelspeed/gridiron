@@ -1,17 +1,16 @@
 import {Args, Context, Mutation, Query, registerEnumType, Resolver} from '@nestjs/graphql';
-import {Administrator, User} from '../../../entity';
 import * as bcrypt from 'bcrypt';
 import {JwtService} from '@nestjs/jwt';
 import {AdministratorDto, AdministratorResponseType} from '../../dto/admin/administrator.dto';
 import {AdministratorService} from '../../../service/services/admin/administrator.service'
-import {AdministratorEnum} from '../../../enums';
 import {StoreService} from '../../../service';
+import { Administrator, User, AdministratorEnum } from '@gridiron/entities';
 
 registerEnumType(AdministratorResponseType, {
     name: 'AdministratorResponseType'
 })
 
-@Resolver(of => Administrator)
+@Resolver(() => Administrator)
 export class AdministratorResolver {
 
     constructor(

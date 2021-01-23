@@ -1,7 +1,7 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
-import {ShippingMethodsEnum} from "../../enums/ShippingMethods";
+import { ShippingMethodsEnum } from '..';
 
 registerEnumType(ShippingMethodsEnum, {
     name: 'ShippingMethodsEnum'

@@ -1,4 +1,4 @@
-import {Field, ID, ObjectType, registerEnumType} from "@nestjs/graphql";
+import {ID, ObjectType, registerEnumType} from "@nestjs/graphql";
 import {
     BaseEntity,
     Column,
@@ -9,8 +9,7 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
-import {OrderLine, Store} from "..";
-import {InvoiceEnum} from "../../enums";
+import {InvoiceEnum, OrderLine, Store} from "..";
 
 registerEnumType(InvoiceEnum, {
     name: 'InvoiceEnum'

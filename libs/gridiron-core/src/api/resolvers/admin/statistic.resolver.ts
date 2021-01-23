@@ -1,5 +1,5 @@
 import {Args, ID, Query, Resolver} from "@nestjs/graphql";
-import {DataSource, StatisticeDto, StatisticeProdDto} from "../../dto/admin/statistice.dto";
+import {StatisticeDto, StatisticeProdDto} from "../../dto/admin/statistice.dto";
 import {StatisticsService} from "../../../service";
 
 @Resolver(() => StatisticeDto)

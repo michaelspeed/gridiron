@@ -1,8 +1,8 @@
 import {Args, Context, Mutation, Query, Resolver} from '@nestjs/graphql';
 import {UserService} from '../../../service';
-import {ResetCode, TaxRate, User} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { User, ResetCode } from '@gridiron/entities';
 
 @Resolver(() => User)
 export class UserResolver extends CRUDResolver(User, {
@@ -26,7 +26,7 @@ export class UserResolver extends CRUDResolver(User, {
     async GetCurrentUser(
         @Context() context
     ): Promise<User> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const auth = context.req.headers.authorization;
             const token = auth.split(' ')[1];
             const user = await this.userService.GetCurrentUser(token)

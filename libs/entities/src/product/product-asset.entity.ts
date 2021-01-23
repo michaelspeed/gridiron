@@ -33,10 +33,10 @@ export class ProductAsset extends BaseEntity {
     deletedAt?: Date;
 
     @Field(() => Product)
-    @ManyToOne(type => Product, prod => prod.assets)
+    @ManyToOne(() => Product, prod => prod.assets)
     product: Product
 
     @Field(() => Asset)
-    @ManyToOne(type => Asset, asset => asset.productAsset)
+    @ManyToOne(() => Asset, asset => asset.productAsset)
     asset: Asset
 }

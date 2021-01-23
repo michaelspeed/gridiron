@@ -4,7 +4,6 @@ import {
     CreateDateColumn, DeleteDateColumn,
     Entity,
     JoinColumn,
-    ManyToOne,
     OneToMany,
     OneToOne,
     PrimaryGeneratedColumn, Tree, TreeChildren, TreeParent,
@@ -12,7 +11,7 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Seo, BillingAgreement, Product, Store, CartPrice, View, Asset} from '../';
+import {Seo, BillingAgreement, Product, CartPrice, View, Asset} from '../';
 
 @ObjectType('Collection', {isAbstract: true})
 @Entity({name: 'collection'})
@@ -73,21 +72,21 @@ export class Collection extends BaseEntity {
     parent: Collection
 
     @Field(() => [Product])
-    @OneToMany(type => Product, prod => prod.collection)
+    @OneToMany(() => Product, prod => prod.collection)
     products: Product[]
 
     @Field(() => Seo)
-    @OneToOne(type => Seo, seo => seo.collection)
+    @OneToOne(() => Seo, seo => seo.collection)
     @JoinColumn()
     seo: Seo
 
     @Field(() => Asset)
-    @OneToOne(type => Asset, asset => asset.collection)
+    @OneToOne(() => Asset, asset => asset.collection)
     @JoinColumn()
     asset: Asset
 
     @Field(() => [BillingAgreement])
-    @OneToMany(type => BillingAgreement, agreement => agreement.collection)
+    @OneToMany(() => BillingAgreement, agreement => agreement.collection)
     agreements: BillingAgreement[]
 
     @Field(() => CartPrice)

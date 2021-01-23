@@ -1,7 +1,7 @@
 import {Resolver} from "@nestjs/graphql";
-import {OrderLine} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { OrderLine } from "@gridiron/entities";
 
 @Resolver(() => OrderLine)
 export class OrderLineResolver extends CRUDResolver(OrderLine, {

@@ -1,11 +1,11 @@
 import {Context, Query, Resolver} from "@nestjs/graphql";
-import {ProductVariantPrice, PromotionVariantPrice} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import {PromotionPriceVariantService} from "../../../service/services/admin/promotion-price-variant.service";
 import {JwtService} from "@nestjs/jwt";
+import { PromotionVariantPrice, ProductVariantPrice } from "@gridiron/entities";
 
-@Resolver(of => PromotionVariantPrice)
+@Resolver(() => PromotionVariantPrice)
 export class PromotionVariantPriceResolver extends CRUDResolver(PromotionVariantPrice, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,
@@ -26,7 +26,7 @@ export class PromotionVariantPriceResolver extends CRUDResolver(PromotionVariant
     async GetPromotionsPrices(
         @Context() context
     ): Promise<ProductVariantPrice[]> {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             const auth = context.req.headers.authorization;
             const token = auth.split(' ')[1];
             const admin: any = this.jwtService.decode(token)

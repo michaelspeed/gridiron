@@ -1,7 +1,14 @@
+import { coreEntityMap } from '@gridiron/entities';
 import {ApolloError} from 'apollo-client';
 import { ID } from '..';
-import {LogLevel} from '@gridiron/gridiron-core';
 
+export enum LogLevel {
+    Error,
+    Warn,
+    Info,
+    Verbose,
+    Debug
+}
 export abstract class LangError extends ApolloError {
     protected constructor(
         public message: string,

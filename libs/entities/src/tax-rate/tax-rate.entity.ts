@@ -34,13 +34,13 @@ export class TaxRate extends BaseEntity {
     @Column()
     enabled: boolean;
 
-    @ManyToOne(type => TaxCategory, cat => cat.rate)
+    @ManyToOne(() => TaxCategory, cat => cat.rate)
     category: TaxCategory
 
-    @ManyToOne(type => Zone, zone => zone.taxrates)
+    @ManyToOne(() => Zone, zone => zone.taxrates)
     zone: Zone
 
-    @OneToMany(type => ProductVariantPrice, prv => prv.tax)
+    @OneToMany(() => ProductVariantPrice, prv => prv.tax)
     variants: ProductVariantPrice[]
 
     taxComponentOf(grossPrice: number): number {

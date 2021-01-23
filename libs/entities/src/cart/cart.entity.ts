@@ -12,11 +12,11 @@ export class Cart extends BaseEntity {
     id: string;
 
     @Field(() => [CartItem])
-    @OneToMany(type => CartItem, item => item.cart)
+    @OneToMany(() => CartItem, item => item.cart)
     items: CartItem[]
 
     @Field(() => User, {nullable: true})
-    @OneToOne(type => User, user => user.cart)
+    @OneToOne(() => User, user => user.cart)
     @JoinColumn()
     user: User
 

@@ -1,9 +1,9 @@
 import {Resolver} from '@nestjs/graphql';
-import {VendorLicense, VendorPlans} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { VendorLicense } from '@gridiron/entities';
 
-@Resolver(of => VendorLicense)
+@Resolver(() => VendorLicense)
 export class VendorLicenseResolver extends CRUDResolver(VendorLicense, {
     create: {
         disabled: true

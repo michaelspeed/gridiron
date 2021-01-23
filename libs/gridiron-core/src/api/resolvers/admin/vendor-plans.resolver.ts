@@ -1,12 +1,11 @@
 import {Args, Float, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
-import {VendorPlans} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {VendorService} from '../../../service';
-import {VendorPlanPrice, VendorPlanTenure} from '../../../enums/VendorPlan';
 import {VendorPlanService} from '../../../service/services/admin/vendor-plan.service';
+import { VendorPlans, VendorPlanPrice, VendorPlanTenure } from '@gridiron/entities';
 
-@Resolver(of => VendorPlans)
+@Resolver(() => VendorPlans)
 export class VendorPlansResolver extends CRUDResolver(VendorPlans, {
     create: {
         disabled: true

@@ -1,13 +1,12 @@
-import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
-import {Asset} from '../../../entity';
+import {Args, Mutation, Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {AssetsService} from '../../../service/services/admin/assets.service';
 import {GraphQLUpload} from 'apollo-server-core';
 import {FileUpload} from 'graphql-upload';
-import {PaginatedList} from '../../../common';
+import { Asset } from '@gridiron/entities';
 
-@Resolver(of => Asset)
+@Resolver(() => Asset)
 export class AssetsResolver extends CRUDResolver(Asset, {
     create: {
         disabled: true

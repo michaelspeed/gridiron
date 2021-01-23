@@ -1,10 +1,9 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
-import {Order} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import GraphQLJSON from "graphql-type-json";
 import {OrderService} from "../../../service";
 import {OrderLineDto} from "../../dto/admin/OrderLineDto";
+import { Order } from '@gridiron/entities';
 
 @Resolver(() => Order)
 export class OrderResolver extends CRUDResolver(Order, {

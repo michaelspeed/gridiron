@@ -1,4 +1,4 @@
-import {DeepPartial} from '../../common';
+import {DeepPartial} from '@gridiron/gridiron-common';
 
 export abstract class GridIronEntity {
     protected constructor(input?: DeepPartial<GridIronEntity>) {

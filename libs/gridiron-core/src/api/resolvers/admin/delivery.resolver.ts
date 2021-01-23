@@ -1,10 +1,10 @@
 import {Args, Context, ID, Mutation, Query, Resolver} from "@nestjs/graphql";
-import {Delivery, DeliveryPool, DeliverySignIn} from "../../../entity";
 import {DeliveryService} from "../../../service";
 import {JwtService} from "@nestjs/jwt";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import { DeliveryStrandedCount } from "../../dto/admin/pool-types";
+import { Delivery, DeliverySignIn, DeliveryPool } from "@gridiron/entities";
 
 @Resolver(() => Delivery)
 export class DeliveryResolver extends CRUDResolver(Delivery, {

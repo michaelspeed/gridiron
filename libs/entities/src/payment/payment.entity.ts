@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
 import {FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {Order, PaymentMethod, User} from "..";
+import {Order, PaymentMethod} from "..";
 
 @ObjectType('Payment', {isAbstract: true})
 @Entity({name: 'payment'})

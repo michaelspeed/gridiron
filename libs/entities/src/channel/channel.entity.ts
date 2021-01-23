@@ -1,7 +1,5 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
-import {Zone} from '..';
-import {LanguageCode} from '../../enums/LanguageCode';
-import {CurrencyCode} from '../../enums/CurrencyCode';
+import {CurrencyCode, LanguageCode, Zone} from '..';
 import {ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
 

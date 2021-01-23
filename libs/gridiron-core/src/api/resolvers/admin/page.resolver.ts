@@ -1,8 +1,8 @@
-import {Mutation, Query, Resolver} from "@nestjs/graphql";
-import {Page} from "../../../entity";
+import {Query, Resolver} from "@nestjs/graphql";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import {PageService} from "../../../service/services/admin/page.service";
+import { Page } from "@gridiron/entities";
 
 @Resolver(() => Page)
 export class PageResolver extends CRUDResolver(Page, {

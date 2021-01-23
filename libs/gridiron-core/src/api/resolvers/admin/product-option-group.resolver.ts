@@ -1,9 +1,9 @@
 import {Resolver} from '@nestjs/graphql';
-import {ProductOptionGroup} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { ProductOptionGroup } from '@gridiron/entities';
 
-@Resolver(of => ProductOptionGroup)
+@Resolver(() => ProductOptionGroup)
 export class ProductOptionGroupResolver extends CRUDResolver(ProductOptionGroup, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

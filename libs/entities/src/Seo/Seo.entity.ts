@@ -41,10 +41,10 @@ export class Seo extends BaseEntity {
     @Column()
     metadesc: string
 
-    @OneToOne(type => Collection, col => col.seo)
+    @OneToOne(() => Collection, col => col.seo)
     collection: Collection
 
-    @OneToOne(type => ProductVariant, variant => variant.seo)
+    @OneToOne(() => ProductVariant, variant => variant.seo)
     @JoinColumn()
     variant: ProductVariant
 }

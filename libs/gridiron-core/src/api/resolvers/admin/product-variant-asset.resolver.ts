@@ -1,10 +1,10 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
-import {ProductVariantAsset} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import { ProductVariantsService } from '../../../service/services/admin/product-variants.service';
+import { ProductVariantAsset } from '@gridiron/entities';
 
-@Resolver(of => ProductVariantAsset)
+@Resolver(() => ProductVariantAsset)
 export class ProductVariantAssetResolver extends CRUDResolver(ProductVariantAsset, {
     create: {
         disabled: true
@@ -29,7 +29,7 @@ export class ProductVariantAssetResolver extends CRUDResolver(ProductVariantAsse
         super(service);
     }
 
-    @Mutation(returns => ProductVariantAsset)
+    @Mutation(() => ProductVariantAsset)
     async CreateProductVariantAsset(
         @Args('id', {type: () => ID, nullable: false}) id: string,
         @Args('assetId', {type: () => ID, nullable: false}) assetId: string,

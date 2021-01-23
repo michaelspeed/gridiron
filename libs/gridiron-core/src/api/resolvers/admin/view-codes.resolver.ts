@@ -1,9 +1,9 @@
 import {Resolver} from "@nestjs/graphql";
-import {ViewCodes} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { ViewCodes } from "@gridiron/entities";
 
-@Resolver(of => ViewCodes)
+@Resolver(() => ViewCodes)
 export class ViewCodesResolver extends CRUDResolver(ViewCodes,{
     update: {
         disabled: true

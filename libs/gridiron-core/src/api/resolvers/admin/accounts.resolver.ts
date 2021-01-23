@@ -1,9 +1,9 @@
 import {Context, Query, Resolver} from "@nestjs/graphql";
-import {Accounts} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import {AccountsService} from "../../../service";
 import {JwtService} from "@nestjs/jwt";
+import { Accounts } from "@gridiron/entities";
 
 @Resolver(() => Accounts)
 export class AccountsResolver extends CRUDResolver(Accounts, {

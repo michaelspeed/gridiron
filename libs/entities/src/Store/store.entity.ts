@@ -124,26 +124,26 @@ export class Store extends BaseEntity {
     @Column({enum: StoreTypeEnum, type: "enum", default: StoreTypeEnum.DEFAULT})
     type: StoreTypeEnum
 
-    @ManyToOne(type1 => Country, count => count.stores)
+    @ManyToOne(() => Country, count => count.stores)
     country: Country
 
-    @OneToMany(type1 => TaxCategory, taxc => taxc.store)
+    @OneToMany(() => TaxCategory, taxc => taxc.store)
     taxCategory: TaxCategory[]
 
     @Field(() => Vendor, {nullable: true})
-    @OneToOne(type1 => Vendor, vendor => vendor.store)
+    @OneToOne(() => Vendor, vendor => vendor.store)
     vendor: Vendor
 
-    @OneToOne(type1 => StoreBalance, balance => balance.store)
+    @OneToOne(() => StoreBalance, balance => balance.store)
     @JoinColumn()
     balance: StoreBalance
 
     @Field(() => Asset)
-    @OneToOne(type => Asset, asset => asset.store)
+    @OneToOne(() => Asset, asset => asset.store)
     @JoinColumn()
     logo: Asset
 
-    @OneToMany(type1 => BillingAgreement, agreement => agreement.store)
+    @OneToMany(() => BillingAgreement, agreement => agreement.store)
     agreement: BillingAgreement[]
 
     @OneToMany(() => StockKeeping, sku => sku.store)

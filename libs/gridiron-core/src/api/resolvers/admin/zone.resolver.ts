@@ -1,10 +1,10 @@
 import {Args, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {Zone} from '../../../entity';
 import {ZoneService} from '../../../service/';
+import { Zone } from '@gridiron/entities';
 
-@Resolver(of => Zone)
+@Resolver(() => Zone)
 export class ZoneResolver extends CRUDResolver(Zone, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

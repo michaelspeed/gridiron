@@ -8,7 +8,7 @@ import {
     UpdateDateColumn
 } from "typeorm";
 import {FilterableField, FilterableRelation, PagingStrategies} from "@nestjs-query/query-graphql";
-import {ID, ObjectType, registerEnumType} from "@nestjs/graphql";
+import {ID, ObjectType} from "@nestjs/graphql";
 import {OrderLine} from "../";
 
 @ObjectType('ServiceableOrders', {isAbstract: true})

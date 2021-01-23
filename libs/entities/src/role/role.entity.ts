@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
-import {Permission, RoleType} from '../../enums/RoleEnums';
+import { Permission, RoleType } from '..';
 
 registerEnumType(Permission, {
     name: 'Permission'
@@ -46,11 +46,11 @@ export class Role extends BaseEntity {
     @Column()
     description: string;
 
-    @Field(type => [Permission])
+    @Field(() => [Permission])
     @Column('simple-array')
     permissions: Permission[];
 
-    @Field(type => RoleType)
+    @Field(() => RoleType)
     @Column({enum: RoleType, type: 'enum', default: RoleType.BASIC})
     type: RoleType
 

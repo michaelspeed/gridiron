@@ -4,14 +4,12 @@ import {
     CreateDateColumn,
     DeleteDateColumn,
     Entity,
-    ManyToMany,
-    ManyToOne,
     OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
 import {ID, ObjectType} from '@nestjs/graphql';
-import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
+import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
 import {FacetValue, Product} from '../';
 
 @ObjectType('Facet', {isAbstract: true})
@@ -48,7 +46,7 @@ export class Facet extends BaseEntity {
     @Column({ unique: true })
     code: string;
 
-    @OneToMany(type => FacetValue, val => val.facet)
+    @OneToMany(() => FacetValue, val => val.facet)
     values: FacetValue[]
 
 }

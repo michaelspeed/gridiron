@@ -1,8 +1,8 @@
 import {Args, ID, Mutation, Resolver} from "@nestjs/graphql";
-import {Settlements} from "../../../entity/settlement/settlement.entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
 import {SettlementService} from "../../../service";
+import { Settlements } from "@gridiron/entities";
 
 @Resolver(() => Settlements)
 export class SettlementsResolver extends CRUDResolver(Settlements, {

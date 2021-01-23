@@ -1,10 +1,10 @@
 import {Args, ID, Mutation, Resolver} from '@nestjs/graphql';
-import {Product} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import { ProductService } from '../../..';
+import { Product } from '@gridiron/entities';
 
-@Resolver(of => Product)
+@Resolver(() => Product)
 export class ProductResolver extends CRUDResolver(Product, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,
@@ -34,8 +34,8 @@ export class ProductResolver extends CRUDResolver(Product, {
 
     @Mutation(() => Product)
     async UpdateProductCollection(
-        @Args('id', {type: () => ID!}) id: string,
-        @Args('collectionId', {type: () => ID!}) collectionId: string,
+        @Args('id', {type: () => ID}) id: string,
+        @Args('collectionId', {type: () => ID}) collectionId: string,
     ): Promise<Product> {
         return this.productService.updateProductCollection(id, collectionId)
     }

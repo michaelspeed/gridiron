@@ -10,8 +10,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {Connection, FilterableField, PagingStrategies} from '@nestjs-query/query-graphql';
-import {VendorPlanPrice, VendorPlanTenure} from '../../enums/VendorPlan';
 import {VendorLicense} from './vendor-license';
+import { VendorPlanPrice, VendorPlanTenure } from '..';
 
 registerEnumType(VendorPlanPrice, {
     name: 'VendorPlanPrice'
@@ -61,6 +61,6 @@ export class VendorPlans extends BaseEntity {
     @Column({type: 'enum', enum: VendorPlanTenure, default: VendorPlanTenure.ANNUAL})
     tenureStrategy: VendorPlanTenure
 
-    @OneToMany(type => VendorLicense, license => license.plans)
+    @OneToMany(() => VendorLicense, license => license.plans)
     licences: VendorLicense[]
 }

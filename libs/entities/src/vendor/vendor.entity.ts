@@ -4,21 +4,19 @@ import {
     CreateDateColumn,
     Entity,
     JoinColumn, JoinTable, ManyToMany,
-    ManyToOne, OneToMany,
-    OneToOne,
+    ManyToOne, OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
 import {Field, ID, ObjectType} from '@nestjs/graphql';
 import {
-    Connection,
     FilterableConnection,
     FilterableField,
     PagingStrategies,
     Relation
 } from '@nestjs-query/query-graphql';
 import {User} from '../user/user.entity';
-import {Accounts, OrderLine, Serviceable, Store, VendorLicense, Zip} from '../';
+import {Accounts, Serviceable, Store, VendorLicense, Zip} from '../';
 
 @ObjectType('Vendor', {isAbstract: true})
 @Entity({name: 'vendor'})
@@ -53,15 +51,15 @@ export class Vendor extends BaseEntity {
     @Column({ unique: true })
     email: string;
 
-    @OneToOne(type => Store, store => store.vendor)
+    @OneToOne(() => Store, store => store.vendor)
     @JoinColumn()
     store: Store
 
-    @OneToOne(type => User, user => user.vendor)
+    @OneToOne(() => User, user => user.vendor)
     @JoinColumn()
     user: User
 
-    @OneToOne(type => VendorLicense)
+    @OneToOne(() => VendorLicense)
     @JoinColumn()
     license: VendorLicense
 

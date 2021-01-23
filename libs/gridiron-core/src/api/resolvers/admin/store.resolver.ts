@@ -1,10 +1,10 @@
 import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {Country, Store} from '../../../entity';
 import {StoreService} from '../../../service/services/admin/store.service';
+import { Store } from '@gridiron/entities';
 
-@Resolver(of => Store)
+@Resolver(() => Store)
 export class StoreResolver extends CRUDResolver(Store, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,
@@ -20,12 +20,12 @@ export class StoreResolver extends CRUDResolver(Store, {
         super(service);
     }
 
-    @Query(returns => Store, {nullable: true})
+    @Query(() => Store, {nullable: true})
     async GetDefaultStore(): Promise<Store> {
         return this.storeService.GetDefaultStore()
     }
 
-    @Mutation(returns => Store)
+    @Mutation(() => Store)
     async CreateDefaultStore(
         @Args('storeName') storeName: string,
         @Args('phoneNumber') phoneNumber: string,

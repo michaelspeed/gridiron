@@ -6,13 +6,11 @@ import {
     DeleteDateColumn,
     Entity,
     ManyToOne,
-    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {FilterableField, FilterableRelation, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {BillingAgreement} from '..';
-import {BillingAgreementState} from '../../enums';
+import {FilterableField, FilterableRelation, PagingStrategies} from '@nestjs-query/query-graphql';
+import {BillingAgreement, BillingAgreementState} from '..';
 
 @ObjectType('BillingAgreementRequest', {isAbstract: true})
 @Entity('billing-agreement-request')
@@ -43,6 +41,6 @@ export class BillingAgreementRequest extends BaseEntity {
     @Column({type: 'enum', enum: BillingAgreementState, default: BillingAgreementState.PENDING})
     state: BillingAgreementState
 
-    @ManyToOne(type => BillingAgreement, agreement => agreement.request)
+    @ManyToOne(() => BillingAgreement, agreement => agreement.request)
     agreement: BillingAgreement
 }

@@ -2,9 +2,7 @@ import {
     BaseEntity, Column,
     CreateDateColumn,
     Entity,
-    JoinColumn,
     ManyToOne,
-    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
@@ -31,15 +29,15 @@ export class View extends BaseEntity {
     @Column({type: "text"})
     slug: string
 
-    @ManyToOne(type => User, user => user.view)
+    @ManyToOne(() => User, user => user.view)
     user: User
 
-    @ManyToOne(type => ProductVariant, prv => prv.view)
+    @ManyToOne(() => ProductVariant, prv => prv.view)
     variant: ProductVariant
 
-    @ManyToOne(type => Collection, coll => coll.views)
+    @ManyToOne(() => Collection, coll => coll.views)
     collection: Collection
 
-    @ManyToOne(type => Product, prod => prod.views)
+    @ManyToOne(() => Product, prod => prod.views)
     product: Product
 }

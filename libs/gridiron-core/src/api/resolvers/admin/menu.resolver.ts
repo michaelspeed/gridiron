@@ -1,9 +1,9 @@
 import {Args, ID, Mutation, Query, Resolver} from '@nestjs/graphql';
-import {Menu} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
 import {MenuResponseTypes} from '../../dto/admin/menu-response.types';
 import {AdminMenuService} from '../../../service/services/admin/menu.service';
+import { Menu } from '@gridiron/entities';
 
 @Resolver(() => Menu)
 export class AdminMenuResolver extends CRUDResolver(Menu, {

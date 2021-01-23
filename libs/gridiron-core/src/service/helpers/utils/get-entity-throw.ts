@@ -1,4 +1,3 @@
-import {GridIronEntity} from '../../../entity/base/base.entity';
 import {BaseEntity, Connection, FindOneOptions} from 'typeorm';
 import {EntityNotFoundError, ID, SoftDeletable, Type} from '@gridiron/gridiron-common';
 

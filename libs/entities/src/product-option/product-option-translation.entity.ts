@@ -2,7 +2,7 @@ import {Column, Entity} from 'typeorm';
 import {GridIronEntity} from '../base/base.entity';
 import {ObjectType} from '@nestjs/graphql';
 import {FilterableField} from '@nestjs-query/query-graphql';
-import {LanguageCode} from '../../enums/LanguageCode';
+import { LanguageCode } from '..';
 
 @ObjectType('ProductOptionTranslation', {isAbstract: true})
 @Entity({name: 'productOptionTranslation'})

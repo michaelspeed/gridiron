@@ -1,9 +1,9 @@
 import {Resolver} from "@nestjs/graphql";
-import {Hsn} from "../../../entity";
 import {CRUDResolver, PagingStrategies} from "@nestjs-query/query-graphql";
 import {InjectQueryService, QueryService} from "@nestjs-query/core";
+import { Hsn } from "@gridiron/entities";
 
-@Resolver(of => Hsn)
+@Resolver(() => Hsn)
 export class HsnResolver extends CRUDResolver(Hsn, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

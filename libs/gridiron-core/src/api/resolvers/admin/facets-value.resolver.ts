@@ -1,9 +1,9 @@
 import {Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {FacetValue} from '../../../entity';
+import { FacetValue } from '@gridiron/entities';
 
-@Resolver(of => FacetValue)
+@Resolver(() => FacetValue)
 export class FacetsValueResolver extends CRUDResolver(FacetValue, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

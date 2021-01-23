@@ -1,10 +1,9 @@
-import {Mutation, Resolver} from '@nestjs/graphql';
+import {Resolver} from '@nestjs/graphql';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
-import {Channel} from '../../../entity';
-import {PagingTypes} from '../../dto/admin/paging-types';
+import { Channel } from '@gridiron/entities';
 
-@Resolver(of => Channel)
+@Resolver(() => Channel)
 export class ChannelsResolver extends CRUDResolver(Channel, {
     pagingStrategy: PagingStrategies.OFFSET,
     enableAggregate: true,

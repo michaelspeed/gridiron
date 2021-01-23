@@ -3,13 +3,13 @@ import {
     BaseEntity,
     CreateDateColumn, DeleteDateColumn,
     Entity,
-    JoinColumn, OneToMany,
+    OneToMany,
     OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
 import {FilterableConnection, FilterableField, PagingStrategies, Relation} from "@nestjs-query/query-graphql";
-import {Administrator, DeliverySignIn, User} from "..";
+import {DeliverySignIn, User} from "..";
 
 @ObjectType('Delivery', {isAbstract: true})
 @Entity({name: 'delivery'})
@@ -33,7 +33,7 @@ export class Delivery extends BaseEntity {
     deletedAt?: Date;
 
     @Field(() => User)
-    @OneToOne(type => User, user => user.delivery)
+    @OneToOne(() => User, user => user.delivery)
     user: User
 
     @Field(() => [DeliverySignIn])

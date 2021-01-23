@@ -1,7 +1,7 @@
 import {Resolver} from '@nestjs/graphql';
-import {Cancellation} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { Cancellation } from '@gridiron/entities';
 
 @Resolver(() => Cancellation)
 export class CancellationResolver extends CRUDResolver(Cancellation, {

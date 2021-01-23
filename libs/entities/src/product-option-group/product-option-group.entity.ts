@@ -43,10 +43,10 @@ export class ProductOptionGroup extends BaseEntity {
     code: string;
 
     @Field(() => Product)
-    @ManyToOne(type => Product, prod => prod.options)
+    @ManyToOne(() => Product, prod => prod.options)
     product: Product
 
     @Field(() => [ProductOption])
-    @OneToMany(type => ProductOption, options => options.group)
+    @OneToMany(() => ProductOption, options => options.group)
     options: ProductOption[]
 }

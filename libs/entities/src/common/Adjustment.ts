@@ -1,6 +1,5 @@
-import {AdjustmentType} from '../../enums/AdjustmentType';
 import {Field, ObjectType} from '@nestjs/graphql';
-import {FilterableField} from '@nestjs-query/query-graphql';
+import { AdjustmentType } from '..';
 
 @ObjectType('Adjustment', {isAbstract: true})
 export default class Adjustment {

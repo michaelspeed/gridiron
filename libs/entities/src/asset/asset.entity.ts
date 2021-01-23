@@ -7,15 +7,15 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
-import {AssetType} from '../../enums/AssetType';
 import {Field, ID, ObjectType, registerEnumType} from '@nestjs/graphql';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
 import {FocalPoint} from '../common/FocalPoint';
 import {GraphQLJSONObject} from 'graphql-type-json';
 import {AssetsFolder} from './assets-folder.entity';
-import {DeepPartial} from '../../common';
+import {DeepPartial} from '@gridiron/gridiron-common';
 import {GridIronEntity} from '../base/base.entity';
 import {Collection, Menu, Product, ProductAsset, ProductVariant, Store} from '../';
+import { AssetType } from '../enums/AssetType';
 
 registerEnumType(AssetType, {
     name: 'AssetType'

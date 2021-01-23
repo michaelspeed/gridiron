@@ -1,7 +1,7 @@
 import {Resolver} from '@nestjs/graphql';
-import {Sale} from '../../../entity';
 import {CRUDResolver, PagingStrategies} from '@nestjs-query/query-graphql';
 import {InjectQueryService, QueryService} from '@nestjs-query/core';
+import { Sale } from '@gridiron/entities';
 
 @Resolver(() => Sale)
 export class SaleResolver extends CRUDResolver(Sale, {

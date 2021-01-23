@@ -72,8 +72,8 @@ export * from './view-codes/view-codes.entity'
 export * from './hsn/hsn.entity'
 export * from './serviceable/serviceable.entity'
 export * from './serviceable/serviceableOrders.entity'
+export * from './base/base.entity'
 
 
-// nestjsQuery
-export * from './collection/collectionquery.entity'
-export * from './product/productquery.entity'
+export * from './coreEntityMap'
+export * from './enums'

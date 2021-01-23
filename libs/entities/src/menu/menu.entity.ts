@@ -12,8 +12,8 @@ import {
     UpdateDateColumn
 } from 'typeorm';
 import {Connection, FilterableField, PagingStrategies, Relation} from '@nestjs-query/query-graphql';
-import {MenuBuilderTypes} from '../../enums/MenuBuilderTypes';
 import {Asset} from "../";
+import { MenuBuilderTypes } from '../enums/MenuBuilderTypes';
 
 registerEnumType(MenuBuilderTypes, {
     name: 'MenuBuilderTypes'
@@ -57,7 +57,7 @@ export class Menu extends BaseEntity {
     @TreeParent()
     parent: Menu
 
-    @OneToOne(type => Asset, asset => asset.menu)
+    @OneToOne(() => Asset, asset => asset.menu)
     @JoinColumn()
     asset: Asset
 }
