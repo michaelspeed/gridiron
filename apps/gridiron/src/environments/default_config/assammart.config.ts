@@ -23,8 +23,8 @@ export const DEF_CONFIG: GridIronConfig = {
             storageStrategyFactory: configureS3AssetStorage({
                 bucket: 'assmamart',
                 credentials: {
-                    accessKeyId: 'AKIASNOC7JBKUGISNXNO',
-                    secretAccessKey: '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'
+                    accessKeyId: 'AKIASNOC7JBKTHJSQK5J',
+                    secretAccessKey: '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'
                 }
             })
         }),

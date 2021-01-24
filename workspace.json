@@ -287,6 +287,65 @@
           }
         }
       }
+    },
+    "gridiron-proxy": {
+      "root": "apps/gridiron-proxy",
+      "sourceRoot": "apps/gridiron-proxy/src",
+      "projectType": "application",
+      "prefix": "gridiron-proxy",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/gridiron-proxy",
+            "main": "apps/gridiron-proxy/src/main.ts",
+            "tsConfig": "apps/gridiron-proxy/tsconfig.app.json",
+            "assets": [
+              "apps/gridiron-proxy/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/gridiron-proxy/src/environments/environment.ts",
+                  "with": "apps/gridiron-proxy/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "gridiron-proxy:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/gridiron-proxy/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/gridiron-proxy"
+          ],
+          "options": {
+            "jestConfig": "apps/gridiron-proxy/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

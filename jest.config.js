@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/gridiron-common',
     '<rootDir>/libs/entities',
     '<rootDir>/apps/admin',
+    '<rootDir>/apps/gridiron-proxy',
   ],
 };

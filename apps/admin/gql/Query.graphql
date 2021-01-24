@@ -1,0 +1,1933 @@
+query GetAdministratorData {
+    GetAdministratorData {
+        id
+        firstName
+        lastName
+        emailAddress
+        type
+    }
+}
+
+query GetVendorInfo {
+    GetVendorInfo {
+        id
+        vendorName
+        phoneNumber
+        email
+        store {
+            id
+            storeName
+            phoneNumber
+            officialemail
+            zipcode
+            streetAddress1
+            streetAddress2
+            GSTIN
+            singleStore
+            rentalStore
+            channelMarkets
+            balance {
+                id
+                balance
+                updatedAt
+                balanceVolume
+            }
+        }
+    }
+}
+
+query GetDefaultStore {
+    GetDefaultStore {
+        id
+        storeName
+        phoneNumber
+        officialemail
+        zipcode
+        streetAddress1
+        streetAddress2
+        GSTIN
+        singleStore
+        rentalStore
+        channelMarkets
+        assetAPI
+        mainAPI
+        services
+        logo {
+            id
+            preview
+            source
+        }
+        balance {
+            id
+            balance
+            updatedAt
+        }
+    }
+}
+
+query GetAllCountries {
+    GetAllCountries {
+        id
+        code
+        name
+        enabled
+    }
+}
+
+query GetAllZones {
+    zones {
+        id
+        name
+    }
+}
+
+query GetZoneAgreegate {
+    zoneAggregate {
+        count{
+            id
+        }
+    }
+}
+
+query GetTaxRules ($limit: Int, $iLike: String, $offset: Int){
+    taxCategories(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            name:{
+                like: $iLike
+            }
+        }
+    ){
+        id
+        name
+    }
+}
+
+query GetTaxCategoryAgreegate {
+    taxCategoryAggregate {
+        count{
+            id
+        }
+    }
+}
+
+query GetTaxRates($limit: Int, $iLike: String, $offset: Int){
+    taxRates(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            name:{
+                like: $iLike
+            }
+        }
+    ){
+        id
+        name
+        value
+        enabled
+        zone {
+            id
+            name
+        }
+        category {
+            id
+            name
+        }
+    }
+}
+
+query GetTaxRateAgreegate {
+    taxRateAggregate {
+        count{
+            id
+        }
+    }
+}
+
+query GetAllChannels($limit: Int, $iLike: String, $offset: Int){
+    channels(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            code:{
+                like: $iLike
+            }
+        }
+        sorting:{
+            field:createdAt,
+            direction:DESC
+        }
+    ){
+        id
+        code
+        defaultLanguageCode
+        currencyCode
+        pricesIncludeTax
+    }
+}
+
+query getallcollection {
+    GetCollectionTree {
+        id
+        isRoot
+        inMenu
+        name
+        description
+        asset {
+            id
+            preview
+            source
+        }
+        children {
+            id
+            isRoot
+            inMenu
+            name
+            description
+            asset {
+                id
+                preview
+                source
+            }
+            children {
+                id
+                isRoot
+                inMenu
+                name
+                description
+                asset {
+                    id
+                    preview
+                    source
+                }
+                children {
+                    id
+                    isRoot
+                    inMenu
+                    name
+                    description
+                    asset {
+                        id
+                        preview
+                        source
+                    }
+                    children {
+                        id
+                        isRoot
+                        inMenu
+                        name
+                        description
+                        asset {
+                            id
+                            preview
+                            source
+                        }
+                        children {
+                            id
+                            isRoot
+                            inMenu
+                            name
+                            description
+                            asset {
+                                id
+                                preview
+                                source
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+query GetOneCollection($id: ID!){
+    collection(id:$id) {
+        id
+        name
+        isRoot
+        inMenu
+        description
+        asset {
+            id
+            preview
+            source
+        }
+        seo {
+            id
+            urlKey
+            metadesc
+            metatitle
+            metakeywords
+        }
+    }
+}
+
+query GetAllAssets($limit: Int, $iLike: String, $offset: Int){
+    assets(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            name:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        createdAt
+        name
+        type
+        mimeType
+        source
+        preview
+        fileSize
+        width
+        height
+    }
+}
+
+query GetAssetsAggregate($iLike: String) {
+    assetAggregate(
+        filter:{
+            name: {
+                like: $iLike
+            }
+        }
+    ) {
+        count {
+            id
+        }
+    }
+}
+
+query GetAllFacets($limit: Int, $iLike: String, $offset: Int) {
+    facets(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            name:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        createdAt
+        name
+        isPrivate
+        code
+    }
+}
+
+query GetFacetAggregate{
+    facetAggregate {
+        count {
+            id
+        }
+    }
+}
+
+query GetFacetValues($limit: Int, $iLike: String, $offset: Int){
+    facetValues(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            code:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        code
+        facet {
+            id
+            code
+            name
+        }
+    }
+}
+
+query GetFacetValueAggregate{
+    facetValueAggregate{
+        count {
+            id
+        }
+    }
+}
+
+query GetAllProducts($limit: Int, $iLike: String, $offset: Int){
+    products(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            productName:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        slug
+        productName
+        description
+        featuredAsset {
+            id
+            preview
+            source
+        }
+        facets {
+            id
+            code
+            facet {
+                id
+                name
+                code
+            }
+        }
+        assets {
+            id
+            asset {
+                id
+                name
+                type
+                mimeType
+                preview
+                source
+            }
+        }
+    }
+}
+
+query GetProductAggregate {
+    productAggregate {
+        count {
+            id
+        }
+    }
+}
+
+query GetFacet($id: ID!){
+    facet(id: $id){
+        id
+        isPrivate
+        name
+        code
+        values {
+            id
+            code
+        }
+    }
+}
+
+query GetOneProduct($id: ID!){
+    product(id: $id) {
+        id
+        productName
+        slug
+        description
+        viewcode
+        options {
+            id
+            name
+            code
+            options {
+                id
+                name
+                code
+            }
+        }
+        hsn{
+            id
+            value
+            code
+        }
+        serviceable {
+            id
+            name
+            mode
+        }
+        collection {
+            id
+            name
+            description
+        }
+        featuredAsset {
+            id
+            preview
+            source
+        }
+        facets {
+            id
+            code
+            facet {
+                id
+                name
+                code
+            }
+        }
+        assets {
+            id
+            asset {
+                id
+                source
+                preview
+            }
+        }
+    }
+}
+
+query GetAllVendurePlans($limit: Int, $iLike: String, $offset: Int){
+    vendorPlans(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            name:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        isActive
+        name
+        planValue
+        priceStrategy
+        tenureStrategy
+    }
+}
+
+query GetProductVariant($id: ID!){
+    product(id: $id) {
+        id
+        hsn{
+            id
+            value
+            code
+        }
+        variants(paging:{limit: 50}) {
+            id
+            name
+            enabled
+            sku
+            trackInventory
+            dum_price
+            seo {
+                id
+                urlKey
+                metatitle
+                metakeywords
+                metadesc
+            }
+            specs {
+                id
+                specs
+            }
+            asset {
+                id
+                asset {
+                    id
+                    preview
+                }
+            }
+        }
+        options {
+            id
+            name
+            code
+            options {
+                id
+                name
+                code
+            }
+        }
+    }
+}
+
+query GetAllTaxRates {
+    GetAllTaxRates{
+        id
+        name
+        value
+        enabled
+        category {
+            id
+            name
+        }
+        zone {
+            id
+            name
+        }
+    }
+}
+
+query ZoneFindMany {
+    ZoneFindMany {
+        id
+        name
+    }
+}
+
+query FindAllVendorPlans {
+    FindAllVendorPlans {
+        id
+        isActive
+        name
+        planValue
+        priceStrategy
+        priceStrategy
+    }
+}
+
+query GetAllRoles($limit: Int, $iLike: String, $offset: Int){
+    roles(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            code:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        code
+        description
+        type
+    }
+}
+
+query GetRole($id: ID!){
+    role(
+        id: $id
+    ) {
+        id
+        code
+        description
+        permissions
+        type
+    }
+}
+
+query GetAllAdministrator($search: String){
+    GetAllAdministrator(search: $search) {
+        id
+        firstName
+        lastName
+        emailAddress
+        type
+        user {
+            id
+            email
+        }
+    }
+}
+
+query GetSingleProductVariant($id: ID!){
+    productVariant(id: $id) {
+        id
+        name
+        dum_price
+        enabled
+        sku
+        name
+        trackInventory
+        specs {
+            id
+            specs
+        }
+    }
+}
+
+query GetBillingAgreementByVendor{
+    GetBillingAgreementByVendor{
+        id
+        value
+        type
+        state
+        request {
+            id
+            value
+            state
+        }
+        collection {
+            id
+            name
+            description
+            isPrivate
+            parent {
+                id
+                name
+            }
+        }
+    }
+}
+
+query GetAllSeo($limit: Int, $iLike: String, $offset: Int){
+    seos(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            metatitle:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        urlKey
+        metadesc
+        metatitle
+        metakeywords
+        collection {
+            id
+            name
+        }
+        variant {
+            id
+            name
+        }
+    }
+}
+
+query GetOneSeo($id: ID!){
+    seo(id: $id){
+        urlKey,
+        metadesc,
+        metatitle,
+        metakeywords,
+        collection {
+            id
+            name
+        }
+        variant {
+            id
+            name
+        }
+    }
+}
+
+query GetSeoAggregate {
+    seoAggregate {
+        count {
+            id
+        }
+    }
+}
+
+query GetBillingAgreement($id: ID!){
+    GetBillingAgreement(id: $id) {
+        id
+        value
+        type
+        state
+        createdAt
+        updatedAt
+        collection {
+            id
+            name
+            description
+            isPrivate
+            parent {
+                id
+                name
+            }
+        }
+    }
+}
+
+query GetBillingRequestForAgreement($id: String!) {
+    GetBillingRequestForAgreement(id: $id) {
+        id
+        createdAt
+        updatedAt
+        value
+        state
+    }
+}
+
+query ZoneFindOne($id: ID!){
+    ZoneFindOne(id: $id) {
+        id
+        name
+        members {
+            id
+            code
+            name
+            enabled
+        }
+    }
+}
+
+query GetAllTaxCategory {
+    GetAllTaxCategory {
+        id
+        name
+    }
+}
+
+query GetStockKeepingVendor($variantId: ID!, $vendorId: ID){
+    getStockKeepingVendor(
+        variantId: $variantId,
+        vendorId: $vendorId
+    ) {
+        id
+        quantity
+        threshold
+        multiple
+        backorder
+        stockstatus
+        sku
+    }
+}
+
+query FindAllZip {
+    findAllZip {
+        id
+        name
+        slug
+        code
+    }
+}
+
+query GetStockKeepingByStore {
+    getStockKeepingByStore {
+        id
+        sku
+        variant {
+            id
+            name
+        }
+        quantity
+        threshold
+        multiple
+        backorder
+        stockstatus
+    }
+}
+
+query GetMenuTree {
+    GetMenuTree {
+        menu
+    }
+}
+
+query SearchProductVariants($search: String){
+    productVariants(
+        filter:{
+            name: {
+                like: $search
+            }
+        }
+    ){
+        id
+        name
+        enabled
+        prices {
+            id
+            price
+            store {
+                id
+                storeName
+            }
+            tax {
+                id
+                value
+                name
+            }
+            taxIncluded
+        }
+        asset {
+            id
+            asset {
+                id
+                preview
+            }
+        }
+    }
+}
+
+query SearchCollection($search: String){
+    collections(
+        filter: {
+            name: {
+                like: $search
+            }
+        }
+    ){
+        id
+        name
+    }
+}
+
+query SearchFacetValue($search: String){
+    facetValues(
+        filter:{
+            code: {
+                like: $search
+            }
+        }
+    ) {
+        id
+        facet {
+            id
+            name
+        }
+        code
+    }
+}
+
+query GetAllUsers($limit: Int, $iLike: String, $offset: Int){
+    users(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            or: [
+                {
+                    email:{
+                        like: $iLike
+                    },
+                },
+                {
+                    firstName: {
+                        like: $iLike
+                    }
+                },
+                {
+                    lastName:{
+                        like: $iLike
+                    }
+                }
+            ]
+        }
+    ) {
+        id
+        email
+        firstName
+        lastName
+        administrator {
+            id
+        }
+        vendor {
+            id
+        }
+        delivery {
+            id
+        }
+    }
+}
+
+query GetUsersAggregate($iLike: String){
+    userAggregate(
+        filter: {
+            or: [
+                {
+                    email:{
+                        like: $iLike
+                    },
+                },
+                {
+                    firstName: {
+                        like: $iLike
+                    }
+                },
+                {
+                    lastName:{
+                        like: $iLike
+                    }
+                }
+            ]
+        }
+    ) {
+        count {
+            id
+        }
+    }
+}
+
+query GetUserInfo($id: ID!){
+    user(id: $id) {
+        createdAt
+        updatedAt
+        email
+        verified
+        verificationToken
+        pendingIdentifier
+        firstName
+        lastName
+        phoneNumber
+        addresses {
+            id
+            createdAt
+            updatedAt
+            fullName
+            addressLine
+            city
+            state
+            landmark
+            postalCode
+            phoneNumber
+            alternatePhoneNumber
+            defaultBillingAddress
+            defaultShippingAddress
+            addressType
+        }
+        orders(
+            sorting:{
+                field: createdAt,
+                direction:ASC
+            }
+        ){
+            id
+            totalPrice
+            address
+            createdAt
+            lines {
+                id
+                createdAt
+                priceField
+                stage
+                item {
+                    id
+                    productVariant {
+                        id
+                        name
+                    }
+                }
+            }
+        }
+        ordersAggregate {
+            count {
+                id
+            }
+        }
+        administrator {
+            id
+            firstName
+            lastName
+        }
+        vendor {
+            id
+            email
+        }
+        delivery {
+            id
+        }
+    }
+}
+
+query GetPriceForVariant($prodId: ID, $storeId: ID){
+    GetPriceForVariant(prodId: $prodId, storeId: $storeId){
+        id
+        price
+        taxIncluded
+        tax {
+            id
+            name
+        }
+        promoprice {
+            id
+            priceType
+            value
+            forever
+        }
+    }
+}
+
+query GetAllVebdors($limit: Int, $iLike: String, $offset: Int){
+    vendors(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            vendorName:{
+                like: $iLike
+            }
+        }
+        sorting:{
+            field:createdAt,
+            direction:DESC
+        }
+    ){
+        id
+        vendorName
+        email
+        store {
+            id
+            storeName
+        }
+        phoneNumber
+    }
+}
+
+query GetVendorAggregate{
+    vendorAggregate {
+        count{
+            id
+        }
+    }
+}
+
+query GetQueryProductVariant($iLike: String){
+    productVariants(filter: {
+        name: {
+            like: $iLike
+        }
+    }) {
+        id
+        name
+        seo {
+            id
+            urlKey
+        }
+    }
+}
+
+query GetCollectionForSearch($iLike: String){
+    collections(filter: {
+        name: {
+            like: $iLike
+        }
+    }) {
+        id
+        name
+    }
+}
+
+query getHomePage {
+    getHomePage {
+        id
+        title
+        targetId
+        single
+        list
+        pageCategory
+    }
+}
+
+query GetSearchProd($limit: Int, $iLike: String, $offset: Int){
+    products(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field: createdAt,
+            direction: DESC
+        },
+        filter:{
+            productName:{
+                like: $iLike
+            }
+        }
+    ) {
+        id
+        productName
+    }
+}
+
+query GetSearchProductVariant($iLike: String){
+    productVariants(filter: {
+        name: {
+            like: $iLike
+        }
+    }) {
+        id
+        name
+    }
+}
+
+query GetAllPages($limit: Int, $iLike: String, $offset: Int){
+    pages(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            title: {
+                like: $iLike
+            }
+        }
+        sorting:{
+            field:createdAt,
+            direction:DESC
+        }
+    ) {
+        id
+        title
+        targetId
+        pageType
+        pageCategory
+    }
+}
+
+query AllZips ($limit: Int, $vendor: ID, $offset: Int){
+    zips(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            store: {
+                id: {
+                    eq: $vendor
+                }
+            }
+        }
+        sorting:{
+            field:createdAt,
+            direction:DESC
+        }
+    ) {
+        id
+        name
+        code
+        slug
+    }
+}
+
+query SearchAllZip ($limit: Int, $offset: Int, $code: Float){
+    zips(
+        paging:{
+            limit: $limit,
+            offset: $offset
+        }
+        filter:{
+            code: {
+                eq: $code
+            }
+        }
+        sorting:{
+            field:createdAt,
+            direction:DESC
+        }
+    ) {
+        id
+        name
+        code
+        slug
+    }
+}
+
+query QueryUSerByEmailOrPhone($type: String){
+    users(filter:{
+        or: [
+            {email:{like: $type}},
+            {phoneNumber: {like: $type}}
+        ]
+    }) {
+        id
+        email
+        firstName
+        lastName
+        phoneNumber
+        address {
+            id
+            fullName
+            addressLine
+            landmark
+            city
+            state
+            postalCode
+        }
+    }
+}
+
+query SearchAllOrders ($limit: Int, $offset: Int){
+    orders(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        totalPrice
+        address
+        createdAt
+        user {
+            id
+            firstName
+            lastName
+        }
+        lines {
+            id
+            priceField
+            stage
+            item {
+                id
+                quantity
+            }
+        }
+    }
+}
+
+query GetOrderById($id: ID!){
+    order(
+        id: $id
+    ) {
+        id
+        totalPrice
+        address
+        createdAt
+        user {
+            id
+            firstName
+            lastName
+        }
+        lines {
+            id
+            stage
+            priceField
+            item {
+                id
+                quantity
+                productVariant {
+                    id
+                    name
+                }
+            }
+        }
+    }
+}
+
+query GetOrderLines($id: ID, $limit: Int, $offset: Int){
+    orderLines(
+        filter: {
+            store:{
+                id: {
+                    eq: $id
+                }
+            }
+        },
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        priceField
+        stage
+        store {
+            id
+            storeName
+            phoneNumber
+        }
+        item {
+            id
+            quantity
+            productVariant {
+                id
+                name
+            }
+        }
+        order {
+            id
+            totalPrice
+            address
+            user{
+                id
+                firstName
+                lastName
+            }
+        }
+    }
+}
+
+query GetSingleOrderLine($id: ID!){
+    orderLine(
+        id: $id
+    ) {
+        id
+        priceField
+        stage
+        store {
+            id
+            storeName
+        }
+        item {
+            id
+            quantity
+            productVariant {
+                id
+                name
+            }
+        }
+        order {
+            id
+            address
+            createdAt
+            user {
+                id
+                firstName
+                lastName
+                phoneNumber
+            }
+        }
+    }
+}
+
+query GetPromotionsPrices {
+    GetPromotionsPrices {
+        id
+        createdAt
+        price
+        promoprice {
+            id
+            priceType
+            value
+            forever
+            startsAt
+            endsAt
+            enabled
+        }
+    }
+}
+
+query GetVendorAccount {
+    GetVendorAccount {
+        id
+        createdAt
+        currentBalance
+        totalVolumeBalance
+    }
+}
+
+query GetDeliveries($limit: Int, $offset: Int){
+    deliveries(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+    ) {
+        id
+        user {
+            id
+            firstName
+            lastName
+            phoneNumber
+        }
+    }
+}
+
+query GetStoreInvoices($store: ID, $limit: Int, $offset: Int){
+    invoices(filter:{
+        store:{
+            id:{
+                eq: $store
+            },
+        }
+        ,
+        type:{
+            eq: STORE
+        }
+    },paging: {
+        limit: $limit
+        offset: $offset
+    }) {
+        id
+        type
+        total
+        amount
+        fees
+        tax
+        nulled
+        line {
+            id
+
+        }
+    }
+}
+query GetMasterInvoices($limit: Int, $offset: Int){
+    invoices(paging: {
+        limit: $limit
+        offset: $offset
+    }) {
+        id
+        type
+        total
+        amount
+        fees
+        tax
+        nulled
+        line {
+            id
+
+        }
+    }
+}
+
+query GetDeliveryStrandedCount {
+    GetDeliveryStrandedCount {
+        count
+    }
+}
+
+
+query GetAllPaymentMethods {
+    GetAllPaymentMethods {
+        id
+        api
+        secretKey
+        enabled
+    }
+}
+
+query SearchStore($like: String){
+    stores(filter:{storeName: {like: $like}}) {
+        id
+        storeName
+    }
+}
+
+query GetBillingAgreementForStore($variantId: String!, $storeId: String!){
+    GetBillingAgreementForStore(variantId: $variantId, storeId: $storeId){
+        id
+        value
+    }
+}
+
+query GetProductSaleData($productId:ID!, $type: String!, $storeId: String){
+    GetProductSaleData(productId: $productId, type: $type, storeId: $storeId){
+        labels
+        datasource {
+            sum
+            amount
+        }
+    }
+}
+
+query GetSingleInvoice($id: ID!){
+    invoice(id: $id) {
+        id
+        type
+        total
+        amount
+        fees
+        tax
+        nulled
+        line {
+            id
+            priceField
+            store {
+                id
+                storeName
+            }
+            order {
+                id
+                address
+                user {
+                    id
+                    firstName
+                    lastName
+                }
+            }
+        }
+    }
+}
+
+query GetSingleVendor($id: ID!){
+    vendor(id: $id) {
+        id
+        email
+        vendorName
+        store {
+            id
+            storeName
+            phoneNumber
+            officialemail
+            streetAddress1
+            streetAddress2
+            GSTIN
+            invoicesAggregate {
+                count {
+                    id
+                }
+            }
+            zipsAggregate {
+                count {
+                    id
+                }
+            }
+            backlogsAggregate {
+                count {
+                    id
+                }
+            }
+            settlementsAggregate {
+                count {
+                    id
+                }
+            }
+        }
+        license {
+            tenureEnd
+            tenureStart
+            plans {
+                name
+                planValue
+                priceStrategy
+                tenureStrategy
+            }
+        }
+    }
+}
+
+query GetVendorSettlements($id: ID!,$limit: Int, $offset: Int){
+    vendor(id: $id) {
+        id
+        store {
+            id
+            settlements(
+                paging: {
+                    limit: $limit
+                    offset: $offset
+                },
+                sorting:{
+                    field:createdAt
+                    direction:ASC
+                }
+            ) {
+                id
+                amount
+                taxamount
+                finalamount
+                transactionID
+                type
+            }
+        }
+    }
+}
+
+query GetVendorZips($id: ID!,$limit: Int, $offset: Int){
+    vendor(id:$id) {
+        id
+        store {
+            id
+            zips(
+                paging: {
+                    limit: $limit
+                    offset: $offset
+                },
+                sorting:{
+                    field:createdAt
+                    direction:ASC
+                }
+            ) {
+                id
+                code
+                name
+            }
+        }
+    }
+}
+
+query GetStoreOrderData($type: String!, $storeId: String!){
+    GetStoreOrderData(type: $type, storeId: $storeId) {
+        datasource {
+            sum
+            amount
+        }
+        labels
+    }
+}
+
+query GetVendorLicense($id: ID!){
+    vendor(id: $id) {
+        id
+        license {
+            tenureStart
+            tenureEnd
+            plans {
+                name
+                planValue
+                priceStrategy
+                tenureStrategy
+            }
+        }
+    }
+}
+
+query GetAdminOrderData($type:String!){
+    GetAdminOrderData(type: $type){
+        labels
+        datasource {
+            sum
+            amount
+        }
+    }
+}
+
+query GetAdminViews($type: String){
+    GetAdminViews(type: $type){
+        labels
+        datasource {
+            sum
+        }
+    }
+}
+
+query GetAllSettlement($limit: Int, $offset: Int){
+    settlements(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ){
+        id
+        amount
+        taxamount
+        finalamount
+        transactionID
+        type
+    }
+}
+
+query GetAllTransactions($limit: Int, $offset: Int){
+    payments(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ){
+        id
+        createdAt
+        updatedAt
+        amount
+        errorMessage
+        transactionId
+    }
+}
+
+query GetAllbackLogs($limit: Int, $offset: Int, $store: ID){
+    stockBackLogs(
+        filter: {
+            store:{
+                id: {
+                    eq: $store
+                }
+            }
+        },
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ){
+        id
+        createdAt
+        updatedAt
+        quantity
+        store {
+            id
+            storeName
+        }
+        variant {
+            id
+            variant {
+                id
+                name
+            }
+        }
+    }
+}
+
+query GetAssetAggregate($id: ID!){
+    asset(id: $id){
+        id
+        featuredsAggregate{
+            count {
+                id
+            }
+        }
+        productAssetsAggregate {
+            count {
+                id
+            }
+        }
+    }
+}
+
+query GetProductViews($productId:ID!, $type: String){
+    GetProductViews(productId:$productId, type: $type) {
+        labels
+        datasource {
+            sum
+        }
+    }
+}
+
+query GetAllViewCodes($limit: Int, $offset: Int){
+    viewCodes(
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        name
+        value
+        description
+    }
+}
+
+query GetAllHsn($limit: Int, $offset: Int, $search: String) {
+    hsns(
+        filter: {
+            code: {
+                like: $search
+            }
+        },
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        code
+        value
+    }
+}
+
+query GetServiceables($limit: Int, $offset: Int, $search: String){
+    serviceables(
+        filter: {
+            name: {
+                like: $search
+            }
+        },
+        paging: {
+            limit: $limit
+            offset: $offset
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        name
+        type
+        mode
+    }
+}
+
+query GetProductServiceables($search: String){
+    serviceables(
+        filter: {
+            name: {
+                like: $search
+            },
+            type: {
+                eq: PRODUCT
+            }
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        name
+        type
+        mode
+    }
+}
+
+query GetVendorServiceables($search: String){
+    serviceables(
+        filter: {
+            name: {
+                like: $search
+            },
+            type: {
+                eq: VENDOR
+            }
+        },
+        sorting:{
+            field:createdAt
+            direction:ASC
+        }
+    ) {
+        id
+        name
+        type
+        mode
+    }
+}
