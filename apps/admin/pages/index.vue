@@ -10,7 +10,7 @@
                         <div class="d-flex flex-center mb-15">
                             <a href="javascript:;">
                                 <img src="/images/airecommerce.png" class="max-h-100px" alt="" v-if="!GetDefaultStore"/>
-                                <img :src="`${images}/${GetDefaultStore.logo.preview}`" class="max-h-100px" alt="" v-if="GetDefaultStore && GetDefaultStore.logo"/>
+                                <img :src="`${images}${GetDefaultStore.logo.preview}`" class="max-h-100px" alt="" v-if="GetDefaultStore && GetDefaultStore.logo"/>
                             </a>
                         </div>
                         <!--end::Login Header-->

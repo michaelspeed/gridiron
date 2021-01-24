@@ -1,7 +1,5 @@
 const config = require('./proxy')
 
-console.log(config.proxy['^/admin-api']);
-
 export default {
   server: {
     host: '0.0.0.0',
@@ -124,7 +122,7 @@ export default {
     authenticationType: 'Basic',
     clientConfigs: {
       default: {
-        httpEndpoint: `${config.proxy['^/admin-api']}`,
+        httpEndpoint: `${config.proxy['/admin-api']}`,
         /*httpEndpoint: 'http://localhost:5588/admin-api',*/
       },
     },

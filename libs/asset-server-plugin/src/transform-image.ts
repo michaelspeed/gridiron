@@ -1,5 +1,5 @@
 
-import sharp, { Region, ResizeOptions } from 'sharp';
+import * as sharp from 'sharp';
 import {ImageTransformPreset} from './types';
 
 export type Dimensions = { w: number; h: number };
@@ -26,7 +26,7 @@ export async function transformImage(
             mode = matchingPreset.mode;
         }
     }
-    const options: ResizeOptions = {};
+    const options: sharp.ResizeOptions = {};
     if (mode === 'crop') {
         options.position = sharp.strategy.entropy;
     } else {
@@ -59,7 +59,7 @@ export function resizeToFocalPoint(
     original: Dimensions,
     target: Dimensions,
     focalPoint: Point,
-): { width: number; height: number; region: Region } {
+): { width: number; height: number; region: sharp.Region } {
     const { width, height, factor } = getIntermediateDimensions(original, target);
     const region = getExtractionRegion(factor, focalPoint, target, { w: width, h: height });
     return { width, height, region };
@@ -99,10 +99,10 @@ function getExtractionRegion(
     focalPoint: Point,
     target: Dimensions,
     intermediate: Dimensions,
-): Region {
+): sharp.Region {
     const newXCenter = focalPoint.x / factor;
     const newYCenter = focalPoint.y / factor;
-    const region: Region = {
+    const region: sharp.Region = {
         left: 0,
         top: 0,
         width: target.w,

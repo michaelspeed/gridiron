@@ -1,10 +1,10 @@
-const host = '0.0.0.0'
+const host = 'localhost'
 
 const proxyArray = {
-    '^/admin-api': `http://${host}:5588/admin-api/`,
-    '^/shop-api': `http://${host}:5588/shop-api/`,
-    '^/controllers': `http://${host}:5588/`,
-    '^/images': `http://${host}:5002/`
+    '/admin-api': `http://${host}:5588/admin-api/`,
+    '/shop-api': `http://${host}:5588/shop-api/`,
+    '/controllers': `http://${host}:5588/`,
+    '/images': `http://${host}:5002/**`
 }
 
 const nuxtProdConfig = {
