@@ -1,10 +1,10 @@
 const host = 'localhost'
 
 const proxyArray = {
-    '/admin-api': `http://${host}:5588/admin-api/`,
-    '/shop-api': `http://${host}:5588/shop-api/`,
-    '/controllers': `http://${host}:5588/`,
-    '/images': `http://${host}:5002/**`
+    '/admin-api': `http://megatron.assammart.shop`,
+    '/shop-api': `http://optimus.assammart.shop`,
+    '/controllers': `http://bumble.assammart.shop`,
+    '/images': `http://jazz.assammart.shop/**`
 }
 
 const nuxtProdConfig = {

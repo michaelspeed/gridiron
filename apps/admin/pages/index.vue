@@ -273,8 +273,8 @@ import {
     }
 })
 export default class Index extends Vue {
-    private email: string = ''
-    private password: string = ''
+    private email: string = 'mike@gmail.com'
+    private password: string = 'mike0001'
     private loading = false
     private images = assetsURL
 

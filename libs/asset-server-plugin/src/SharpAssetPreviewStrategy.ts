@@ -1,5 +1,5 @@
 
-import sharp from 'sharp';
+import * as sharp from 'sharp';
 import * as path from 'path';
 import {AssetsPreviewStrategy} from '@gridiron/gridiron-core';
 import { AssetType, getAssetType } from '@gridiron/gridiron-common';

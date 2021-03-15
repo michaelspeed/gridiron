@@ -1,4 +1,4 @@
-import { DEF_CONFIG } from "./default_config/thelocaldukan.config";
+import { DEF_CONFIG } from "./default_config/assammart.config";
 
 export const environment = {
   production: true,

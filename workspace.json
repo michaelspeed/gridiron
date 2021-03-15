@@ -237,7 +237,8 @@
           "executor": "@edbzn/nuxt:serve",
           "options": {
             "root": "apps/admin",
-            "outputPath": "dist/apps/admin"
+            "outputPath": "dist/apps/admin",
+            "dev": false
           }
         },
         "lint": {
