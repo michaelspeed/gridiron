@@ -110,7 +110,7 @@ export default {
         langDir: '/locales/',
       },
     ],
-    ['@nuxtjs/proxy', { 
+    ['@nuxtjs/proxy', {
       pathRewrite: config.proxy
     }]
   ],
@@ -122,7 +122,7 @@ export default {
     authenticationType: 'Basic',
     clientConfigs: {
       default: {
-        httpEndpoint: `${config.proxy['/admin-api']}`,
+        httpEndpoint: 'https://megatron.assammart.shop',
         /*httpEndpoint: 'http://localhost:5588/admin-api',*/
       },
     },
@@ -137,7 +137,7 @@ export default {
     transpile: ['ag-grid-vue', 'tinymce', '@tinymce/tinymce-vue'],
     extend(config, ctx) {},
     plugins: [
-      
+
     ],
     loaders: {
       less: {

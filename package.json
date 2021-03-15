@@ -26,7 +26,8 @@
     "test": "nx test",
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
-    "linter": "nx run-many --projects=gridiron,admin --parallel --target=serve --configuration=production"
+    "linter": "nx run-many --projects=admin --parallel --target=serve --configuration=production",
+    "server": " node ./dist/apps/gridiron/main.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.7.0",
