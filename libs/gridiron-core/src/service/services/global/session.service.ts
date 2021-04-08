@@ -2,7 +2,7 @@ import { User, AuthenticatedSession } from '@gridiron/entities';
 import {Injectable} from '@nestjs/common';
 import {InjectConnection} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import uniqid from 'uniqid';
+import * as uniqid from 'uniqid';
 
 @Injectable()
 export class SessionService {

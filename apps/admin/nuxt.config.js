@@ -122,8 +122,8 @@ export default {
     authenticationType: 'Basic',
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://megatron.assammart.shop',
-        /*httpEndpoint: 'http://localhost:5588/admin-api',*/
+        /*httpEndpoint: 'https://megatron.assammart.shop',*/
+        httpEndpoint: 'http://localhost:5588/admin-api',
       },
     },
     defaultOptions: {

@@ -3,8 +3,9 @@ import * as bcrypt from 'bcrypt';
 import {JwtService} from '@nestjs/jwt';
 import {AdministratorDto, AdministratorResponseType} from '../../dto/admin/administrator.dto';
 import {AdministratorService} from '../../../service/services/admin/administrator.service'
-import {StoreService} from '../../../service';
+import { StoreService, VendorService } from '../../../service';
 import { Administrator, User, AdministratorEnum } from '@gridiron/entities';
+import { UnauthorizedException } from '@nestjs/common';
 
 registerEnumType(AdministratorResponseType, {
     name: 'AdministratorResponseType'
@@ -15,6 +16,7 @@ export class AdministratorResolver {
 
     constructor(
         private readonly administratorService: AdministratorService,
+        private readonly vendorService: VendorService,
         private readonly jwtService: JwtService,
         private readonly storeService: StoreService
     ) {}
@@ -26,12 +28,14 @@ export class AdministratorResolver {
     ): Promise<AdministratorDto> {
         return new Promise(async (resolve, reject) => {
             const user = await User.findOne({where: {email}, relations: ['administrator', 'vendor']})
+          console.log(user)
             if (user) {
                 const valid = await bcrypt.compare(password, user.password)
                 if (valid) {
-                    const token = await this.administratorService.createToken(user.id, user.administrator.id)
+
                     const defStore = await this.storeService.GetDefaultStore()
                     if (user.administrator && user.vendor) {
+                        const token = await this.administratorService.createToken(user.id, user.administrator.id)
                         resolve({
                             user: user,
                             token,
@@ -39,13 +43,16 @@ export class AdministratorResolver {
                             type: AdministratorResponseType.BOTH
                         })
                     } else if (user.vendor && !user.administrator) {
+                        const all = await this.vendorService.onLoginVendor(email, password)
+                        const token = await this.vendorService.createVendorToken(all.user.id, all.vendor.id, all.session.id)
                         resolve({
-                            user: user,
+                            user: all.user,
                             token,
                             store: defStore,
                             type: AdministratorResponseType.VENDOR
                         })
                     } else if (!user.vendor && user.administrator) {
+                        const token = await this.administratorService.createToken(user.id, user.administrator.id)
                         resolve({
                             user: user,
                             token,
@@ -53,12 +60,13 @@ export class AdministratorResolver {
                             type: AdministratorResponseType.ADMIN
                         })
                     } else if (!user.vendor && !user.administrator) {
-                        resolve({
+                      throw new UnauthorizedException("Your are not allowed here")
+                        /*resolve({
                             user: user,
                             token,
                             store: defStore,
                             type: AdministratorResponseType.BASIC
-                        })
+                        })*/
                     }
                     /*resolve({
                         user: user,
