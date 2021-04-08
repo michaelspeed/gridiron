@@ -238,7 +238,7 @@
           "options": {
             "root": "apps/admin",
             "outputPath": "dist/apps/admin",
-            "dev": false
+            "dev": true
           }
         },
         "lint": {

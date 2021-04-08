@@ -165,6 +165,10 @@
                 load()
             }).catch(error => {
                 load()
+              this.$notification.error({
+                message: 'Error',
+                description: error.message
+              })
                 console.log(error);
             })
         }
